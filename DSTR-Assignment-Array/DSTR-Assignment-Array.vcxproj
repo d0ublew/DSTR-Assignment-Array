@@ -19,18 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="tutor.cpp" />
-    <ClCompile Include="date.cpp" />
-    <ClCompile Include="subject.cpp" />
     <ClCompile Include="center.cpp" />
+    <ClCompile Include="date.cpp" />
+    <ClCompile Include="file2struct.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="subject.cpp" />
+    <ClCompile Include="tutor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="center.h" />
+    <ClInclude Include="date.h" />
+    <ClInclude Include="file2struct.h" />
+    <ClInclude Include="subject.h" />
     <ClInclude Include="type.h" />
     <ClInclude Include="tutor.h" />
-    <ClInclude Include="date.h" />
-    <ClInclude Include="subject.h" />
-    <ClInclude Include="center.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

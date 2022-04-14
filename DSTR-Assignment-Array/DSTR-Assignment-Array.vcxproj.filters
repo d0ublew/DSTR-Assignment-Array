@@ -15,36 +15,42 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tutor.cpp">
+    <ClCompile Include="center.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="file2struct.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="subject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="center.cpp">
+    <ClCompile Include="tutor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="type.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="tutor.h">
+    <ClInclude Include="center.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="file2struct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="subject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="center.h">
+    <ClInclude Include="tutor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="type.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
