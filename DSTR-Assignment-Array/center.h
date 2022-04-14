@@ -15,6 +15,7 @@ struct CenterArr {
     CenterArr(size_t);
     ~CenterArr();
     void Print();
+    Center* getCenterByID(std::string ID);
 };
 
 #endif

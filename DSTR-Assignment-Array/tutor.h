@@ -17,7 +17,6 @@ struct Tutor {
     Center* center;
     Subject* subject;
     Tutor();
-    Tutor(string paramName, string paramID, float paramPayRate, float paramRating);
     Tutor(string paramID, string paramName, float paramPayRate,
             float paramRating, string phone, Date* paramJoinDate,
             Date* paramTerminateDate, string paramAddress, Center* paramCenter,
@@ -25,6 +24,13 @@ struct Tutor {
     ~Tutor();
 };
 
-Tutor* CreateTutor(string name, string ID, float payRate, float rating);
+struct TutorArr {
+    Tutor* arr;
+    size_t size;
+    TutorArr();
+    TutorArr(size_t);
+    ~TutorArr();
+    void Print();
+};
 
 #endif

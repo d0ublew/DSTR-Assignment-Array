@@ -17,7 +17,12 @@ SubjectArr::~SubjectArr() {
     delete[] arr;
 }
 
-Subject* getSubjectByID(Subject* subjectArr, std::string ID) {
+Subject* SubjectArr::getSubjectByID(std::string ID) {
+    for (size_t i = 0; i < size; i++) {
+        if (arr[i].ID == ID) {
+            return &arr[i];
+        }
+    }
     return nullptr;
 }
 

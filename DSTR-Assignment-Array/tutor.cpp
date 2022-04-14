@@ -3,15 +3,14 @@
 #include "tutor.h"
 
 Tutor::Tutor() {
+    ID = "";
+    name = "";
     payRate = 0;
     rating = 0;
-}
-
-Tutor::Tutor(string paramName, string paramID, float paramPayRate, float paramRating) {
-    name = paramName;
-    ID = paramID;
-    payRate = paramPayRate;
-    rating = paramRating;
+    joinDate = nullptr;
+    terminateDate = nullptr;
+    center = nullptr;
+    subject = nullptr;
 }
 
 Tutor::~Tutor() {
@@ -20,8 +19,23 @@ Tutor::~Tutor() {
      */
 }
 
-Tutor* CreateTutor(string name, string ID, float payRate, float rating) {
-    Tutor* newTutor = new Tutor(name, ID, payRate, rating);
-    return newTutor;
+TutorArr::TutorArr() {
+    arr = nullptr;
+    size = 0;
 }
 
+TutorArr::TutorArr(size_t paramSize) {
+    arr = new Tutor[paramSize];
+    size = paramSize;
+    puts("called");
+}
+
+TutorArr::~TutorArr() {
+    delete[] arr;
+}
+
+void TutorArr::Print() {
+    for (size_t i = 0; i < size; i++) {
+        std::cout << arr[i].ID << ' ' << arr[i].name << '\n';
+    }
+}

@@ -15,6 +15,7 @@ struct SubjectArr {
     SubjectArr(size_t);
     ~SubjectArr();
     void Print();
+    Subject* getSubjectByID(std::string);
 };
 
 #endif
