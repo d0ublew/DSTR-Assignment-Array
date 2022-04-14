@@ -10,7 +10,6 @@ SubjectArr::SubjectArr() {
 SubjectArr::SubjectArr(size_t paramSize) {
     arr = new Subject[paramSize];
     size = paramSize;
-    puts("called");
 }
 
 SubjectArr::~SubjectArr() {

@@ -5,5 +5,8 @@ struct Date;
 struct Center;
 struct Subject;
 struct Tutor;
+struct CenterArr;
+struct SubjectArr;
+struct TutorArr;
 
 #endif

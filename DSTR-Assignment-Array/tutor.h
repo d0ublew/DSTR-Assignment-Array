@@ -12,6 +12,7 @@ struct Tutor {
     string name;
     float payRate;
     float rating;
+    string phone;
     Date* joinDate;
     Date* terminateDate;
     Center* center;
