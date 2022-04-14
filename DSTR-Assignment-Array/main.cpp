@@ -4,9 +4,9 @@
 #include "file2struct.h"
 #include "subject.h"
 
-SubjectArr* SUBJECT_ARR = fileToSubject("./subject.txt");
-CenterArr* CENTER_ARR = fileToCenter("./center.txt");
-TutorArr* TUTOR_ARR = fileToTutor("./tutor.txt");
+SubjectArr* SUBJECT_ARR = fileToSubject("./data/subject.txt");
+CenterArr* CENTER_ARR = fileToCenter("./data/center.txt");
+TutorArr* TUTOR_ARR = fileToTutor("./data/tutor.txt");
 
 int main() {
     TUTOR_ARR->Print();
