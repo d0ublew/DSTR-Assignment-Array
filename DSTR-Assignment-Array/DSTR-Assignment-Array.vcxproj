@@ -20,6 +20,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="tutor.cpp" />
+    <ClCompile Include="date.cpp" />
+    <ClCompile Include="subject.cpp" />
+    <ClCompile Include="center.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="type.h" />
+    <ClInclude Include="tutor.h" />
+    <ClInclude Include="date.h" />
+    <ClInclude Include="subject.h" />
+    <ClInclude Include="center.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
