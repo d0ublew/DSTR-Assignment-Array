@@ -34,6 +34,11 @@
     <ClInclude Include="type.h" />
     <ClInclude Include="tutor.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\center.txt" />
+    <Text Include="data\subject.txt" />
+    <Text Include="data\tutor.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
