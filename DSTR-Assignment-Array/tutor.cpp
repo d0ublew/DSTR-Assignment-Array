@@ -20,6 +20,8 @@ Tutor::~Tutor() {
     /*
      * TODO: delete Date
      */
+    delete joinDate;
+    delete terminateDate;
 }
 
 TutorArr::TutorArr() {
@@ -28,8 +30,8 @@ TutorArr::TutorArr() {
 }
 
 TutorArr::TutorArr(size_t paramSize) {
-    arr = new Tutor[paramSize];
     size = paramSize;
+    arr = new Tutor[size];
 }
 
 TutorArr::~TutorArr() {
