@@ -112,4 +112,44 @@ std::string float_to_str_prec(float f, int n) {
     out.precision(n);
     out << std::fixed << f;
     return out.str();
+void fileToTutor(std::vector<Tutor> &tutorV, std::string filename) {
+    std::fstream fileHandler(filename, std::ios::in | std::ios::binary);
+    size_t size = 0;
+    /*
+     * Get the expected size of the vector
+     */
+    fileHandler.read(reinterpret_cast<char*>(&size), sizeof(size_t));
+    /* std::cout << size << '\n'; */
+    tutorV.resize(size);
+    fileHandler.read(reinterpret_cast<char*>(&tutorV[0]), sizeof(Tutor)*size);
+    std::cout << tutorV.at(0).ID << '\n';
+    fileHandler.close();
+}
+
+void fileToCenter(std::vector<Center> &centerV, std::string filename) {
+    std::fstream fileHandler(filename, std::ios::in);
+    std::string line = "";
+    std::string delim = "|";
+
+    while (!getline(fileHandler, line).eof()) {
+        std::vector<std::string> data;
+        splitString(data, line, delim);
+        Center c;
+        c.ID = data.at(0);
+        c.name = data.at(1);
+        centerV.push_back(c);
+    }
+    fileHandler.close();
+}
+
+
+void splitString(std::vector<std::string> &data, std::string str, std::string delim) {
+    size_t start = 0;
+    size_t end = str.find(delim);
+    while (end != std::string::npos) {
+        data.push_back(str.substr(start, end-start));
+        start = end + delim.length();
+        end = str.find(delim, start);
+    }
+    data.push_back(str.substr(start));
 }
