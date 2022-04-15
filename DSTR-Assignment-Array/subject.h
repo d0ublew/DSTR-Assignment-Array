@@ -2,20 +2,13 @@
 #define SUBJECT_H_INCLUDED
 
 #include <string>
+#include <vector>
 
 struct Subject {
     std::string name;
     std::string ID;
 };
 
-struct SubjectArr {
-    Subject* arr;
-    size_t size;
-    SubjectArr();
-    SubjectArr(size_t);
-    ~SubjectArr();
-    void Print();
-    Subject* getSubjectByID(std::string);
-};
+Subject* getSubjectByID(std::vector<Subject> &, std::string);
 
 #endif

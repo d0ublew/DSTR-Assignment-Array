@@ -1,32 +1,16 @@
-#include <iostream>
+#include <string>
+#include <vector>
 
 #include "center.h"
 
-CenterArr::CenterArr() {
-    arr = nullptr;
-    size = 0;
-}
+Center* getCenterByID(std::vector<Center> &centerV, std::string ID) {
+    std::vector<Center>::iterator it;
 
-CenterArr::CenterArr(size_t paramSize) {
-    arr = new Center[paramSize];
-    size = paramSize;
-}
-
-CenterArr::~CenterArr() {
-    delete[] arr;
-}
-
-Center* CenterArr::getCenterByID(std::string ID) {
-    for (size_t i = 0; i < size; i++) {
-        if (arr[i].ID == ID) {
-            return &arr[i];
+    for (it = centerV.begin(); it != centerV.end(); it++) {
+        Center c = *it;
+        if (c.ID == ID) {
+            return &(*it);
         }
     }
     return nullptr;
-}
-
-void CenterArr::Print() {
-    for (size_t i = 0; i < size; i++) {
-        std::cout << arr[i].ID << ' ' << arr[i].name << '\n';
-    }
 }
