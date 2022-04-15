@@ -8,14 +8,4 @@ struct Subject {
     std::string ID;
 };
 
-struct SubjectArr {
-    Subject* arr;
-    size_t size;
-    SubjectArr();
-    SubjectArr(size_t);
-    ~SubjectArr();
-    void Print();
-    Subject* getSubjectByID(std::string);
-};
-
 #endif
