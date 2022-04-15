@@ -1,5 +1,7 @@
 #include <fstream>
 #include <string>
+#include <vector>
+#include <iostream>
 
 #include "date.h"
 #include "tutor.h"
@@ -7,47 +9,45 @@
 #include "center.h"
 #include "file2struct.h"
 
-size_t getLineNumber(std::string filename) {
+void fileToTutor(std::vector<Tutor> &tutorV, std::string filename) {
+    std::fstream fileHandler(filename, std::ios::in | std::ios::binary);
+    size_t size = 0;
     /*
-     * Return the total line number of a file
+     * Get the expected size of the vector
      */
-
-    std::fstream fileHandler;
-    std::string line = "";
-
-    fileHandler.open(filename, std::ios::in);
-    size_t countLine = 0;
-    while (!getline(fileHandler, line).eof()) {
-        countLine++;
-    }
-    return countLine;
+    fileHandler.read(reinterpret_cast<char*>(&size), sizeof(size_t));
+    /* std::cout << size << '\n'; */
+    tutorV.resize(size);
+    fileHandler.read(reinterpret_cast<char*>(&tutorV[0]), sizeof(Tutor)*size);
+    std::cout << tutorV.at(0).ID << '\n';
+    fileHandler.close();
 }
 
-std::string* splitString(std::string str, std::string delim) {
-    size_t numOfField = countField(str, delim);
-    std::string* arr = new std::string[numOfField];
-    size_t idx = 0;
+void tutorToFile(std::vector<Tutor> &tutorV, std::string filename) {
+    std::fstream fileHandler(filename, std::ios::out | std::ios::binary);
+    size_t size = tutorV.size();
+    /*
+     * First write the size of the vector which will then be used to reserve
+     * another vector to get back the data
+     */
+    fileHandler.write(reinterpret_cast<char*>(&size), sizeof(size_t));
+    std::cout << sizeof(size_t) << '\n';
+    std::cout << sizeof(Tutor)*size << '\n';
+    fileHandler.write(reinterpret_cast<char*>(&tutorV[0]), sizeof(Tutor)*size);
+    fileHandler.close();
+}
+
+std::vector<std::string>* splitString(std::string str, std::string delim) {
+    std::vector<std::string>* data = new std::vector<std::string>;
 
     size_t start = 0;
     size_t end = str.find(delim);
     while (end != std::string::npos) {
-        arr[idx++] = str.substr(start, end-start);
+        data->push_back(str.substr(start, end-start));
         start = end + delim.length();
         end = str.find(delim, start);
     }
-    arr[idx] = str.substr(start);
-    return arr;
-}
+    data->push_back(str.substr(start));
 
-size_t countField(std::string str, std::string delim) {
-    size_t count = 0;
-    size_t start = 0;
-    size_t end = str.find(delim);
-    while (end != std::string::npos) {
-        count++;
-        start = end + delim.length();
-        end = str.find(delim, start);
-    }
-    count++;
-    return count;
+    return data;
 }

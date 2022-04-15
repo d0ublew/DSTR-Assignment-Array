@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 #include "date.h"
 #include "file2struct.h"
@@ -25,11 +26,11 @@ Date::Date(std::string strDate) {
     if (strDate == "-") {
         return;
     }
-    std::string* date = splitString(strDate, "/");
-    day = std::stoi(date[0]);
-    month = std::stoi(date[1]);
-    year = std::stoi(date[2]);
-    delete[] date;
+    /* std::vector<std::string>* date = splitString(strDate, "/"); */
+    /* day = std::stoi(date[0]); */
+    /* month = std::stoi(date[1]); */
+    /* year = std::stoi(date[2]); */
+    /* delete[] date; */
 }
 
 std::string Date::ToString() {
