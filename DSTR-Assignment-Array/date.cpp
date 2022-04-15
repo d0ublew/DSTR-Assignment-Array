@@ -26,11 +26,11 @@ Date::Date(std::string strDate) {
     if (strDate == "-") {
         return;
     }
-    /* std::vector<std::string>* date = splitString(strDate, "/"); */
-    /* day = std::stoi(date[0]); */
-    /* month = std::stoi(date[1]); */
-    /* year = std::stoi(date[2]); */
-    /* delete[] date; */
+    std::vector<std::string> date;
+    splitString(date, strDate, "/");
+    day = std::stoi(date[0]);
+    month = std::stoi(date[1]);
+    year = std::stoi(date[2]);
 }
 
 std::string Date::ToString() {

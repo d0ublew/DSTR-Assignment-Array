@@ -2,7 +2,9 @@
 #define TUTOR_H_INCLUDED
 
 #include <string>
-#include "type.h"
+#include "date.h"
+#include "center.h"
+#include "subject.h"
 
 struct Tutor {
     std::string ID;
@@ -10,8 +12,8 @@ struct Tutor {
     float payRate;
     float rating;
     std::string phone;
-    Date* joinDate;
-    Date* terminateDate;
+    Date joinDate;
+    Date terminateDate;
     Center* center;
     Subject* subject;
     Tutor();

@@ -10,8 +10,8 @@ Tutor::Tutor() {
     name = "";
     payRate = 0;
     rating = 0;
-    joinDate = nullptr;
-    terminateDate = nullptr;
+    /* joinDate = nullptr; */
+    /* terminateDate = nullptr; */
     center = nullptr;
     subject = nullptr;
 }
@@ -21,8 +21,8 @@ Tutor::Tutor(std::string paramID, std::string paramName) {
     name = paramName;
     payRate = 0;
     rating = 0;
-    joinDate = nullptr;
-    terminateDate = nullptr;
+    /* joinDate = nullptr; */
+    /* terminateDate = nullptr; */
     center = nullptr;
     subject = nullptr;
 }
@@ -31,6 +31,6 @@ Tutor::~Tutor() {
     /*
      * TODO: delete Date
      */
-    delete joinDate;
-    delete terminateDate;
+    /* delete joinDate; */
+    /* delete terminateDate; */
 }
