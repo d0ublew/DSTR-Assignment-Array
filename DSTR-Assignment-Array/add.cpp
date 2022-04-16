@@ -6,9 +6,10 @@
 #include "center.h"
 #include "validate.h"
 #include "date.h"
+#include "display.h"
 using namespace std;
 
-void addingInterface(vector<Tutor> arr)
+Tutor addingInterface(vector<Tutor> arr)
 {
 	string date;
 	/*std::string ID;
@@ -26,9 +27,9 @@ void addingInterface(vector<Tutor> arr)
 	cout << "Please enter information below" << endl;
 	while (true)
 	{
+		
 		cout << "Tutor ID (TXX): ";
 		cin >> tutor.ID;
-		cout << endl;
 		if (!isTutorIDFormatCorrect(tutor.ID)){continue;}
 		if (isTutorIDExisted(arr,tutor.ID)){continue;}
 		break;
@@ -36,23 +37,24 @@ void addingInterface(vector<Tutor> arr)
 	
 	cout << "Tutor Name: ";
 	cin >> tutor.name;
-	cout << endl;
+
 	
 	while (true)
 	{
-		string setence = "Pay Rate (RM40 ~ RM80): ";
+		string setence = "Pay Rate (40 ~ 80): ";
 		tutor.payRate = checkIntInput(setence);
 		if (!isPayRateRangeValid(tutor.payRate)) { continue;}
 		break;
 	}
 
 	tutor.rating = 0;
+	tutor.countRate = 0;
 	
 	while (true)
 	{
 		cout << "Phone Number(10~11 digits): ";
 		cin >> tutor.phone;
-		cout << endl;
+		
 		if (!isPhoneFormatValid(tutor.phone)) { continue; }
 		break;
 	}
@@ -62,16 +64,44 @@ void addingInterface(vector<Tutor> arr)
 		
 		cout << "Join Date (dd/MM/yyyy): ";
 		cin >> date;
-		cout << endl;
+		
 		if (!isDateFormatValid(date)) { continue; }
 		tutor.joinDate = date;
 		break;
 	}
 	tutor.terminateDate = Date("-");
 
+	while (true)
+	{
+		cout << "Please choose Center ID from list below" << endl;
+		DisplayCenter();
+		cout << "Center ID: ";
+		cin >> tutor.center->ID;
+		if (!(isCenterIDExisted(tutor.center->ID))) { continue; }
+		break;
+	}
 
+	while (true)
+	{
+		cout << "Please choose Subject ID from list below " << endl;
+		DisplaySubject();
+		cout << "Subject ID: ";
+		cin >> tutor.subject->ID;
+		
+		if (!(isSubjectIDExisted(tutor.subject->ID))) { continue; }
+		break;
+	}
 
+	return tutor;
 	
+}
 
-	
+void addToBack(vector<Tutor> arr, Tutor tutor)
+{
+	arr.push_back(tutor);
+}
+
+void addToFront(vector<Tutor> arr, Tutor tutor)
+{
+	arr.insert(arr.begin(), tutor);
 }

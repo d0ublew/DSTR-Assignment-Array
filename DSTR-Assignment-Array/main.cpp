@@ -4,6 +4,8 @@
 #include "tutor.h"
 #include "file2struct.h"
 #include "display.h"
+#include "add.h"
+
 
 std::vector<Subject> _SUBJECT;
 std::vector<Center> _CENTER;
@@ -16,8 +18,10 @@ int main() {
     _SUBJECT = fileToSubject(SUBJECT_FILE);
     _CENTER = fileToCenter(CENTER_FILE);
     std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
+    
+    Tutor tutor = addingInterface(tutorV);
+    addToBack(tutorV, tutor);
     DisplayTutor(tutorV);
-
     /*std::vector<Tutor>::iterator it;
     for (it = tutorV.begin(); it != tutorV.end(); it++) {
         Tutor t = *it;

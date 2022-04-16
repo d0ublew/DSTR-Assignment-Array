@@ -1,8 +1,12 @@
 #pragma once
-#include "subject.h"
-#include "center.h"
+
+#include <vector>
+#include <iostream>
+#include "tutor.h"
+
 
 using namespace std;
 
-void addingInterface(vector<Tutor> arr)
-
+Tutor addingInterface(vector<Tutor> arr);
+void addToBack(vector<Tutor> arr, Tutor tutor);
+void addToFront(vector<Tutor> arr, Tutor tutor);
