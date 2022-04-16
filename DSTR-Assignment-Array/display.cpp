@@ -11,10 +11,10 @@ using namespace std;
 void DisplayTutor(vector<Tutor> arr)
 {
 
-    int size = arr.size();
-    int end = 2;
-    int choice = 0;
-    int start = 0;
+    size_t size = arr.size();
+    size_t end = 2;
+    size_t choice = 0;
+    size_t start = 0;
 
 
 
@@ -22,7 +22,7 @@ void DisplayTutor(vector<Tutor> arr)
     {
         system("cls");
 
-        for (int i = start; i < end; i++)
+        for (size_t i = start; i < end; i++)
         {
             if (i < size)
             {
