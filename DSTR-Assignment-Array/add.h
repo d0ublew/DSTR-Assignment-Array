@@ -2,7 +2,7 @@
 #include "subject.h"
 #include "center.h"
 
+using namespace std;
 
-extern std::vector<Subject> _SUBJECT;
-extern std::vector<Center> _CENTER;
+void addingInterface(vector<Tutor> arr)
 
