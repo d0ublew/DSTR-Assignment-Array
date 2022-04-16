@@ -65,9 +65,6 @@
     <ClInclude Include="tutor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="type.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="display.h">
       <Filter>Header Files</Filter>
     </ClInclude>
