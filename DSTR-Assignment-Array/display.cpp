@@ -14,19 +14,16 @@ void DisplayTutor(vector<Tutor> arr, bool isAdmin)
 {
 
     size_t size = arr.size();
-    size_t end;
+    size_t step = 5;
 
     if (isAdmin)
     {
-        end = 3;
-    }
-    else
-    {
-        end = 5;
+        step = 3;
     }
     
     int choice = 0;
     size_t start = 0;
+    size_t end = step;
 
 
 
@@ -77,17 +74,17 @@ void DisplayTutor(vector<Tutor> arr, bool isAdmin)
         {
             if (end <= size)
             {
-                start += (end-start);
-                end += (end-start);
+                start += step;
+                end += step;
             }
             continue;
         }
         else if (choice == 0)
         {
-            if (start >= 2)
+            if (start >= step)
             {
-                start -= (end-start);
-                end -= (end-start);
+                start -= step;
+                end -= step;
             }
             continue;
 
