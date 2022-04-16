@@ -15,9 +15,10 @@ bool isTutorIDExisted(vector<Tutor> arr, string ID) //checkExistingTutorID exist
 
 	if (ID == getTutorByID(arr, ID)->ID)
 	{
+		cout << "Tutor ID already existed, please enter again" << endl;
 		return true;
 	}
-	cout << "Tutor ID already existed, please enter again" << endl;
+	
 	return false;
 	
 }
