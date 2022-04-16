@@ -9,5 +9,5 @@ using namespace std;
 extern std::vector<Subject> _SUBJECT;
 extern std::vector<Center> _CENTER;
 void DisplayTutor(vector<Tutor> arr, bool isAdmin = true);
-void DisplaySubject(vector<Subject> arr);
-void DisplayCenter(vector<Center> arr);
+void DisplaySubject();
+void DisplayCenter();
