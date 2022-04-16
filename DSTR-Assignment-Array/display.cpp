@@ -5,6 +5,7 @@
 #include "center.h"
 #include "subject.h"
 #include "date.h"
+#include "display.h"
 
 using namespace std;
 
