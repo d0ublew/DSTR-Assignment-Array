@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 
 #include "date.h"
 #include "tutor.h"
@@ -67,6 +69,31 @@ std::vector<Center> fileToCenter(std::string filename) {
     return centerV;
 }
 
+void tutorToFile(std::vector<Tutor> &tutorV, std::string filename) {
+    std::fstream fileHandler(filename, std::ios::out);
+    std::string delim = "|";
+    std::vector<Tutor>::iterator it;
+
+    for (it = tutorV.begin(); it != tutorV.end(); it++) {
+        Tutor t = *it;
+        std::string ID = t.ID; 
+        std::string name = t.name; 
+        std::string payRate = float_to_str_prec(t.payRate);
+        std::string rating = float_to_str_prec(t.rating);
+        std::string phone = t.phone; 
+        std::string joinDate = t.joinDate.ToString();
+        std::string terminateDate = t.terminateDate.ToString();
+        std::string center = t.center->ID;
+        std::string subject = t.subject->ID; 
+        std::string line = ID + delim + name + delim + payRate + delim +
+            rating + delim + phone + delim + joinDate + delim + terminateDate +
+            delim + center + delim + subject;
+        fileHandler << line << '\n';
+    }
+    fileHandler.close();
+    
+}
+
 std::vector<std::string> splitString(std::string str, std::string delim) {
     std::vector<std::string> data;
     size_t start = 0;
@@ -78,4 +105,11 @@ std::vector<std::string> splitString(std::string str, std::string delim) {
     }
     data.push_back(str.substr(start));
     return data;
+}
+
+std::string float_to_str_prec(float f, int n) {
+    std::ostringstream out;
+    out.precision(n);
+    out << std::fixed << f;
+    return out.str();
 }

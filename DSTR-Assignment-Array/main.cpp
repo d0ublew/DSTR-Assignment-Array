@@ -29,7 +29,6 @@ int main() {
         std::cout << t.subject->ID << '\n';
         std::cout << t.subject->name << '\n';
     }
-    /* Subject* s = getSubjectByID("S01"); */
-    /* std::cout << s->name << '\n'; */
+    tutorToFile(tutorV, "test.txt");
     return 0;
 }

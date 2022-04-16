@@ -15,6 +15,7 @@ extern std::vector<Center> _CENTER;
 std::vector<Tutor> fileToTutor(std::string filename);
 std::vector<Subject> fileToSubject(std::string filename);
 std::vector<Center> fileToCenter(std::string filename);
+void tutorToFile(std::vector<Tutor> &tutorV, std::string filename);
 std::vector<std::string> splitString(std::string str, std::string delim);
-
+std::string float_to_str_prec(float f, int n = 2);
 #endif
