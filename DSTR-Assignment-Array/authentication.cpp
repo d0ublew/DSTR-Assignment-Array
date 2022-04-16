@@ -10,7 +10,7 @@ using namespace std;
 
 
 
-int checkIntInput(string sentence) // To verify input type, if its not integer it will ask the user to input again
+int checkIntInput(string sentence) // To verify input type, if its not integer it will ask the user to input again //PLEASE USE THIS CODE TO VERIFY INTEGER INPUT
 {
 
 	int input;

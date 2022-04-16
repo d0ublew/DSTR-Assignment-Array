@@ -4,11 +4,12 @@
 #include "center.h"
 #include "subject.h"
 #include "date.h"
+#include "display.h"
 
 using namespace std;
 
 
-void DisplayTutor(vector<Tutor> arr,bool isAdmin = true) 
+void DisplayTutor(vector<Tutor> arr, bool isAdmin)
 {
 
     int size = arr.size();
@@ -25,13 +26,15 @@ void DisplayTutor(vector<Tutor> arr,bool isAdmin = true)
     
     int choice = 0;
     int start = 0;
+   
 
 
 
     while (true)
     {
         system("cls");
-
+        
+        
         for (int i = start; i < end; i++)
         {
             if (i < size)
@@ -76,16 +79,19 @@ void DisplayTutor(vector<Tutor> arr,bool isAdmin = true)
             if (end <= size)
             {
                 start += (end-start);
-                end += (end-start);
+                end += (end - start);
             }
             continue;
         }
         else if (choice == 0)
         {
+            
             if (start >= 2)
             {
-                start -= (end-start);
-                end -= (end-start);
+                
+                
+                start -= (end - start);
+                end -= (end - start);
             }
             continue;
 
