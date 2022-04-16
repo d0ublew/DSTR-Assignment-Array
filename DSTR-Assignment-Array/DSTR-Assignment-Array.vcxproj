@@ -33,7 +33,6 @@
     <ClInclude Include="display.h" />
     <ClInclude Include="file2struct.h" />
     <ClInclude Include="subject.h" />
-    <ClInclude Include="type.h" />
     <ClInclude Include="tutor.h" />
   </ItemGroup>
   <ItemGroup>
