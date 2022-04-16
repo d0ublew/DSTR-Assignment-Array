@@ -6,9 +6,9 @@
 #include "subject.h"
 #include "center.h"
 
-void fileToTutor(std::vector<Tutor> &tutorV, std::vector<Subject> &subjectV,
-        std::vector<Center> &centerV, std::string filename);
-void fileToSubject(std::vector<Subject> &subjectV, std::string filename);
-void fileToCenter(std::vector<Center> &centerV, std::string filename);
-void splitString(std::vector<std::string> &data, std::string str, std::string delim);
+std::vector<Tutor> fileToTutor(std::string filename);
+std::vector<Subject> fileToSubject(std::string filename);
+std::vector<Center> fileToCenter(std::string filename);
+std::vector<std::string> splitString(std::string str, std::string delim);
+
 #endif

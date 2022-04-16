@@ -26,8 +26,7 @@ Date::Date(std::string strDate) {
     if (strDate == "-") {
         return;
     }
-    std::vector<std::string> date;
-    splitString(date, strDate, "/");
+    std::vector<std::string> date = splitString(strDate, "/");
     day = std::stoi(date[0]);
     month = std::stoi(date[1]);
     year = std::stoi(date[2]);
