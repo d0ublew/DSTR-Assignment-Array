@@ -76,8 +76,9 @@ void DisplayTutor(vector<Tutor> arr, bool isAdmin)
     }
 }
 
-void DisplaySubject(vector<Subject> arr)
+void DisplaySubject()
 {
+    vector<Subject> arr = _SUBJECT;
     size_t size = arr.size();
     cout << "List of Subject's Information" << endl;
     for (int i = 0; i < size; i++)
@@ -87,8 +88,9 @@ void DisplaySubject(vector<Subject> arr)
         cout << endl;
     }
 }
-void DisplayCenter(vector<Center> arr)
+void DisplayCenter()
 {
+    vector<Center> arr = _CENTER;
     size_t size = arr.size();
     cout << "List of Center's Information" << endl;
     for (int i = 0; i < size; i++)
