@@ -4,13 +4,16 @@
 #include "tutor.h"
 #include "file2struct.h"
 
-std::vector<Subject> SUBJECT_;
-std::vector<Center> CENTER_;
+std::vector<Subject> _SUBJECT;
+std::vector<Center> _CENTER;
+std::string TUTOR_FILE = "./data/tutor.txt";
+std::string SUBJECT_FILE = "./data/subject.txt";
+std::string CENTER_FILE = "./data/center.txt";
 
 int main() {
-    SUBJECT_ = fileToSubject("./data/subject.txt");
-    CENTER_ = fileToCenter("./data/center.txt");
-    std::vector<Tutor> tutorV = fileToTutor("./data/tutor.txt");
+    _SUBJECT = fileToSubject(SUBJECT_FILE);
+    _CENTER = fileToCenter(CENTER_FILE);
+    std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
     std::vector<Tutor>::iterator it;
     for (it = tutorV.begin(); it != tutorV.end(); it++) {
         Tutor t = *it;

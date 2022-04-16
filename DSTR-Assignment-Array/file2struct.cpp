@@ -9,9 +9,6 @@
 #include "center.h"
 #include "file2struct.h"
 
-extern std::vector<Subject> SUBJECT_;
-extern std::vector<Center> CENTER_;
-
 std::vector<Tutor> fileToTutor(std::string filename) {
     std::vector<Tutor> tutorV;
     std::fstream fileHandler(filename, std::ios::in);
@@ -28,8 +25,8 @@ std::vector<Tutor> fileToTutor(std::string filename) {
         t.phone = data.at(4);
         t.joinDate = Date(data.at(5));
         t.terminateDate = Date(data.at(6));
-        t.center = getCenterByID(CENTER_, data.at(7));
-        t.subject = getSubjectByID(SUBJECT_, data.at(8));
+        t.center = getCenterByID(_CENTER, data.at(7));
+        t.subject = getSubjectByID(_SUBJECT, data.at(8));
         tutorV.push_back(t);
     }
     fileHandler.close();
@@ -69,7 +66,6 @@ std::vector<Center> fileToCenter(std::string filename) {
     fileHandler.close();
     return centerV;
 }
-
 
 std::vector<std::string> splitString(std::string str, std::string delim) {
     std::vector<std::string> data;
