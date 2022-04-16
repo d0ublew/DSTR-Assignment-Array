@@ -1,10 +1,16 @@
 #include <iostream>
 #include <string>
+#include "authentication.h"
 
 using namespace std;
 
-int checkIntInput(string sentence);
 int startMenu();
+int adminMainMenu();
+int addMenu();
+int sortMenu();
+int searchMenu();
+int deleteMenu();
+
 
 
 int startMenu()
@@ -27,6 +33,7 @@ int adminMainMenu()
 	cout << "4) Search Tutor" << endl;
 	cout << "5) Modify Tutor" << endl;
 	cout << "6) Termination or Delete Tutor" << endl;
+	cout << "0) Logout" << endl;
 	string sentence = "Enter your choice: ";
 	int choice = checkIntInput(sentence);
 	return choice;
@@ -43,20 +50,39 @@ int addMenu()
 	return choice;
 }
 
-
-
-
-
-int checkIntInput(string sentence)
+int sortMenu()
 {
-	
-	int input;
-	while (std::cout << sentence && !(std::cin >> input)) {
-		std::cin.clear(); //clear bad input flag
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
-		std::cout << "Invalid input, number only, please re-enter.\n";
-	}
-
-	return input;
+	cout << "How do you want to sort?" << endl;
+	cout << "1) Sort by Tutors ID" << endl;
+	cout << "2) Sort by Pay Rate " << endl;
+	cout << "3) Sort by Overall Performance" << endl;
+	string sentence = "Enter your choice: ";
+	int choice = checkIntInput(sentence);
+	return choice;
 }
+
+int searchMenu()
+{
+	cout << "How do you want to search?" << endl;
+	cout << "1) Search by Tutor ID" << endl;
+	cout << "2) Search by overall performance" << endl;
+	string sentence = "Enter your choice: ";
+	int choice = checkIntInput(sentence);
+	return choice;
+}
+
+int deleteMenu()
+{
+	cout << "Which function you need?" << endl;
+	cout << "1) Terminate all expired tutors" << endl;
+	cout << "2) Delete specific tutor data" << endl;
+	string sentence = "Enter your choice: ";
+	int choice = checkIntInput(sentence);
+	return choice;
+}
+
+
+
+
+
 

@@ -24,7 +24,7 @@ void DisplayTutor(vector<Tutor> arr)
 
         for (int i = start; i < end; i++)
         {
-            if (i < 3)
+            if (i < size)
             {
                 cout << "TutorID: " << arr.at(i).ID << endl;
                 cout << "Tutur Name: " << arr.at(i).name << endl;
