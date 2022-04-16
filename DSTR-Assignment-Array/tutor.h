@@ -16,8 +16,8 @@ struct Tutor {
     Date terminateDate;
     Center* center;
     Subject* subject;
+    size_t countRate;
     Tutor();
-    Tutor(std::string paramID, std::string paramName);
     ~Tutor();
 };
 

@@ -52,6 +52,7 @@ void DisplayTutor(vector<Tutor> arr, bool isAdmin)
 
         string sentence = "Prev or Next (0 to Prev 1 to Next 2 to Exit): ";
         choice = checkIntInput(sentence);
+
         if (choice == 1)
         {
             if (end+step <= size)
