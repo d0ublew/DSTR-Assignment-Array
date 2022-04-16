@@ -36,6 +36,9 @@
     <ClCompile Include="tutor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="display.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="center.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="type.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="display.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="center.cpp" />
     <ClCompile Include="date.cpp" />
+    <ClCompile Include="display.cpp" />
     <ClCompile Include="file2struct.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="subject.cpp" />
@@ -29,6 +30,7 @@
   <ItemGroup>
     <ClInclude Include="center.h" />
     <ClInclude Include="date.h" />
+    <ClInclude Include="display.h" />
     <ClInclude Include="file2struct.h" />
     <ClInclude Include="subject.h" />
     <ClInclude Include="type.h" />
