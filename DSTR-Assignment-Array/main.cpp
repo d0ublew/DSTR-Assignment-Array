@@ -11,11 +11,16 @@ std::string TUTOR_FILE = "./data/tutor.txt";
 std::string SUBJECT_FILE = "./data/subject.txt";
 std::string CENTER_FILE = "./data/center.txt";
 
+
 int main() {
     _SUBJECT = fileToSubject(SUBJECT_FILE);
     _CENTER = fileToCenter(CENTER_FILE);
     std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
+<<<<<<< HEAD
     DisplayTutor(tutorV);
+=======
+    DisplayTutor(tutorV, false);
+>>>>>>> 75599982e81b462b3fd77f1313e93de2d2437342
 
     /*std::vector<Tutor>::iterator it;
     for (it = tutorV.begin(); it != tutorV.end(); it++) {

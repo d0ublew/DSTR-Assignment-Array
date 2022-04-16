@@ -39,7 +39,6 @@
     <ClInclude Include="file2struct.h" />
     <ClInclude Include="student_menu.h" />
     <ClInclude Include="subject.h" />
-    <ClInclude Include="type.h" />
     <ClInclude Include="tutor.h" />
   </ItemGroup>
   <ItemGroup>

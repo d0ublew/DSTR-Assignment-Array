@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <limits>
 #include "tutor.h"
 #include "center.h"
 #include "subject.h"
@@ -9,33 +10,29 @@
 using namespace std;
 
 
-void DisplayTutor(vector<Tutor> arr, bool isAdmin)
+void DisplayTutor(vector<Tutor> arr, bool isAdmin) 
 {
 
-    int size = arr.size();
-    int end;
+    size_t size = arr.size();
+    size_t step = 5;
 
     if (isAdmin)
     {
-        end = 3;
-    }
-    else
-    {
-        end = 5;
+        step = 3;
     }
     
     int choice = 0;
-    int start = 0;
-   
+    size_t start = 0;
+    size_t end = step;
+
 
 
 
     while (true)
     {
         system("cls");
-        
-        
-        for (int i = start; i < end; i++)
+
+        for (size_t i = start; i < end; i++)
         {
             if (i < size)
             {
@@ -78,20 +75,17 @@ void DisplayTutor(vector<Tutor> arr, bool isAdmin)
         {
             if (end <= size)
             {
-                start += (end-start);
-                end += (end - start);
+                start += step;
+                end += step;
             }
             continue;
         }
         else if (choice == 0)
         {
-            
-            if (start >= 2)
+            if (start >= step)
             {
-                
-                
-                start -= (end - start);
-                end -= (end - start);
+                start -= step;
+                end -= step;
             }
             continue;
 
