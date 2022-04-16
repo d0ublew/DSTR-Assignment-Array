@@ -113,15 +113,3 @@ std::string float_to_str_prec(float f, int n) {
     out << std::fixed << f;
     return out.str();
 }
-
-
-void splitString(std::vector<std::string> &data, std::string str, std::string delim) {
-    size_t start = 0;
-    size_t end = str.find(delim);
-    while (end != std::string::npos) {
-        data.push_back(str.substr(start, end-start));
-        start = end + delim.length();
-        end = str.find(delim, start);
-    }
-    data.push_back(str.substr(start));
-}
