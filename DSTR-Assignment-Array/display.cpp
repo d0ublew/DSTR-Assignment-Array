@@ -50,12 +50,8 @@ void DisplayTutor(vector<Tutor> arr, bool isAdmin)
             cout << endl;
         }
 
-        while (std::cout << "Prev or Next (0 to Prev 1 to Next 2 to Exit): " &&
-                !(std::cin >> choice)) {
-            std::cin.clear(); //clear bad input flag
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
-            std::cout << "Invalid input; please re-enter.\n";
-        }
+        string sentence = "Prev or Next (0 to Prev 1 to Next 2 to Exit): ";
+        choice = checkIntInput(sentence);
 
         if (choice == 1)
         {
