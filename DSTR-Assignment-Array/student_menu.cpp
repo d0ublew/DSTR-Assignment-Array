@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include "authentication.h"
+#include "validate.h"
+#include "student_menu.h"
 
 using namespace std;
 
