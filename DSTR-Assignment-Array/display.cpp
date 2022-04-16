@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <limits>
 #include "tutor.h"
 #include "center.h"
 #include "subject.h"
@@ -8,11 +9,11 @@
 using namespace std;
 
 
-void DisplayTutor(vector<Tutor> arr,bool isAdmin = true) 
+void DisplayTutor(vector<Tutor> arr, bool isAdmin) 
 {
 
-    int size = arr.size();
-    int end;
+    size_t size = arr.size();
+    size_t end;
 
     if (isAdmin)
     {
@@ -24,7 +25,7 @@ void DisplayTutor(vector<Tutor> arr,bool isAdmin = true)
     }
     
     int choice = 0;
-    int start = 0;
+    size_t start = 0;
 
 
 
