@@ -21,4 +21,6 @@ struct Tutor {
     ~Tutor();
 };
 
+Tutor* getTutorByID(std::vector<Tutor>& tutorV, std::string ID);
+
 #endif

@@ -48,6 +48,12 @@
     <ClCompile Include="authentication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="add.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="validate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="center.h">
@@ -75,6 +81,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="authentication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="add.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="validate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

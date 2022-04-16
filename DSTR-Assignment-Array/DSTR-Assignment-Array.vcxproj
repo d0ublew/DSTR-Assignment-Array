@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="add.cpp" />
     <ClCompile Include="admin_menu.cpp" />
     <ClCompile Include="authentication.cpp" />
     <ClCompile Include="center.cpp" />
@@ -29,8 +30,10 @@
     <ClCompile Include="student_menu.cpp" />
     <ClCompile Include="subject.cpp" />
     <ClCompile Include="tutor.cpp" />
+    <ClCompile Include="validate.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="add.h" />
     <ClInclude Include="admin_menu.h" />
     <ClInclude Include="authentication.h" />
     <ClInclude Include="center.h" />
@@ -40,6 +43,7 @@
     <ClInclude Include="student_menu.h" />
     <ClInclude Include="subject.h" />
     <ClInclude Include="tutor.h" />
+    <ClInclude Include="validate.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data/center.txt" />

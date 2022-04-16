@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string>
 #include "tutor.h"
 #include "date.h"
 #include "center.h"
@@ -33,4 +33,16 @@ Tutor::~Tutor() {
      */
     /* delete joinDate; */
     /* delete terminateDate; */
+}
+
+Tutor* getTutorByID(std::vector<Tutor>& tutorV, std::string ID) {
+    std::vector<Tutor>::iterator it;
+
+    for (it = tutorV.begin(); it != tutorV.end(); it++) {
+        Tutor s = *it;
+        if (s.ID == ID) {
+            return &(*it);
+        }
+    }
+    return nullptr;
 }
