@@ -160,7 +160,7 @@ bool isPhoneFormatValid(string p)
 		return false;
 	}
 
-	for (int i = 0; i < p.length(); i++)
+	for (size_t i = 0; i < p.length(); i++)
 	{
 		if (!(p[i] >= '0' && p[i] <= '9'))
 		{
