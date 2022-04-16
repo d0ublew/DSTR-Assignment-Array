@@ -15,7 +15,7 @@ int main() {
     _SUBJECT = fileToSubject(SUBJECT_FILE);
     _CENTER = fileToCenter(CENTER_FILE);
     std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
-    DisplayTutor(tutorV);
+    DisplayTutor(tutorV,false);
 
     /*std::vector<Tutor>::iterator it;
     for (it = tutorV.begin(); it != tutorV.end(); it++) {

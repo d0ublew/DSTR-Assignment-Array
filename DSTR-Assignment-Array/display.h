@@ -6,4 +6,4 @@
 #include "subject.h"
 #include <iostream>
 using namespace std;
-void DisplayTutor(vector<Tutor> arr);
+void DisplayTutor(vector<Tutor> arr,bool isAdmin);
