@@ -154,7 +154,7 @@ bool isDateFormatValid(string d)
 
 bool isPhoneFormatValid(string p)
 {
-	if (!(p.length() > 0 && p.length() <= 11))
+	if (!(p.length() >= 10 && p.length() <= 11))
 	{
 		cout << "Invalid Phone Number Length" << endl;
 		return false;
