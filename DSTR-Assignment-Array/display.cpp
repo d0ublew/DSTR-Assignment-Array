@@ -13,69 +13,52 @@ using namespace std;
 
 void DisplayTutor(vector<Tutor> arr, bool isAdmin) 
 {
-
     size_t size = arr.size();
     size_t step = 5;
 
     if (isAdmin)
-    {
         step = 3;
-    }
     
     int choice = 0;
     size_t start = 0;
     size_t end = step;
 
-
-
-
     while (true)
     {
         system("cls");
-
-        for (size_t i = start; i < end; i++)
+        for (size_t i = start; i < end && i < size; i++)
         {
-            if (i < size)
+            cout << "TutorID: " << arr.at(i).ID << endl;
+            cout << "Tutur Name: " << arr.at(i).name << endl;
+
+            if (!isAdmin)
             {
-                if (isAdmin)
-                {
-                    cout << "TutorID: " << arr.at(i).ID << endl;
-                    cout << "Tutur Name: " << arr.at(i).name << endl;
-                    cout << "PayRate: " << arr.at(i).payRate << endl;
-                    cout << "Rating: " << arr.at(i).rating << endl;
-                    cout << "Phoe Number: " << arr.at(i).phone << endl;
-                    cout << "Joined Date: " << arr.at(i).joinDate.ToString() << endl;
-                    cout << "Termination Date: " << arr.at(i).terminateDate.ToString() << endl;
-                    cout << "Center ID: " << arr.at(i).center->ID << endl;
-                    cout << "Center Name: " << arr.at(i).center->name << endl;
-                    cout << "Subject ID: " << arr.at(i).subject->ID << endl;
-                    cout << "Subject Name: " << arr.at(i).subject->name << endl;
-                    
-                }
-                else
-                {
-                    cout << "TutorID: " << arr.at(i).ID << endl;
-                    cout << "Tutur Name: " << arr.at(i).name << endl;
-                }
                 cout << endl;
-                
+                continue;
             }
-            else
-            {
-                break;
-            }
+
+            cout << "PayRate: " << arr.at(i).payRate << endl;
+            cout << "Rating: " << arr.at(i).rating << endl;
+            cout << "Phoe Number: " << arr.at(i).phone << endl;
+            cout << "Joined Date: " << arr.at(i).joinDate.ToString() << endl;
+            cout << "Termination Date: " <<
+                arr.at(i).terminateDate.ToString() << endl;
+            cout << "Center ID: " << arr.at(i).center->ID << endl;
+            cout << "Center Name: " << arr.at(i).center->name << endl;
+            cout << "Subject ID: " << arr.at(i).subject->ID << endl;
+            cout << "Subject Name: " << arr.at(i).subject->name << endl;
+            cout << endl;
         }
 
         string sentence = "Prev or Next (0 to Prev 1 to Next 2 to Exit): ";
         choice = checkIntInput(sentence);
         if (choice == 1)
         {
-            if (end <= size)
+            if (end+step <= size)
             {
                 start += step;
                 end += step;
             }
-            continue;
         }
         else if (choice == 0)
         {
@@ -84,22 +67,10 @@ void DisplayTutor(vector<Tutor> arr, bool isAdmin)
                 start -= step;
                 end -= step;
             }
-            continue;
-
-
         }
         else if (choice == 2)
         {
             break;
         }
-        else
-        {
-            continue;
-        }
-
-
-
     }
-
-
 }
