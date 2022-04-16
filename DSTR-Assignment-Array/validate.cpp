@@ -5,21 +5,27 @@
 #include "center.h"
 #include "validate.h"
 #include <limits>
+#include <string>
 #include "date.h"
+
 
 
 using namespace std;
 
 bool isTutorIDExisted(vector<Tutor> arr, string ID) //checkExistingTutorID existed or not
 {
-
-	if (ID == getTutorByID(arr, ID)->ID)
+	if (getTutorByID(arr, ID) != nullptr)
 	{
-		cout << "Tutor ID already existed, please enter again" << endl;
-		return true;
+		if (ID == getTutorByID(arr, ID)->ID)
+		{
+			cout << "Tutor ID already existed, please enter again" << endl;
+			return true;
+		}
+
+		
 	}
-	
 	return false;
+	
 	
 }
 
@@ -36,35 +42,50 @@ bool isTutorIDFormatCorrect(string ID) //check tutorID format
 
 bool isCenterIDExisted(string ID)
 {
-	if (ID == getCenterByID(_CENTER, ID)->ID)
+	vector<Center> arr = _CENTER;
+	if (getCenterByID(arr, ID) != nullptr)
 	{
-		return true;
+		if (ID == getCenterByID(arr, ID)->ID)
+		{
+			return true;
+		}
+		cout << "Center ID is not valid, please enter again" << endl;
 	}
-	cout << "Center ID is not valid, please enter again" << endl;
+	
 	return false;
 }
 
 bool isSubjectIDExisted(string ID)
 {
-	if (ID == getSubjectByID(_SUBJECT, ID)->ID)
+	vector<Subject> arr = _SUBJECT;
+	if (getSubjectByID(arr, ID) != nullptr)
 	{
-		return true;
+		if (ID == getSubjectByID(arr, ID)->ID)
+		{
+			return true;
+		}
+		cout << "Subject ID is not valid, please enter again" << endl;
 	}
-	cout << "Subject ID is not valid, please enter again" << endl;
+	
 	return false;
 }
 
 bool isDateFormatValid(string d)
 {
 	//dd/mm/yyyy
-	if (!(d[2] == '/' && d[4] == '/' && d[6] == '/'))
+	if (!(d.length() == 10))
+	{
+		cout << "Invalid format please use (dd/MM/yyyy)" << endl;
+		return false;
+	}
+	if (!(d[2] == '/' && d[5] == '/'))
 	{
 		cout << "Invalid Date format please use (dd/MM/yyyy)" << endl;
 		return false;
 	}
 	for (int i = 0; i < 10; i++)
 	{
-		if (i == 2 || i == 4 || i == 6)
+		if (i == 2 || i == 5)
 		{
 			continue;
 		}
@@ -179,7 +200,7 @@ bool isPayRateRangeValid(float payRate)
 	{
 		return true;
 	}
-	cout << "Invalid PayRate Range please insert between RM40 to RM80" << endl;
+	cout << "Invalid PayRate Range please insert between 40 to 80" << endl;
 	return false;
 }
 
