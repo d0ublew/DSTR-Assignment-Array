@@ -8,11 +8,21 @@
 using namespace std;
 
 
-void DisplayTutor(vector<Tutor> arr)
+void DisplayTutor(vector<Tutor> arr,bool isAdmin = true) 
 {
 
     int size = arr.size();
-    int end = 2;
+    int end;
+
+    if (isAdmin)
+    {
+        end = 3;
+    }
+    else
+    {
+        end = 5;
+    }
+    
     int choice = 0;
     int start = 0;
 
@@ -26,18 +36,28 @@ void DisplayTutor(vector<Tutor> arr)
         {
             if (i < size)
             {
-                cout << "TutorID: " << arr.at(i).ID << endl;
-                cout << "Tutur Name: " << arr.at(i).name << endl;
-                cout << "PayRate: " << arr.at(i).payRate << endl;
-                cout << "Rating: " << arr.at(i).rating << endl;
-                cout << "Phoe Number: " << arr.at(i).phone << endl;
-                cout << "Joined Date: " << arr.at(i).joinDate.ToString() << endl;
-                cout << "Termination Date: " << arr.at(i).terminateDate.ToString() << endl;
-                cout << "Center ID: " << arr.at(i).center->ID << endl;
-                cout << "Center Name: " << arr.at(i).center->name << endl;
-                cout << "Subject ID: " << arr.at(i).subject->ID << endl;
-                cout << "Subject Name: " << arr.at(i).subject->name << endl;
+                if (isAdmin)
+                {
+                    cout << "TutorID: " << arr.at(i).ID << endl;
+                    cout << "Tutur Name: " << arr.at(i).name << endl;
+                    cout << "PayRate: " << arr.at(i).payRate << endl;
+                    cout << "Rating: " << arr.at(i).rating << endl;
+                    cout << "Phoe Number: " << arr.at(i).phone << endl;
+                    cout << "Joined Date: " << arr.at(i).joinDate.ToString() << endl;
+                    cout << "Termination Date: " << arr.at(i).terminateDate.ToString() << endl;
+                    cout << "Center ID: " << arr.at(i).center->ID << endl;
+                    cout << "Center Name: " << arr.at(i).center->name << endl;
+                    cout << "Subject ID: " << arr.at(i).subject->ID << endl;
+                    cout << "Subject Name: " << arr.at(i).subject->name << endl;
+                    
+                }
+                else
+                {
+                    cout << "TutorID: " << arr.at(i).ID << endl;
+                    cout << "Tutur Name: " << arr.at(i).name << endl;
+                }
                 cout << endl;
+                
             }
             else
             {
@@ -55,8 +75,8 @@ void DisplayTutor(vector<Tutor> arr)
         {
             if (end <= size)
             {
-                start += 2;
-                end += 2;
+                start += (end-start);
+                end += (end-start);
             }
             continue;
         }
@@ -64,8 +84,8 @@ void DisplayTutor(vector<Tutor> arr)
         {
             if (start >= 2)
             {
-                start -= 2;
-                end -= 2;
+                start -= (end-start);
+                end -= (end-start);
             }
             continue;
 
