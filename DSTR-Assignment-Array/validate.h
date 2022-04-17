@@ -22,5 +22,7 @@ bool isPayRateRangeValid(float payRate);
 bool isRatingRateRangeValid(float rate);
 int checkIntInput(string sentence);
 float checkFloatInput(string sentence);
+void clearInputBuffer();
 bool isChoiceInMenuRange(int choice, int end);
 bool isLeap(int);
+void Enter();

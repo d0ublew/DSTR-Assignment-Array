@@ -181,6 +181,7 @@ int checkIntInput(string sentence)
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
 		std::cout << "Invalid input, number only, please re-enter.\n";
 	}
+    clearInputBuffer();
 
 	return input;
 }
@@ -194,10 +195,19 @@ float checkFloatInput(string sentence)
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
 		std::cout << "Invalid input, number only, please re-enter.\n";
 	}
+    clearInputBuffer();
 
 	return input;
 }
 
+void clearInputBuffer() {
+    while (getchar() != '\n') {}
+}
+
+void Enter() {
+    std::cout << "Press ENTER to continue";
+    clearInputBuffer();
+}
 
 
 bool isLeap(int year) {
@@ -210,5 +220,6 @@ bool isChoiceInMenuRange(int choice, int end)
 {
 	if (choice >= 0 && choice <= end) { return true; }
 	cout << "Invalid Choice" << endl;
+    Enter();
 	return false;
 }

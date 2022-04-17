@@ -50,8 +50,6 @@ Tutor addingInterface(vector<Tutor> &arr)
 		break;
 	}
 
-    // clear trailing linefeed
-    while (getchar() != '\n') {}
 	tutor.rating = 0;
 	tutor.countRate = 0;
 	
