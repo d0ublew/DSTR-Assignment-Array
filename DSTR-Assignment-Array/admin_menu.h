@@ -2,7 +2,7 @@
 #include <iostream>
 
 using namespace std;
-extern std::string TUTOR_FILE;
+extern const std::string TUTOR_FILE;
 void startMenu();
 bool adminLogin();
 void adminMainMenu();
