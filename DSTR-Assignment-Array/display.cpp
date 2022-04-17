@@ -55,7 +55,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin)
 
         if (choice == 1)
         {
-            if (end+step <= size)
+            if (end <= size)
             {
                 start += step;
                 end += step;
