@@ -17,6 +17,9 @@ struct Tutor {
     Center* center;
     Subject* subject;
     size_t countRate;
+    /**
+     * @brief Test
+     */
     Tutor();
     ~Tutor();
 };

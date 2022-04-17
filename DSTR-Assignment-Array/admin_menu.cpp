@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "admin_menu.h"
 #include "validate.h"
 #include "student_menu.h"
 #include "display.h"
@@ -7,26 +8,16 @@
 #include "file2struct.h"
 #include "add.h"
 #include "authentication.h"
+#include "sort.h"
 
 using namespace std;
 
-void startMenu();
-void adminMainMenu();
-bool adminLogin();
-void addMenu();
-void sortMenu();
-void searchMenu();
-void deleteMenu();
-
-
-
-
-
-void startMenu()
+void startMenu(vector<Tutor> &tutorV)
 {
 	
 	while (true)
 	{
+        clearScreen();
 		cout << "Welcome to eXcel Tuition Centre" << endl;
 		cout << "Who are you?" << endl;
 		cout << "1) Admin" << endl;
@@ -44,7 +35,7 @@ void startMenu()
 				return;
 
 			case 1:
-				if (adminLogin()) { adminMainMenu(); }
+				if (adminLogin()) { adminMainMenu(tutorV); }
 				break;
 			case 2:
 				studentRatingMenu();
@@ -56,12 +47,14 @@ void startMenu()
 	
 }
 
-void adminMainMenu()
+
+void adminMainMenu(vector<Tutor> &tutorV)
+
 {
 	
 	while (true)
 	{
-		std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
+        clearScreen();
 		cout << "Welcome back admin, please select a function" << endl;
 		cout << "1) Add Tutor" << endl;
 		cout << "2) Display Tutor" << endl;
@@ -80,16 +73,16 @@ void adminMainMenu()
 				return;
 				
 			case 1:
-				addMenu();
+				addMenu(tutorV);
 				break;
 			case 2:
 				DisplayTutor(tutorV);
 				break;
 			case 3:
-				sortMenu();
+				sortMenu(tutorV);
 				break;
 			case 4:
-				searchMenu();
+				searchMenu(tutorV);
 				break;
 			case 5:
 				//Modify method call here
@@ -97,7 +90,7 @@ void adminMainMenu()
 				cout << "No yet impemented modify" << endl;
 				break;
 			case 6:
-				deleteMenu();
+				deleteMenu(tutorV);
 				break;
 			}
 			
@@ -107,12 +100,12 @@ void adminMainMenu()
 }
 
 
-void addMenu()
+void addMenu(vector<Tutor> &tutorV)
 {
 	
 	while (true)
 	{
-		std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
+        clearScreen();
 		Tutor tutor;
 		cout << "Where you want to add?" << endl;
 		cout << "1) Add to First" << endl;
@@ -133,14 +126,14 @@ void addMenu()
 				tutor = addingInterface(tutorV);
 				addToFront(tutorV, tutor);
 				tutorToFile(tutorV, TUTOR_FILE);
-				cout << "Tutor Added to Front Succesfully!";
+				cout << "Tutor Added to Front Succesfully!\n";
 				break;
 			case 2:
 				//code here
 				tutor = addingInterface(tutorV);
 				addToBack(tutorV, tutor);
 				tutorToFile(tutorV, TUTOR_FILE);
-				cout << "Tutor Added to Back Succesfully!";
+				cout << "Tutor Added to Back Succesfully!\n";
 				break;
 			}
 			
@@ -149,10 +142,11 @@ void addMenu()
 	
 }
 
-void sortMenu()
+void sortMenu(std::vector<Tutor> &tutorV)
 {
 	while (true)
 	{
+        clearScreen();
 		cout << "How do you want to sort?" << endl;
 		cout << "1) Sort by Tutors ID" << endl;
 		cout << "2) Sort by Pay Rate " << endl;
@@ -162,13 +156,41 @@ void sortMenu()
 		int choice = checkIntInput(sentence);
 		if (isChoiceInMenuRange(choice, 3))
 		{
-			//code here
+            int (*CompareFn)(Tutor &, Tutor &) = nullptr;
+            switch (choice) {
+                case 1:
+                    CompareFn = &CompareTutorID;
+                    break;
+                case 2:
+                    CompareFn = &CompareTutorPay;
+                    break;
+                case 3:
+                    CompareFn = &CompareTutorRating;
+                    break;
+                case 0:
+                    return;
+            }
+            while (true) {
+                cout << "Sort in:\n";
+                cout << "1) Ascending order\n";
+                cout << "2) Descending order\n";
+                cout << "0) Back\n";
+                int option = checkIntInput("Enter your choice: ");
+                if (option == 0) break;
+
+                char order = 'a';
+                if (option == 2) order = 'd';
+                std::vector<Tutor> sortedTutorV =
+                    sortTutor(tutorV, (*CompareFn), order);
+                DisplayTutor(sortedTutorV);
+                clearScreen();
+            }
 		}
 	}
 	
 }
 
-void searchMenu()
+void searchMenu(vector<Tutor> &tutorV)
 {
 	while (true)
 	{
@@ -186,7 +208,7 @@ void searchMenu()
 	
 }
 
-void deleteMenu()
+void deleteMenu(vector<Tutor> &tutorV)
 {
 	while (true)
 	{
@@ -204,8 +226,6 @@ void deleteMenu()
 	
 }
 
-
-
-
-
-
+void clearScreen() {
+    system("cls || clear");
+}

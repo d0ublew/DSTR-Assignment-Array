@@ -31,6 +31,7 @@ std::vector<Tutor> fileToTutor(const std::string filename) {
         t.terminateDate = Date(data.at(6));
         t.center = getCenterByID(_CENTER, data.at(7));
         t.subject = getSubjectByID(_SUBJECT, data.at(8));
+        t.countRate = std::stoul(data.at(9));
         tutorV.push_back(t);
     }
     fileHandler.close();
@@ -87,9 +88,10 @@ void tutorToFile(std::vector<Tutor> &tutorV, std::string filename) {
         std::string terminateDate = t.terminateDate.ToString();
         std::string center = t.center->ID;
         std::string subject = t.subject->ID; 
+        std::string countRate = std::to_string(t.countRate);
         std::string line = ID + delim + name + delim + payRate + delim +
             rating + delim + phone + delim + joinDate + delim + terminateDate +
-            delim + center + delim + subject;
+            delim + center + delim + subject + delim + countRate;
         fileHandler << line << '\n';
     }
     fileHandler.close();

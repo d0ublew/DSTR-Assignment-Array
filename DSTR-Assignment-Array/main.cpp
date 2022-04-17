@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+#include "sort.h"
 #include "tutor.h"
 #include "file2struct.h"
 #include "display.h"
@@ -15,21 +16,16 @@ std::vector<Subject> _SUBJECT = fileToSubject(SUBJECT_FILE);
 std::vector<Center> _CENTER = fileToCenter(CENTER_FILE);
 
 
-
 int main() {
-    
-    _SUBJECT = fileToSubject(SUBJECT_FILE);
-    _CENTER = fileToCenter(CENTER_FILE);
     std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
-    startMenu();
+    startMenu(tutorV);
     
     
-
-   /* Tutor tutor = addingInterface(tutorV);
-    addToBack(tutorV, tutor);
-    std::cout << tutorV.size() << '\n';
-    std::cout << tutorV.back().ID << '\n';
-    tutorToFile(tutorV, TUTOR_FILE);*/
+    /* Tutor tutor = addingInterface(tutorV); */
+    /* addToBack(tutorV, tutor); */
+    /* std::cout << tutorV.size() << '\n'; */
+    /* std::cout << tutorV.back().ID << '\n'; */
+    /* tutorToFile(tutorV, TUTOR_FILE); */
     /* DisplayTutor(tutorV); */
 
     return 0;

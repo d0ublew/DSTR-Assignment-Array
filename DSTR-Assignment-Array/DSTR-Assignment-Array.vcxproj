@@ -28,6 +28,7 @@
     <ClCompile Include="display.cpp" />
     <ClCompile Include="file2struct.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="sort.cpp" />
     <ClCompile Include="student.cpp" />
     <ClCompile Include="student_menu.cpp" />
     <ClCompile Include="subject.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="date.h" />
     <ClInclude Include="display.h" />
     <ClInclude Include="file2struct.h" />
+    <ClInclude Include="sort.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="student_menu.h" />
     <ClInclude Include="subject.h" />

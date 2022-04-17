@@ -25,7 +25,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin)
 
     while (true)
     {
-        system("cls");
+        system("cls || clear");
         for (size_t i = start; i < end && i < size; i++)
         {
             cout << "TutorID: " << arr.at(i).ID << endl;
@@ -39,7 +39,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin)
 
             cout << "PayRate: " << arr.at(i).payRate << endl;
             cout << "Rating: " << arr.at(i).rating << endl;
-            cout << "Phoe Number: " << arr.at(i).phone << endl;
+            cout << "Phone Number: " << arr.at(i).phone << endl;
             cout << "Joined Date: " << arr.at(i).joinDate.ToString() << endl;
             cout << "Termination Date: " <<
                 arr.at(i).terminateDate.ToString() << endl;
