@@ -5,13 +5,15 @@
 #include <iomanip>
 #include <sstream>
 
+#include "student.h"
+#include "admin.h"
 #include "date.h"
 #include "tutor.h"
 #include "subject.h"
 #include "center.h"
 #include "file2struct.h"
 
-std::vector<Tutor> fileToTutor(std::string filename) {
+std::vector<Tutor> fileToTutor(const std::string filename) {
     std::vector<Tutor> tutorV;
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
@@ -35,7 +37,7 @@ std::vector<Tutor> fileToTutor(std::string filename) {
     return tutorV;
 }
 
-std::vector<Subject> fileToSubject(std::string filename) {
+std::vector<Subject> fileToSubject(const std::string filename) {
     std::vector<Subject> subjectV;
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
@@ -52,7 +54,7 @@ std::vector<Subject> fileToSubject(std::string filename) {
     return subjectV;
 }
 
-std::vector<Center> fileToCenter(std::string filename) {
+std::vector<Center> fileToCenter(const std::string filename) {
     std::vector<Center> centerV;
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
@@ -92,6 +94,68 @@ void tutorToFile(std::vector<Tutor> &tutorV, std::string filename) {
     }
     fileHandler.close();
     
+}
+
+std::vector<Student> fileToStudent(std::string filename) {
+    std::vector<Student> studentV;
+    std::fstream fileHandler(filename, std::ios::in);
+    std::string line = "";
+    std::string delim = "|";
+
+    while (!getline(fileHandler, line).eof()) {
+        std::vector<std::string> data = splitString(line, delim);
+        Student stu;
+        stu.username = data.at(0);
+        stu.password = std::stoul(data.at(1));
+        studentV.push_back(stu);
+    }
+    fileHandler.close();
+    return studentV;
+}
+
+void studentToFile(std::vector<Student> &studentV, std::string filename) {
+    std::fstream fileHandler(filename, std::ios::out);
+    std::string delim = "|";
+    std::vector<Student>::iterator it;
+
+    for (it = studentV.begin(); it != studentV.end(); it++) {
+        Student stu = *it;
+        std::string username = stu.username;
+        std::string password = std::to_string(stu.password);
+        fileHandler << username << delim << password << '\n';
+    }
+    fileHandler.close();
+}
+
+std::vector<Admin> fileToAdmin(std::string filename) {
+    std::vector<Admin> adminV;
+    std::fstream fileHandler(filename, std::ios::in);
+    std::string line = "";
+    std::string delim = "|";
+
+    while (!getline(fileHandler, line).eof()) {
+        std::vector<std::string> data = splitString(line, delim);
+        Admin stu;
+        stu.username = data.at(0);
+        stu.password = std::stoul(data.at(1));
+        adminV.push_back(stu);
+    }
+    fileHandler.close();
+    return adminV;
+}
+
+void adminToFile(std::vector<Admin> &adminV, std::string filename) {
+    std::fstream fileHandler(filename, std::ios::out);
+    std::string delim = "|";
+    std::vector<Admin>::iterator it;
+
+    for (it = adminV.begin(); it != adminV.end(); it++) {
+        Admin stu = *it;
+        std::string username = stu.username;
+        std::string password = std::to_string(stu.password);
+        fileHandler << username << delim << password << '\n';
+    }
+    fileHandler.close();
 }
 
 std::vector<std::string> splitString(std::string str, std::string delim) {

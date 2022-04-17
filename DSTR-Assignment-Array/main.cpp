@@ -8,11 +8,11 @@
 #include "admin_menu.h"
 
 
-std::vector<Subject> _SUBJECT;
-std::vector<Center> _CENTER;
-std::string TUTOR_FILE = "./data/tutor.txt";
-std::string SUBJECT_FILE = "./data/subject.txt";
-std::string CENTER_FILE = "./data/center.txt";
+const std::string TUTOR_FILE = "./data/tutor.txt";
+const std::string SUBJECT_FILE = "./data/subject.txt";
+const std::string CENTER_FILE = "./data/center.txt";
+std::vector<Subject> _SUBJECT = fileToSubject(SUBJECT_FILE);
+std::vector<Center> _CENTER = fileToCenter(CENTER_FILE);
 
 
 
