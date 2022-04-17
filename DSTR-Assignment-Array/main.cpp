@@ -21,7 +21,10 @@ int main() {
     
     Tutor tutor = addingInterface(tutorV);
     addToBack(tutorV, tutor);
-    DisplayTutor(tutorV);
+    std::cout << tutorV.size() << '\n';
+    std::cout << tutorV.back().ID << '\n';
+    tutorToFile(tutorV, TUTOR_FILE);
+    /* DisplayTutor(tutorV); */
 
     return 0;
 }

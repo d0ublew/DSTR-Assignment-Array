@@ -32,7 +32,7 @@ Tutor addingInterface(vector<Tutor> &arr)
 		cout << "Tutor ID (TXX): ";
 		getline(cin, tutor.ID);
 		if (!isTutorIDFormatCorrect(tutor.ID)){continue;}
-		if (isTutorIDExisted(arr,tutor.ID)){continue;}
+		if (isTutorIDExisted(arr, tutor.ID)){continue;}
 		break;
 	}
 	
@@ -50,6 +50,8 @@ Tutor addingInterface(vector<Tutor> &arr)
 		break;
 	}
 
+    // clear trailing linefeed
+    while (getchar() != '\n') {}
 	tutor.rating = 0;
 	tutor.countRate = 0;
 	
