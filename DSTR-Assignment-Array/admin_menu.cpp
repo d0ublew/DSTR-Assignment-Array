@@ -26,7 +26,7 @@ void startMenu(vector<Tutor> &tutorV)
 		cout << "0) Exit" << endl;
 		string sentence = "Enter your choice: ";
 		int choice = checkIntInput(sentence);
-		if (isChoiceInMenuRange(choice, 2)) 
+		if (isChoiceInMenuRange(choice, 3)) 
 		{
 			//code here
 			switch (choice)
@@ -40,7 +40,11 @@ void startMenu(vector<Tutor> &tutorV)
 				else { continue; }
 				break;
 			case 2:
-				studentRatingMenu();
+				if (studentLogin()) { studentRatingMenu(); }
+				else { continue; }
+				break;
+			case 3:
+				registerStudent();
 				break;
 			}
 

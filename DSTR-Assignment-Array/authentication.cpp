@@ -71,13 +71,50 @@ void registerStudent()
 
 }
 
-//bool studentLogin()
-//{
-//
-//}
-
-bool adminLogin()//default admin abcd1234
+bool studentLogin()
 {
+	Student* student;
+	int chance = 3;
+	string username;
+	string password;
+	while (true)
+	{
+		if (chance == 0)
+		{
+			cout << "Too many attemp, please try again" << endl;
+			return false;
+		}
+		chance -= 1;
+		cout << "Username: ";
+		cin >> username;
+
+		cout << "Password: ";
+		cin >> password;
+
+		student = getStudentByUsername(_STUDENT, username);
+		if (student == nullptr)
+		{
+			cout << "Username not found" << endl;
+			continue;
+		}
+
+		if (password == student->password)
+		{
+			return true;
+		}
+		else
+		{
+			cout << "Invalid Password" << endl;
+			continue;
+		}
+
+	}
+
+}
+
+bool adminLogin()
+{
+	Admin* admin;
 	int chance = 3;
 	string username;
 	string password;
@@ -91,9 +128,18 @@ bool adminLogin()//default admin abcd1234
 		chance -= 1;
 		cout << "Username: ";
 		cin >> username;
+
 		cout << "Password: ";
 		cin >> password;
-		if (username == "admin" && password == "abc")
+		
+		admin = getAdminByUsername(_ADMIN, username);
+		if (admin == nullptr)
+		{
+			cout << "Username not found" << endl;
+			continue;
+		}
+		
+		if (password == admin->password)
 		{
 			return true;
 		}
