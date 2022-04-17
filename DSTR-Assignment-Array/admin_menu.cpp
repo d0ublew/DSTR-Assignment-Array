@@ -6,6 +6,7 @@
 #include "tutor.h"
 #include "file2struct.h"
 #include "add.h"
+#include "authentication.h"
 
 using namespace std;
 
@@ -54,29 +55,7 @@ void startMenu()
 	}
 	
 }
-bool adminLogin()
-{
 
-	string username;
-	string password;
-	while (true)
-	{
-		cout << "Username: ";
-		cin >> username;
-		cout << "Password: ";
-		cin >> password;
-		if (username == "admin" && password == "abc")
-		{
-			return true;
-		}
-		else
-		{
-			cout << "Invalid Password" << endl;
-			continue;
-		}
-	}
-	
-}
 void adminMainMenu()
 {
 	
