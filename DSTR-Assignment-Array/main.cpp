@@ -17,12 +17,12 @@ std::vector<Center> _CENTER = fileToCenter(CENTER_FILE);
 int main() {
     std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
     
-    Tutor tutor = addingInterface(tutorV);
-    addToBack(tutorV, tutor);
-    std::cout << tutorV.size() << '\n';
-    std::cout << tutorV.back().ID << '\n';
-    tutorToFile(tutorV, TUTOR_FILE);
-    /* DisplayTutor(tutorV); */
+    /* Tutor tutor = addingInterface(tutorV); */
+    /* addToBack(tutorV, tutor); */
+    /* std::cout << tutorV.size() << '\n'; */
+    /* std::cout << tutorV.back().ID << '\n'; */
+    /* tutorToFile(tutorV, TUTOR_FILE); */
+    DisplayTutor(tutorV);
 
     return 0;
 }
