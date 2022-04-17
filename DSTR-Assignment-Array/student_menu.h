@@ -3,4 +3,4 @@
 
 using namespace std;
 
-void studentRatingMenu();
+void studentRatingMenu(vector<Tutor> arr);

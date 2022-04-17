@@ -40,7 +40,7 @@ void startMenu(vector<Tutor> &tutorV)
 				else { continue; }
 				break;
 			case 2:
-				if (studentLogin()) { studentRatingMenu(); }
+				if (studentLogin()) { studentRatingMenu(tutorV); }
 				else { continue; }
 				break;
 			case 3:
