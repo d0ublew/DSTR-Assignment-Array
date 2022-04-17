@@ -60,6 +60,9 @@
     <ClCompile Include="student.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="center.h">
@@ -101,6 +104,9 @@
     <ClInclude Include="student.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data/center.txt">
@@ -110,6 +116,12 @@
       <Filter>Data</Filter>
     </Text>
     <Text Include="data/tutor.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="data\admin.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="data\student.txt">
       <Filter>Data</Filter>
     </Text>
   </ItemGroup>

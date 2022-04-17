@@ -22,6 +22,7 @@ void startMenu(vector<Tutor> &tutorV)
 		cout << "Who are you?" << endl;
 		cout << "1) Admin" << endl;
 		cout << "2) Student" << endl;
+		cout << "3) Student Register" << endl;
 		cout << "0) Exit" << endl;
 		string sentence = "Enter your choice: ";
 		int choice = checkIntInput(sentence);
@@ -36,6 +37,7 @@ void startMenu(vector<Tutor> &tutorV)
 
 			case 1:
 				if (adminLogin()) { adminMainMenu(tutorV); }
+				else { continue; }
 				break;
 			case 2:
 				studentRatingMenu();
@@ -62,10 +64,11 @@ void adminMainMenu(vector<Tutor> &tutorV)
 		cout << "4) Search Tutor" << endl;
 		cout << "5) Modify Tutor" << endl;
 		cout << "6) Termination or Delete Tutor" << endl;
+		cout << "7) Register New Admin" << endl;
 		cout << "0) Logout" << endl;
 		string sentence = "Enter your choice: ";
 		int choice = checkIntInput(sentence);
-		if (isChoiceInMenuRange(choice, 6))
+		if (isChoiceInMenuRange(choice, 7))
 		{
 			switch (choice)
 			{
@@ -91,6 +94,10 @@ void adminMainMenu(vector<Tutor> &tutorV)
 				break;
 			case 6:
 				deleteMenu(tutorV);
+				break;
+
+			case 7:
+				registerAdmin();
 				break;
 			}
 			

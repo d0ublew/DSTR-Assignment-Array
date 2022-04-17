@@ -7,6 +7,8 @@
 #include <limits>
 #include <string>
 #include "date.h"
+#include "admin.h"
+#include "student.h"
 
 
 
@@ -49,6 +51,23 @@ bool isSubjectExisted(Subject* s)
 	return false;
 }
 
+bool isAdminUsernameExisted(vector<Admin>& arr, string username)
+{
+	Admin* t = getAdminByUsername(arr,username);
+	if (t == nullptr) return false;
+	if (username != t->username) return false;
+	cout << "Admin Username already existed, please enter again" << endl;
+	return true;
+}
+
+bool isStudentUsernameExisted(vector<Student>& arr, string username)
+{
+	Student* t = getStudentByUsername(arr, username);
+	if (t == nullptr) return false;
+	if (username != t->username) return false;
+	cout << "Student Username already existed, please enter again" << endl;
+	return true;
+}
 bool isDateFormatValid(string d)
 {
 	//dd/mm/yyyy
@@ -221,5 +240,14 @@ bool isChoiceInMenuRange(int choice, int end)
 	if (choice >= 0 && choice <= end) { return true; }
 	cout << "Invalid Choice" << endl;
     Enter();
+	return false;
+}
+
+bool isSpaceExisted(string s)
+{
+	if (s.find(' ') != string::npos)
+	{
+		return true;
+	}
 	return false;
 }

@@ -2,6 +2,10 @@
 #define ADMIN_H_INCLUDED
 
 #include <string>
+#include <vector>
+
+using namespace std;
+
 
 struct Admin {
     std::string username;
@@ -10,4 +14,5 @@ struct Admin {
     Admin(std::string paramUsername, std::string paramPassword);
 };
 
+Admin* getAdminByUsername(std::vector<Admin>& adminV, std::string username);
 #endif
