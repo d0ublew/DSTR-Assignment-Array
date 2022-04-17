@@ -15,11 +15,9 @@ const std::string CENTER_FILE = "./data/center.txt";
 std::vector<Subject> _SUBJECT = fileToSubject(SUBJECT_FILE);
 std::vector<Center> _CENTER = fileToCenter(CENTER_FILE);
 
-
-
 int main() {
     std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
-    startMenu();
+    startMenu(tutorV);
     
     
     /* Tutor tutor = addingInterface(tutorV); */
@@ -31,4 +29,3 @@ int main() {
 
     return 0;
 }
-

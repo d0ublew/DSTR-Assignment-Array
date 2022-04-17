@@ -11,11 +11,12 @@
 
 using namespace std;
 
-void startMenu()
+void startMenu(vector<Tutor> &tutorV)
 {
 	
 	while (true)
 	{
+        clearScreen();
 		cout << "Welcome to eXcel Tuition Centre" << endl;
 		cout << "Who are you?" << endl;
 		cout << "1) Admin" << endl;
@@ -33,7 +34,7 @@ void startMenu()
 				return;
 
 			case 1:
-				if (adminLogin()) { adminMainMenu(); }
+				if (adminLogin()) { adminMainMenu(tutorV); }
 				break;
 			case 2:
 				studentRatingMenu();
@@ -67,12 +68,12 @@ bool adminLogin()
 	}
 	
 }
-void adminMainMenu()
+void adminMainMenu(vector<Tutor> &tutorV)
 {
 	
 	while (true)
 	{
-		std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
+        clearScreen();
 		cout << "Welcome back admin, please select a function" << endl;
 		cout << "1) Add Tutor" << endl;
 		cout << "2) Display Tutor" << endl;
@@ -91,7 +92,7 @@ void adminMainMenu()
 				return;
 				
 			case 1:
-				addMenu();
+				addMenu(tutorV);
 				break;
 			case 2:
 				DisplayTutor(tutorV);
@@ -100,7 +101,7 @@ void adminMainMenu()
 				sortMenu(tutorV);
 				break;
 			case 4:
-				searchMenu();
+				searchMenu(tutorV);
 				break;
 			case 5:
 				//Modify method call here
@@ -108,7 +109,7 @@ void adminMainMenu()
 				cout << "No yet impemented modify" << endl;
 				break;
 			case 6:
-				deleteMenu();
+				deleteMenu(tutorV);
 				break;
 			}
 			
@@ -118,12 +119,12 @@ void adminMainMenu()
 }
 
 
-void addMenu()
+void addMenu(vector<Tutor> &tutorV)
 {
 	
 	while (true)
 	{
-		std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
+        clearScreen();
 		Tutor tutor;
 		cout << "Where you want to add?" << endl;
 		cout << "1) Add to First" << endl;
@@ -144,14 +145,14 @@ void addMenu()
 				tutor = addingInterface(tutorV);
 				addToFront(tutorV, tutor);
 				tutorToFile(tutorV, TUTOR_FILE);
-				cout << "Tutor Added to Front Succesfully!";
+				cout << "Tutor Added to Front Succesfully!\n";
 				break;
 			case 2:
 				//code here
 				tutor = addingInterface(tutorV);
 				addToBack(tutorV, tutor);
 				tutorToFile(tutorV, TUTOR_FILE);
-				cout << "Tutor Added to Back Succesfully!";
+				cout << "Tutor Added to Back Succesfully!\n";
 				break;
 			}
 			
@@ -164,6 +165,7 @@ void sortMenu(std::vector<Tutor> &tutorV)
 {
 	while (true)
 	{
+        clearScreen();
 		cout << "How do you want to sort?" << endl;
 		cout << "1) Sort by Tutors ID" << endl;
 		cout << "2) Sort by Pay Rate " << endl;
@@ -206,7 +208,7 @@ void sortMenu(std::vector<Tutor> &tutorV)
 	
 }
 
-void searchMenu()
+void searchMenu(vector<Tutor> &tutorV)
 {
 	while (true)
 	{
@@ -224,7 +226,7 @@ void searchMenu()
 	
 }
 
-void deleteMenu()
+void deleteMenu(vector<Tutor> &tutorV)
 {
 	while (true)
 	{
@@ -242,8 +244,6 @@ void deleteMenu()
 	
 }
 
-
-
-
-
-
+void clearScreen() {
+    system("cls || clear");
+}

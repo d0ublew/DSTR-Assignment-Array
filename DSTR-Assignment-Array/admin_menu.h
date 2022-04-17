@@ -6,10 +6,11 @@
 
 using namespace std;
 extern const std::string TUTOR_FILE;
-void startMenu();
+void startMenu(std::vector<Tutor> &tutorV);
 bool adminLogin();
-void adminMainMenu();
-void addMenu();
+void adminMainMenu(std::vector<Tutor> &tutorV);
+void addMenu(std::vector<Tutor> &tutorV);
 void sortMenu(std::vector<Tutor> &);
-void searchMenu();
-void deleteMenu();
+void searchMenu(std::vector<Tutor> &tutorV);
+void deleteMenu(std::vector<Tutor> &tutorV);
+void clearScreen();
