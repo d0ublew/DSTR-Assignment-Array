@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="add.cpp" />
+    <ClCompile Include="admin.cpp" />
     <ClCompile Include="admin_menu.cpp" />
     <ClCompile Include="authentication.cpp" />
     <ClCompile Include="center.cpp" />
@@ -27,6 +28,7 @@
     <ClCompile Include="display.cpp" />
     <ClCompile Include="file2struct.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="student.cpp" />
     <ClCompile Include="student_menu.cpp" />
     <ClCompile Include="subject.cpp" />
     <ClCompile Include="tutor.cpp" />
@@ -34,12 +36,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="add.h" />
+    <ClInclude Include="admin.h" />
     <ClInclude Include="admin_menu.h" />
     <ClInclude Include="authentication.h" />
     <ClInclude Include="center.h" />
     <ClInclude Include="date.h" />
     <ClInclude Include="display.h" />
     <ClInclude Include="file2struct.h" />
+    <ClInclude Include="student.h" />
     <ClInclude Include="student_menu.h" />
     <ClInclude Include="subject.h" />
     <ClInclude Include="tutor.h" />
