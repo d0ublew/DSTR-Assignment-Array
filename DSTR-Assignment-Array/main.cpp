@@ -29,15 +29,6 @@ int main() {
     /* tutorToFile(tutorV, TUTOR_FILE); */
     /* DisplayTutor(tutorV); */
 
-    Node n;
-    n.tutor = &tutorV.at(0);
-
-    std::cout << n.tutor << '\n';
-    std::cout << &(tutorV.at(0)) << '\n';
-
-    Node a = *new Node(tutorV.at(0));
-    std::cout << a.tutor << '\n';
-
     return 0;
 }
 

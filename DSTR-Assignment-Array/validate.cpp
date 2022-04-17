@@ -24,7 +24,7 @@ bool isTutorIDExisted(vector<Tutor> &arr, string ID) //checkExistingTutorID exis
 bool isTutorIDFormatCorrect(string ID) //check tutorID format
 {
 	
-	if (ID[0] == 'T' && (ID[1] >= '0' && ID[1] <= '9') &&
+	if (ID.length() == 3 && ID[0] == 'T' && (ID[1] >= '0' && ID[1] <= '9') &&
             (ID[2] >= '0' && ID[2] <= '9'))
 	{
 		return true;

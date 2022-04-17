@@ -39,7 +39,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin)
 
             cout << "PayRate: " << arr.at(i).payRate << endl;
             cout << "Rating: " << arr.at(i).rating << endl;
-            cout << "Phoe Number: " << arr.at(i).phone << endl;
+            cout << "Phone Number: " << arr.at(i).phone << endl;
             cout << "Joined Date: " << arr.at(i).joinDate.ToString() << endl;
             cout << "Termination Date: " <<
                 arr.at(i).terminateDate.ToString() << endl;

@@ -1,25 +1,15 @@
 #include <iostream>
 #include <string>
+#include "admin_menu.h"
 #include "validate.h"
 #include "student_menu.h"
 #include "display.h"
 #include "tutor.h"
 #include "file2struct.h"
 #include "add.h"
+#include "sort.h"
 
 using namespace std;
-
-void startMenu();
-void adminMainMenu();
-bool adminLogin();
-void addMenu();
-void sortMenu();
-void searchMenu();
-void deleteMenu();
-
-
-
-
 
 void startMenu()
 {
@@ -107,7 +97,7 @@ void adminMainMenu()
 				DisplayTutor(tutorV);
 				break;
 			case 3:
-				sortMenu();
+				sortMenu(tutorV);
 				break;
 			case 4:
 				searchMenu();
@@ -170,7 +160,7 @@ void addMenu()
 	
 }
 
-void sortMenu()
+void sortMenu(std::vector<Tutor> &tutorV)
 {
 	while (true)
 	{
@@ -183,7 +173,34 @@ void sortMenu()
 		int choice = checkIntInput(sentence);
 		if (isChoiceInMenuRange(choice, 3))
 		{
-			//code here
+            int (*CompareFn)(Tutor &, Tutor &);
+            switch (choice) {
+                case 1:
+                    CompareFn = &CompareTutorID;
+                    break;
+                case 2:
+                    CompareFn = &CompareTutorPay;
+                    break;
+                case 3:
+                    CompareFn = &CompareTutorRating;
+                    break;
+                case 0:
+                    return;
+            }
+            while (true) {
+                cout << "Sort in:\n";
+                cout << "1) Ascending order\n";
+                cout << "2) Descending order\n";
+                cout << "0) Back\n";
+                int option = checkIntInput("Enter your choice: ");
+                if (option == 0) break;
+
+                char order = 'a';
+                if (option == 2) order = 'd';
+                std::vector<Tutor> sortedTutorV =
+                    sortTutor(tutorV, (*CompareFn), order);
+                DisplayTutor(sortedTutorV);
+            }
 		}
 	}
 	
