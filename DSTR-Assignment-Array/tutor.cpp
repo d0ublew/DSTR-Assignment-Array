@@ -20,7 +20,7 @@ Tutor::Tutor() {
 Tutor::~Tutor() {
 }
 
-Tutor* getTutorByID(std::vector<Tutor>& tutorV, std::string ID) {
+Tutor* getTutorByID(std::vector<Tutor> &tutorV, std::string ID) {
     std::vector<Tutor>::iterator it;
 
     for (it = tutorV.begin(); it != tutorV.end(); it++) {

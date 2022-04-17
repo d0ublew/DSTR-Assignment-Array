@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <string>
 #include "add.h"
 #include "tutor.h"
 #include "subject.h"
@@ -9,7 +10,10 @@
 #include "display.h"
 using namespace std;
 
-Tutor addingInterface(vector<Tutor> arr)
+vector<Subject> _SUBJECT;
+vector<Center> _CENTER;
+
+Tutor addingInterface(vector<Tutor> &arr)
 {
 	string date;
 	/*std::string ID;
@@ -29,14 +33,16 @@ Tutor addingInterface(vector<Tutor> arr)
 	{
 		
 		cout << "Tutor ID (TXX): ";
-		cin >> tutor.ID;
+		getline(cin, tutor.ID);
 		if (!isTutorIDFormatCorrect(tutor.ID)){continue;}
 		if (isTutorIDExisted(arr,tutor.ID)){continue;}
 		break;
 	}
 	
 	cout << "Tutor Name: ";
-	cin >> tutor.name;
+
+    // use getline to get name with spaces
+    getline(cin, tutor.name);
 
 	
 	while (true)
@@ -53,7 +59,7 @@ Tutor addingInterface(vector<Tutor> arr)
 	while (true)
 	{
 		cout << "Phone Number(10~11 digits): ";
-		cin >> tutor.phone;
+		getline(cin, tutor.phone);
 		
 		if (!isPhoneFormatValid(tutor.phone)) { continue; }
 		break;
@@ -63,7 +69,7 @@ Tutor addingInterface(vector<Tutor> arr)
 	{
 		
 		cout << "Join Date (dd/MM/yyyy): ";
-		cin >> date;
+		getline(cin, date);
 		
 		if (!isDateFormatValid(date)) { continue; }
 		tutor.joinDate = date;
@@ -73,22 +79,25 @@ Tutor addingInterface(vector<Tutor> arr)
 
 	while (true)
 	{
+        string ID;
 		cout << "Please choose Center ID from list below" << endl;
 		DisplayCenter();
 		cout << "Center ID: ";
-		cin >> tutor.center->ID;
-		if (!(isCenterIDExisted(tutor.center->ID))) { continue; }
+        getline(cin, ID);
+        tutor.center = getCenterByID(_CENTER, ID);
+		if (!(isCenterExisted(tutor.center))) { continue; }
 		break;
 	}
 
 	while (true)
 	{
+        string ID;
 		cout << "Please choose Subject ID from list below " << endl;
 		DisplaySubject();
 		cout << "Subject ID: ";
-		cin >> tutor.subject->ID;
-		
-		if (!(isSubjectIDExisted(tutor.subject->ID))) { continue; }
+		getline(cin, ID);
+        tutor.subject = getSubjectByID(_SUBJECT, ID);
+		if (!(isSubjectExisted(tutor.subject))) { continue; }
 		break;
 	}
 
@@ -96,12 +105,12 @@ Tutor addingInterface(vector<Tutor> arr)
 	
 }
 
-void addToBack(vector<Tutor> arr, Tutor tutor)
+void addToBack(vector<Tutor> &arr, Tutor tutor)
 {
 	arr.push_back(tutor);
 }
 
-void addToFront(vector<Tutor> arr, Tutor tutor)
+void addToFront(vector<Tutor> &arr, Tutor tutor)
 {
 	arr.insert(arr.begin(), tutor);
 }

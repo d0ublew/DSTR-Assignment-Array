@@ -11,7 +11,7 @@
 using namespace std;
 
 
-void DisplayTutor(vector<Tutor> arr, bool isAdmin) 
+void DisplayTutor(vector<Tutor> &arr, bool isAdmin) 
 {
     size_t size = arr.size();
     size_t step = 5;
@@ -81,7 +81,7 @@ void DisplaySubject()
     vector<Subject> arr = _SUBJECT;
     size_t size = arr.size();
     cout << "List of Subject's Information" << endl;
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
         cout << "SubjectID: " << arr[i].ID << endl;
         cout << "Subject Name: " << arr[i].name << endl;
@@ -93,7 +93,7 @@ void DisplayCenter()
     vector<Center> arr = _CENTER;
     size_t size = arr.size();
     cout << "List of Center's Information" << endl;
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
         cout << "CenterID: " << arr[i].ID << endl;
         cout << "Center Name: " << arr[i].name << endl;

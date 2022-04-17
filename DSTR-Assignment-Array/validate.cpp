@@ -12,27 +12,20 @@
 
 using namespace std;
 
-bool isTutorIDExisted(vector<Tutor> arr, string ID) //checkExistingTutorID existed or not
+bool isTutorIDExisted(vector<Tutor> &arr, string ID) //checkExistingTutorID existed or not
 {
-	if (getTutorByID(arr, ID) != nullptr)
-	{
-		if (ID == getTutorByID(arr, ID)->ID)
-		{
-			cout << "Tutor ID already existed, please enter again" << endl;
-			return true;
-		}
-
-		
-	}
-	return false;
-	
-	
+    Tutor* t = getTutorByID(arr, ID);
+	if (t == nullptr) return false;
+    if (ID != t->ID) return false;
+    cout << "Tutor ID already existed, please enter again" << endl;
+    return true;
 }
 
 bool isTutorIDFormatCorrect(string ID) //check tutorID format
 {
 	
-	if (ID[0] == 'T' && (ID[1] >= '0' && ID[1] <= '9') && (ID[2] >= '0' && ID[2] <= '9'))
+	if (ID[0] == 'T' && (ID[1] >= '0' && ID[1] <= '9') &&
+            (ID[2] >= '0' && ID[2] <= '9'))
 	{
 		return true;
 	}
@@ -40,33 +33,19 @@ bool isTutorIDFormatCorrect(string ID) //check tutorID format
 	return false;
 }
 
-bool isCenterIDExisted(string ID)
+bool isCenterExisted(Center* c)
 {
-	vector<Center> arr = _CENTER;
-	if (getCenterByID(arr, ID) != nullptr)
-	{
-		if (ID == getCenterByID(arr, ID)->ID)
-		{
-			return true;
-		}
-		cout << "Center ID is not valid, please enter again" << endl;
-	}
-	
+	/* vector<Center> arr = _CENTER; */
+    if (c != nullptr) return true;
+    cout << "Center ID is not valid, please enter again" << endl;
 	return false;
 }
 
-bool isSubjectIDExisted(string ID)
+bool isSubjectExisted(Subject* s)
 {
-	vector<Subject> arr = _SUBJECT;
-	if (getSubjectByID(arr, ID) != nullptr)
-	{
-		if (ID == getSubjectByID(arr, ID)->ID)
-		{
-			return true;
-		}
-		cout << "Subject ID is not valid, please enter again" << endl;
-	}
-	
+	/* vector<Subject> arr = _SUBJECT; */
+    if (s != nullptr) return true;
+    cout << "Subject ID is not valid, please enter again" << endl;
 	return false;
 }
 
@@ -216,7 +195,11 @@ bool isRatingRateRangeValid(float rate)
 	return false;
 }
 
-int checkIntInput(string sentence) // To verify input type, if its not integer it will ask the user to input again //PLEASE USE THIS CODE TO VERIFY INTEGER INPUT
+/**
+ * To verify input type, if its not integer it will ask the user to input again
+ * PLEASE USE THIS CODE TO VERIFY INTEGER INPUT
+ */
+int checkIntInput(string sentence)
 {
 
 	int input;
