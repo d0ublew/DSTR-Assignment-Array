@@ -202,6 +202,7 @@ void sortMenu(std::vector<Tutor> &tutorV)
                 std::vector<Tutor> sortedTutorV =
                     sortTutor(tutorV, (*CompareFn), order);
                 DisplayTutor(sortedTutorV);
+                clearScreen();
             }
 		}
 	}
