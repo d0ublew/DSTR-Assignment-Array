@@ -4,13 +4,12 @@
 
 Admin::Admin() {
     username = "";
-    password = 0;
+    password = "";
 }
 
 Admin::Admin(std::string paramUsername, std::string paramPassword) {
-    std::hash<std::string> h;
     username = paramUsername;
-    password = h(paramPassword);
+    password = paramPassword;
 }
 
 Admin* getAdminByUsername(std::vector<Admin>& adminV, std::string username) {
