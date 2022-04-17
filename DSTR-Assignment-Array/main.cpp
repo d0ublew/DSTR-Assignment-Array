@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+#include "sort.h"
 #include "tutor.h"
 #include "file2struct.h"
 #include "display.h"
@@ -22,7 +23,16 @@ int main() {
     /* std::cout << tutorV.size() << '\n'; */
     /* std::cout << tutorV.back().ID << '\n'; */
     /* tutorToFile(tutorV, TUTOR_FILE); */
-    DisplayTutor(tutorV);
+    /* DisplayTutor(tutorV); */
+
+    Node n;
+    n.tutor = &tutorV.at(0);
+
+    std::cout << n.tutor << '\n';
+    std::cout << &(tutorV.at(0)) << '\n';
+
+    Node a = *new Node(tutorV.at(0));
+    std::cout << a.tutor << '\n';
 
     return 0;
 }
