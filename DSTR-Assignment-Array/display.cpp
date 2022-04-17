@@ -25,7 +25,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin)
 
     while (true)
     {
-        system("cls");
+        system("cls || clear");
         for (size_t i = start; i < end && i < size; i++)
         {
             cout << "TutorID: " << arr.at(i).ID << endl;
