@@ -123,7 +123,7 @@ void studentToFile(std::vector<Student> &studentV, std::string filename) {
     for (it = studentV.begin(); it != studentV.end(); it++) {
         Student stu = *it;
         std::string username = stu.username;
-        std::string password = std::to_string(stu.password);
+        std::string password = stu.password;
         fileHandler << username << delim << password << '\n';
     }
     fileHandler.close();
@@ -152,9 +152,9 @@ void adminToFile(std::vector<Admin> &adminV, std::string filename) {
     std::vector<Admin>::iterator it;
 
     for (it = adminV.begin(); it != adminV.end(); it++) {
-        Admin stu = *it;
-        std::string username = stu.username;
-        std::string password = std::to_string(stu.password);
+        Admin adm = *it;
+        std::string username = adm.username;
+        std::string password = adm.password;
         fileHandler << username << delim << password << '\n';
     }
     fileHandler.close();

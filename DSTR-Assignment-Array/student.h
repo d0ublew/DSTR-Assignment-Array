@@ -8,7 +8,7 @@ using namespace std;
 
 struct Student {
     std::string username;
-    size_t password;
+    std::string password;
     Student();
     Student(std::string paramUsername, std::string paramPassword);
 };

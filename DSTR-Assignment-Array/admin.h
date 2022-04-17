@@ -9,7 +9,7 @@ using namespace std;
 
 struct Admin {
     std::string username;
-    size_t password;
+    std::string password;
     Admin();
     Admin(std::string paramUsername, std::string paramPassword);
 };

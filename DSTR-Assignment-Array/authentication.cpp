@@ -33,7 +33,7 @@ void registerAdmin()
 			cout << "Password cannot including space" << endl;
 			continue;
 		}
-		admin.password = h(password);
+		admin.password = password;
 		_ADMIN.push_back(admin);
 		cout << "Register Succesful"<<endl;
 		adminToFile(_ADMIN,ADMIN_FILE);
@@ -61,7 +61,7 @@ void registerStudent()
 			cout << "Password cannot including space" << endl;
 			continue;
 		}
-		student.password = h(password);
+		student.password = password;
 		_STUDENT.push_back(student);
 		cout << "Register Succesful" << endl;
 		studentToFile(_STUDENT, STUDENT_FILE);
