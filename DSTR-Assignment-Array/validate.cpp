@@ -77,6 +77,12 @@ bool isDateFormatValid(string d)
 
 	Date date(d);
 	int numOfDay;
+
+	if (!(date.year >= 1900 && date.year <= 9999))
+	{
+		cout << "Invalid Year" << endl;
+		return false;
+	}
 	
 	if (!(date.month > 0 && date.month <= 12))
 	{
@@ -84,66 +90,33 @@ bool isDateFormatValid(string d)
 		return false;
 	}
 
-	if (!(date.year >= 1900 && date.year <= 9999))
-	{
-		cout << "Invalid Year" << endl;
-		return false;
-	}
-
-	if (date.month == 1 )
-	{
-		numOfDay = 31;
-	}
-	else if (date.month == 2)
-	{
-		if (date.year % 4 == 0) {
+    if (date.month == 2) {
+        numOfDay = 28;
+		if (isLeap(date.year)) {
 			numOfDay = 29;
 		}
-		else
-		{
-			numOfDay = 28;
-		}
-	}
-	else if (date.month == 3)
-	{
-		numOfDay = 31;
-	}
-	else if (date.month == 4)
-	{
-		numOfDay = 30;
-	}
-	else if (date.month == 5)
-	{
-		numOfDay = 31;
-	}
-	else if (date.month == 6)
-	{
-		numOfDay = 30;
-	}
-	else if (date.month == 7)
-	{
-		numOfDay = 31;
-	}
-	else if (date.month == 8)
-	{
-		numOfDay = 31;
-	}
-	else if (date.month == 9)
-	{
-		numOfDay = 30;
-	}
-	else if (date.month == 10)
-	{
-		numOfDay = 31;
-	}
-	else if (date.month == 11)
-	{
-		numOfDay = 30;
-	}
-	else if (date.month == 12)
-	{
-		numOfDay = 31;
-	}
+    }
+    else if (
+            date.month == 1 ||
+            date.month == 3 ||
+            date.month == 5 ||
+            date.month == 7 ||
+            date.month == 8 ||
+            date.month == 10 ||
+            date.month == 12
+            ) {
+        numOfDay = 31;
+    }
+    else if (
+            date.month == 4 ||
+            date.month == 6 ||
+            date.month == 9 ||
+            date.month == 11
+            )
+        numOfDay = 30;
+    else {
+        numOfDay = 0;
+    }
 
 	if (!(date.day > 0 && date.day <= numOfDay))
 	{
@@ -213,3 +186,8 @@ int checkIntInput(string sentence)
 }
 
 
+bool isLeap(int year) {
+    if (year % 4 != 0 ||
+            (year % 400 != 0 && year % 100 == 0)) return false;
+    return true;
+}

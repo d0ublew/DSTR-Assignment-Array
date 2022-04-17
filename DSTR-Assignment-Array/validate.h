@@ -21,4 +21,4 @@ bool isPhoneFormatValid(string phone);
 bool isPayRateRangeValid(float payRate);
 bool isRatingRateRangeValid(float rate);
 int checkIntInput(string sentence);
-
+bool isLeap(int);
