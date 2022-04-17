@@ -141,6 +141,10 @@ BinaryTree::BinaryTree(std::vector<Tutor> &v,
 }
 
 std::vector<Tutor> BinaryTree::BTToSortedArr() {
+    /**
+     * Binary tree iterative inorder traversal with the help of stack to keep
+     * track of traversed node
+     */
     std::vector<Tutor> sortedTutorV;
     std::stack<Node*> nodeStack;
     Node* treeNodePtr = root;
@@ -153,6 +157,10 @@ std::vector<Tutor> BinaryTree::BTToSortedArr() {
             treeNodePtr = nodeStack.top();
             sortedTutorV.push_back(*(treeNodePtr->tutor));
             nodeStack.pop();
+            /**
+             * Save the node address which data has been added to the array to
+             * be deallocated
+             */
             Node* tmp = treeNodePtr;
             treeNodePtr = treeNodePtr->next;
             delete tmp;

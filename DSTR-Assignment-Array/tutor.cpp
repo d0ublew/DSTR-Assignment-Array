@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 #include "tutor.h"
 #include "date.h"
 #include "center.h"
@@ -20,6 +21,14 @@ Tutor::Tutor() {
 Tutor::~Tutor() {
 }
 
+/**
+ * @brief Function to retrieve Tutor pointer with matched ID
+ *
+ * @param tutorV specify the vector to be looked at
+ * @param ID specify the inquired ID
+ *
+ * @return nullptr if no match ID, otherwise return the pointer
+ */
 Tutor* getTutorByID(std::vector<Tutor> &tutorV, std::string ID) {
     std::vector<Tutor>::iterator it;
 

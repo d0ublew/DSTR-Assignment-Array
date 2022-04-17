@@ -68,7 +68,7 @@ Tutor addingInterface(vector<Tutor> &arr)
 		cout << "Join Date (dd/MM/yyyy): ";
 		getline(cin, date);
 		
-		if (!isDateFormatValid(date)) { continue; }
+		if (!isDateValid(date)) { continue; }
 		tutor.joinDate = date;
 		break;
 	}

@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+
 #include "tutor.h"
 #include "subject.h"
 #include "center.h"
@@ -8,93 +9,89 @@
 #include <string>
 #include "date.h"
 
-
-
-using namespace std;
-
-bool isTutorIDExisted(vector<Tutor> &arr, string ID) //checkExistingTutorID existed or not
+bool isTutorIDExisted(std::vector<Tutor> &arr, std::string ID)
 {
     Tutor* t = getTutorByID(arr, ID);
-	if (t == nullptr) return false;
+    if (t == nullptr) return false;
     if (ID != t->ID) return false;
-    cout << "Tutor ID already existed, please enter again" << endl;
+    std::cout << "Tutor ID already existed, please enter again\n";
     return true;
 }
 
-bool isTutorIDFormatCorrect(string ID) //check tutorID format
+bool isTutorIDFormatCorrect(std::string ID)
 {
-	
-	if (ID.length() == 3 && ID[0] == 'T' && (ID[1] >= '0' && ID[1] <= '9') &&
+    
+    if (ID.length() == 3 && ID[0] == 'T' && (ID[1] >= '0' && ID[1] <= '9') &&
             (ID[2] >= '0' && ID[2] <= '9'))
-	{
-		return true;
-	}
-	cout << "TutorID Format is wrong please insert as \"TXX\" " << endl;
-	return false;
+    {
+        return true;
+    }
+    std::cout << "TutorID Format is wrong please insert as \"TXX\" \n";
+    return false;
 }
 
 bool isCenterExisted(Center* c)
 {
-	/* vector<Center> arr = _CENTER; */
+    /* vector<Center> arr = _CENTER; */
     if (c != nullptr) return true;
-    cout << "Center ID is not valid, please enter again" << endl;
-	return false;
+    std::cout << "Center ID is not valid, please enter again\n";
+    return false;
 }
 
 bool isSubjectExisted(Subject* s)
 {
-	/* vector<Subject> arr = _SUBJECT; */
+    /* vector<Subject> arr = _SUBJECT; */
     if (s != nullptr) return true;
-    cout << "Subject ID is not valid, please enter again" << endl;
-	return false;
+    std::cout << "Subject ID is not valid, please enter again\n";
+    return false;
 }
 
-bool isDateFormatValid(string d)
+bool isDateValid(std::string d)
 {
-	//dd/mm/yyyy
-	if (!(d.length() == 10))
-	{
-		cout << "Invalid format please use (dd/MM/yyyy)" << endl;
-		return false;
-	}
-	if (!(d[2] == '/' && d[5] == '/'))
-	{
-		cout << "Invalid Date format please use (dd/MM/yyyy)" << endl;
-		return false;
-	}
-	for (int i = 0; i < 10; i++)
-	{
-		if (i == 2 || i == 5)
-		{
-			continue;
-		}
-		if (!(d[i] >= '0' && d[i] <= '9'))
-		{
-			cout << "Invalid Date format please use (dd/MM/yyyy)" << endl;
-			return false;
-		}
-	}
+    //dd/mm/yyyy
+    if (!(d.length() == 10))
+    {
+        std::cout << "Invalid format please use (dd/MM/yyyy)\n";
+        return false;
+    }
+    if (!(d[2] == '/' && d[5] == '/'))
+    {
+        std::cout << "Invalid Date format please use (dd/MM/yyyy)\n";
+        return false;
+    }
+    for (int i = 0; i < 10; i++)
+    {
+        if (i == 2 || i == 5)
+        {
+            continue;
+        }
+        if (!(d[i] >= '0' && d[i] <= '9'))
+        {
+            std::cout << "Invalid Date format please use (dd/MM/yyyy)\n";
+            return false;
+        }
+    }
 
-	Date date(d);
-	int numOfDay;
+    Date date(d);
+    int numOfDay;
 
-	if (!(date.year >= 1900 && date.year <= 9999))
-	{
-		cout << "Invalid Year" << endl;
-		return false;
-	}
-	
-	if (!(date.month > 0 && date.month <= 12))
-	{
-		cout << "Invalid Month (01~12)" << endl;
-		return false;
-	}
+    if (!(date.year >= 1900 && date.year <= 9999))
+    {
+        std::cout << "Invalid Year\n";
+        return false;
+    }
+    
+    if (!(date.month > 0 && date.month <= 12))
+    {
+        std::cout << "Invalid Month (01~12)\n";
+        return false;
+    }
 
     if (date.month == 2) {
         numOfDay = 28;
-		if (isLeap(date.year)) {
-			numOfDay = 29;
-		}
+        if (isLeap(date.year)) {
+            numOfDay = 29;
+        }
     }
     else if (
             date.month == 1 ||
@@ -118,86 +115,86 @@ bool isDateFormatValid(string d)
         numOfDay = 0;
     }
 
-	if (!(date.day > 0 && date.day <= numOfDay))
-	{
-		cout << "Invalid Day" << endl;
-		return false;
-	}
-	return true;
+    if (!(date.day > 0 && date.day <= numOfDay))
+    {
+        std::cout << "Invalid Day\n";
+        return false;
+    }
+    return true;
 }
 
-bool isPhoneFormatValid(string p)
+bool isPhoneFormatValid(std::string p)
 {
-	if (!(p.length() >= 10 && p.length() <= 11))
-	{
-		cout << "Invalid Phone Number Length" << endl;
-		return false;
-	}
+    if (!(p.length() >= 10 && p.length() <= 11))
+    {
+        std::cout << "Invalid Phone Number Length\n";
+        return false;
+    }
 
-	for (size_t i = 0; i < p.length(); i++)
-	{
-		if (!(p[i] >= '0' && p[i] <= '9'))
-		{
-			cout << "Invalid phone number" << endl;
-			return false;
-		}
-	}
-	return true;
+    for (size_t i = 0; i < p.length(); i++)
+    {
+        if (!(p[i] >= '0' && p[i] <= '9'))
+        {
+            std::cout << "Invalid phone number\n";
+            return false;
+        }
+    }
+    return true;
 
 }
 
 bool isPayRateRangeValid(float payRate)
 {
-	if (payRate >= 40 && payRate <= 80)
-	{
-		return true;
-	}
-	cout << "Invalid PayRate Range please insert between 40 to 80" << endl;
-	return false;
+    if (payRate >= 40 && payRate <= 80)
+    {
+        return true;
+    }
+    std::cout << "Invalid PayRate Range please insert between 40 to 80\n";
+    return false;
 }
 
 
 
 bool isRatingRateRangeValid(float rate)
 {
-	if (rate >= 1 && rate <= 5)
-	{
-		return true;
-	}
-	cout << "Invalid rating Range please insert between 1 to 5" << endl;
-	return false;
+    if (rate >= 1 && rate <= 5)
+    {
+        return true;
+    }
+    std::cout << "Invalid rating Range please insert between 1 to 5\n";
+    return false;
 }
 
 /**
  * To verify input type, if its not integer it will ask the user to input again
  * PLEASE USE THIS CODE TO VERIFY INTEGER INPUT
  */
-int checkIntInput(string sentence)
+int checkIntInput(std::string sentence)
 {
 
-	int input;
-	while (std::cout << sentence && !(std::cin >> input)) {
-		std::cin.clear(); //clear bad input flag
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
-		std::cout << "Invalid input, number only, please re-enter.\n";
-	}
+    int input;
+    while (std::cout << sentence && !(std::cin >> input)) {
+        std::cin.clear(); //clear bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        std::cout << "Invalid input, number only, please re-enter.\n";
+    }
     clearInputBuffer();
 
-	return input;
+    return input;
 }
 
-float checkFloatInput(string sentence)
+float checkFloatInput(std::string sentence)
 {
 
-	float input;
-	while (std::cout << sentence && !(std::cin >> input)) {
-		std::cin.clear(); //clear bad input flag
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
-		std::cout << "Invalid input, number only, please re-enter.\n";
-	}
+    float input;
+    while (std::cout << sentence && !(std::cin >> input)) {
+        std::cin.clear(); //clear bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        std::cout << "Invalid input, number only, please re-enter.\n";
+    }
     clearInputBuffer();
 
-	return input;
+    return input;
 }
 
 void clearInputBuffer() {
@@ -218,8 +215,8 @@ bool isLeap(int year) {
 
 bool isChoiceInMenuRange(int choice, int end)
 {
-	if (choice >= 0 && choice <= end) { return true; }
-	cout << "Invalid Choice" << endl;
+    if (choice >= 0 && choice <= end) { return true; }
+    std::cout << "Invalid Choice\n";
     Enter();
-	return false;
+    return false;
 }

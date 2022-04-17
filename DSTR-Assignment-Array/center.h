@@ -9,6 +9,14 @@ struct Center {
     std::string ID;
 };
 
-Center* getCenterByID(std::vector<Center> &, std::string ID);
+/**
+ * @brief Function to retrieve pointer to Center object with matching ID
+ *
+ * @param centerV specifies the array of Center object to be checked
+ * @param ID specifies the string to be matched
+ *
+ * @return nullptr if not found, else pointer to the object
+ */
+Center* getCenterByID(std::vector<Center> &centerV, std::string ID);
 
 #endif
