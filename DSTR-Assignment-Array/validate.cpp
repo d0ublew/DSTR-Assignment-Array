@@ -185,9 +185,30 @@ int checkIntInput(string sentence)
 	return input;
 }
 
+float checkFloatInput(string sentence)
+{
+
+	float input;
+	while (std::cout << sentence && !(std::cin >> input)) {
+		std::cin.clear(); //clear bad input flag
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
+		std::cout << "Invalid input, number only, please re-enter.\n";
+	}
+
+	return input;
+}
+
+
 
 bool isLeap(int year) {
     if (year % 4 != 0 ||
             (year % 400 != 0 && year % 100 == 0)) return false;
     return true;
+}
+
+bool isChoiceInMenuRange(int choice, int end)
+{
+	if (choice >= 0 && choice <= end) { return true; }
+	cout << "Invalid Choice" << endl;
+	return false;
 }

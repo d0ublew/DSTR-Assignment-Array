@@ -45,7 +45,7 @@ Tutor addingInterface(vector<Tutor> &arr)
 	while (true)
 	{
 		string setence = "Pay Rate (40 ~ 80): ";
-		tutor.payRate = checkIntInput(setence);
+		tutor.payRate = checkFloatInput(setence);
 		if (!isPayRateRangeValid(tutor.payRate)) { continue;}
 		break;
 	}
