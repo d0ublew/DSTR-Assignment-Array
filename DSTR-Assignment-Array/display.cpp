@@ -50,10 +50,10 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin)
             cout << endl;
         }
 
-        string sentence = "Prev or Next (0 to Prev 1 to Next 2 to Exit): ";
+        string sentence = "Prev or Next (1 to Prev 2 to Next 0 to Exit): ";
         choice = checkIntInput(sentence);
 
-        if (choice == 1)
+        if (choice == 2)
         {
             if (end <= size)
             {
@@ -61,7 +61,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin)
                 end += step;
             }
         }
-        else if (choice == 0)
+        else if (choice == 1)
         {
             if (start >= step)
             {
@@ -69,7 +69,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin)
                 end -= step;
             }
         }
-        else if (choice == 2)
+        else if (choice == 0)
         {
             break;
         }
