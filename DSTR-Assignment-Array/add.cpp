@@ -10,9 +10,6 @@
 #include "display.h"
 using namespace std;
 
-vector<Subject> _SUBJECT;
-vector<Center> _CENTER;
-
 Tutor addingInterface(vector<Tutor> &arr)
 {
 	string date;
