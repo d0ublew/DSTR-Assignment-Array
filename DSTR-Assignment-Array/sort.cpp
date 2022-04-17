@@ -29,7 +29,7 @@ int CompareString(std::string s1, std::string s2) {
         if (s1[i] < s2[i]) return -1;
         if (s1[i] > s2[i]) return 1;
     }
-    return s1.length() - s2.length();
+    return (int) s1.length() - (int) s2.length();
 }
 
 int CompareTutorID(Tutor &t1, Tutor &t2) {

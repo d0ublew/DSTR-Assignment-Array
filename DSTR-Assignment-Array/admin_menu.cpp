@@ -175,7 +175,7 @@ void sortMenu(std::vector<Tutor> &tutorV)
 		int choice = checkIntInput(sentence);
 		if (isChoiceInMenuRange(choice, 3))
 		{
-            int (*CompareFn)(Tutor &, Tutor &);
+            int (*CompareFn)(Tutor &, Tutor &) = nullptr;
             switch (choice) {
                 case 1:
                     CompareFn = &CompareTutorID;
