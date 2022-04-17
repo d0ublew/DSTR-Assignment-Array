@@ -2,9 +2,11 @@
 #include <iostream>
 
 using namespace std;
-int startMenu();
-int adminMainMenu();
-int addMenu();
-int sortMenu();
-int searchMenu();
-int deleteMenu();
+extern std::string TUTOR_FILE;
+void startMenu();
+bool adminLogin();
+void adminMainMenu();
+void addMenu();
+void sortMenu();
+void searchMenu();
+void deleteMenu();

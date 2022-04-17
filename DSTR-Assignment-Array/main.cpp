@@ -6,6 +6,7 @@
 #include "file2struct.h"
 #include "display.h"
 #include "add.h"
+#include "admin_menu.h"
 
 
 const std::string TUTOR_FILE = "./data/tutor.txt";
@@ -15,8 +16,11 @@ std::vector<Subject> _SUBJECT = fileToSubject(SUBJECT_FILE);
 std::vector<Center> _CENTER = fileToCenter(CENTER_FILE);
 
 
+
 int main() {
     std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
+    startMenu();
+    
     
     /* Tutor tutor = addingInterface(tutorV); */
     /* addToBack(tutorV, tutor); */
@@ -36,3 +40,4 @@ int main() {
 
     return 0;
 }
+
