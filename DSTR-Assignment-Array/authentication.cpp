@@ -14,7 +14,7 @@ const std::string STUDENT_FILE = "./data/student.txt";
 std::vector<Admin> _ADMIN = fileToAdmin(ADMIN_FILE);
 std::vector<Student> _STUDENT = fileToStudent(STUDENT_FILE);
 
-
+//Registering new Admin
 void registerAdmin()
 {
 	string password;
@@ -43,6 +43,7 @@ void registerAdmin()
 
 }
 
+//Registering new student
 void registerStudent()
 {
 	string password;
@@ -71,6 +72,7 @@ void registerStudent()
 
 }
 
+//Student Login
 bool studentLogin()
 {
 	Student* student;
@@ -112,6 +114,7 @@ bool studentLogin()
 
 }
 
+//adminLogin
 bool adminLogin()
 {
 	Admin* admin;
