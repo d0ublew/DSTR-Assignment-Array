@@ -5,6 +5,8 @@
 #include "tutor.h"
 #include "subject.h"
 #include "center.h"
+#include "admin.h"
+#include "student.h"
 
 extern std::vector<Subject> _SUBJECT;
 extern std::vector<Center> _CENTER;
@@ -46,6 +48,9 @@ bool isCenterExisted(Center* c);
  * @return true if exists, else false
  */
 bool isSubjectExisted(Subject* s);
+
+bool isAdminUsernameExisted(vector<Admin>& arr, string username);
+bool isStudentUsernameExisted(vector<Student>& arr, string username);
 
 /**
  * @brief Verify if supplied date string valids or not
@@ -129,3 +134,4 @@ bool isLeap(int year);
  * @brief Use to ask user to press enter after giving invalid input
  */
 void Enter();
+bool isSpaceExisted(string s);

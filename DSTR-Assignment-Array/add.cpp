@@ -10,33 +10,25 @@
 #include "display.h"
 using namespace std;
 
+
+// this method allows admin to insert new tutor information
 Tutor addingInterface(vector<Tutor> &arr)
 {
-    string date;
-    /*std::string ID;
-    std::string name;
-    float payRate;
-    float rating;
-    std::string phone;
-    Date joinDate;
-    Date terminateDate;
-    Center* center;
-    Subject* subject;*/
-
-    Tutor tutor;
-    
-    cout << "Please enter information below" << endl;
-    while (true)
-    {
-        
-        cout << "Tutor ID (TXX): ";
-        getline(cin, tutor.ID);
-        if (!isTutorIDFormatCorrect(tutor.ID)){continue;}
-        if (isTutorIDExisted(arr, tutor.ID)){continue;}
-        break;
-    }
-    
-    cout << "Tutor Name: ";
+	string date;
+	Tutor tutor;
+	
+	cout << "Please enter information below" << endl;
+	while (true)
+	{
+		
+		cout << "Tutor ID (TXX): ";
+		getline(cin, tutor.ID);
+		if (!isTutorIDFormatCorrect(tutor.ID)){continue;}
+		if (isTutorIDExisted(arr, tutor.ID)){continue;}
+		break;
+	}
+	
+	cout << "Tutor Name: ";
 
     // use getline to get name with spaces
     getline(cin, tutor.name);
@@ -102,11 +94,13 @@ Tutor addingInterface(vector<Tutor> &arr)
     
 }
 
+//This method append the Tutor into the tutor vector to the back
 void addToBack(vector<Tutor> &arr, Tutor tutor)
 {
     arr.push_back(tutor);
 }
 
+//This method insert the Tutor into the tutor vector to the front
 void addToFront(vector<Tutor> &arr, Tutor tutor)
 {
     arr.insert(arr.begin(), tutor);

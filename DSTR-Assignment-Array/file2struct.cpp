@@ -108,7 +108,7 @@ std::vector<Student> fileToStudent(std::string filename) {
         std::vector<std::string> data = splitString(line, delim);
         Student stu;
         stu.username = data.at(0);
-        stu.password = std::stoul(data.at(1));
+        stu.password = data.at(1);
         studentV.push_back(stu);
     }
     fileHandler.close();
@@ -123,7 +123,7 @@ void studentToFile(std::vector<Student> &studentV, std::string filename) {
     for (it = studentV.begin(); it != studentV.end(); it++) {
         Student stu = *it;
         std::string username = stu.username;
-        std::string password = std::to_string(stu.password);
+        std::string password = stu.password;
         fileHandler << username << delim << password << '\n';
     }
     fileHandler.close();
@@ -139,7 +139,7 @@ std::vector<Admin> fileToAdmin(std::string filename) {
         std::vector<std::string> data = splitString(line, delim);
         Admin stu;
         stu.username = data.at(0);
-        stu.password = std::stoul(data.at(1));
+        stu.password = data.at(1);
         adminV.push_back(stu);
     }
     fileHandler.close();
@@ -152,9 +152,9 @@ void adminToFile(std::vector<Admin> &adminV, std::string filename) {
     std::vector<Admin>::iterator it;
 
     for (it = adminV.begin(); it != adminV.end(); it++) {
-        Admin stu = *it;
-        std::string username = stu.username;
-        std::string password = std::to_string(stu.password);
+        Admin adm = *it;
+        std::string username = adm.username;
+        std::string password = adm.password;
         fileHandler << username << delim << password << '\n';
     }
     fileHandler.close();

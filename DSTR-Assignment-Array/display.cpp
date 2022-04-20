@@ -11,27 +11,29 @@
 using namespace std;
 
 
+//displaying tutor
 void DisplayTutor(vector<Tutor> &arr, bool isAdmin) 
 {
     size_t size = arr.size();
-    size_t step = 5;
+    size_t step = 5; //how many tutor being display per page
 
     if (isAdmin)
-        step = 3;
+        step = 3; //set tutor display only 3 per page
     
     int choice = 0;
-    size_t start = 0;
-    size_t end = step;
+    size_t start = 0; //start of each page display
+    size_t end = step; //end of each page display
 
     while (true)
     {
-        system("cls || clear");
+        system("cls || clear");//clear screen
         for (size_t i = start; i < end && i < size; i++)
         {
             cout << "TutorID: " << arr.at(i).ID << endl;
             cout << "Tutur Name: " << arr.at(i).name << endl;
-
-            if (!isAdmin)
+            //if its not admin then only show
+            //tutor id and name
+            if (!isAdmin) 
             {
                 cout << endl;
                 continue;
@@ -52,7 +54,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin)
 
         string sentence = "Prev or Next (1 to Prev 2 to Next 0 to Exit): ";
         choice = checkIntInput(sentence);
-
+        //the statement to move forward and back
         if (choice == 2)
         {
             if (end <= size)
@@ -76,6 +78,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin)
     }
 }
 
+//displaying subject in a list
 void DisplaySubject()
 {
     vector<Subject> arr = _SUBJECT;
@@ -88,6 +91,8 @@ void DisplaySubject()
         cout << endl;
     }
 }
+
+//displaying center in a list
 void DisplayCenter()
 {
     vector<Center> arr = _CENTER;

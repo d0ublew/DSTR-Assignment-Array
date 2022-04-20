@@ -8,6 +8,8 @@
 #include <limits>
 #include <string>
 #include "date.h"
+#include "admin.h"
+#include "student.h"
 
 bool isTutorIDExisted(std::vector<Tutor> &arr, std::string ID)
 {
@@ -46,7 +48,24 @@ bool isSubjectExisted(Subject* s)
     return false;
 }
 
-bool isDateValid(std::string d)
+bool isAdminUsernameExisted(vector<Admin>& arr, string username)
+{
+	Admin* t = getAdminByUsername(arr,username);
+	if (t == nullptr) return false;
+	if (username != t->username) return false;
+	cout << "Admin Username already existed, please enter again" << endl;
+	return true;
+}
+
+bool isStudentUsernameExisted(vector<Student>& arr, string username)
+{
+	Student* t = getStudentByUsername(arr, username);
+	if (t == nullptr) return false;
+	if (username != t->username) return false;
+	cout << "Student Username already existed, please enter again" << endl;
+	return true;
+}
+bool isDateFormatValid(string d)
 {
     //dd/mm/yyyy
     if (!(d.length() == 10))
@@ -219,4 +238,13 @@ bool isChoiceInMenuRange(int choice, int end)
     std::cout << "Invalid Choice\n";
     Enter();
     return false;
+}
+
+bool isSpaceExisted(string s)
+{
+	if (s.find(' ') != string::npos)
+	{
+		return true;
+	}
+	return false;
 }
