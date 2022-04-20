@@ -75,24 +75,24 @@ int CompareTutorRating(Tutor &, Tutor &);
  * @return a sorted array
  */
 std::vector<Tutor> sortTutor(std::vector<Tutor> &tutorV,
-        int (*CompareFn)(Tutor &, Tutor &), char order);
+                             int (*CompareFn)(Tutor &, Tutor &), char order);
 
 struct Node {
-    Tutor* tutor;
-    Node* next;
-    Node* prev;
+    Tutor *tutor;
+    Node *next;
+    Node *prev;
     Node();
     Node(Tutor &paramTutor);
     ~Node();
 };
 
 struct BinaryTree {
-    Node* root;
+    Node *root;
     BinaryTree();
     ~BinaryTree();
-    BinaryTree(std::vector<Tutor> &v, int (*CompareFn)(Tutor &, Tutor &), char order);
+    BinaryTree(std::vector<Tutor> &v, int (*CompareFn)(Tutor &, Tutor &),
+               char order);
     std::vector<Tutor> BTToSortedArr();
 };
-
 
 #endif

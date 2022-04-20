@@ -3,7 +3,7 @@
 
 #include "subject.h"
 
-Subject* getSubjectByID(std::vector<Subject> &subjectV, std::string ID) {
+Subject *getSubjectByID(std::vector<Subject> &subjectV, std::string ID) {
     std::vector<Subject>::iterator it;
 
     for (it = subjectV.begin(); it != subjectV.end(); it++) {

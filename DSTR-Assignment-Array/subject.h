@@ -17,6 +17,6 @@ struct Subject {
  *
  * @return nullptr if not found, else pointer to the object
  */
-Subject* getSubjectByID(std::vector<Subject> &subjectV, std::string);
+Subject *getSubjectByID(std::vector<Subject> &subjectV, std::string);
 
 #endif

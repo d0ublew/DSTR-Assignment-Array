@@ -1,16 +1,15 @@
 #pragma once
 
-#include <vector>
-#include <iostream>
-#include "tutor.h"
-#include "subject.h"
-#include "center.h"
 #include "admin.h"
+#include "center.h"
 #include "student.h"
+#include "subject.h"
+#include "tutor.h"
+#include <iostream>
+#include <vector>
 
 extern std::vector<Subject> _SUBJECT;
 extern std::vector<Center> _CENTER;
-
 
 /**
  * @brief Verify if supplied Tutor ID exists or not
@@ -38,7 +37,7 @@ bool isTutorIDFormatCorrect(std::string ID);
  *
  * @return true if exists, else false
  */
-bool isCenterExisted(Center* c);
+bool isCenterExisted(Center *c);
 
 /**
  * @brief Verify if supplied pointer Subject object exists or not
@@ -47,10 +46,10 @@ bool isCenterExisted(Center* c);
  *
  * @return true if exists, else false
  */
-bool isSubjectExisted(Subject* s);
+bool isSubjectExisted(Subject *s);
 
-bool isAdminUsernameExisted(vector<Admin>& arr, string username);
-bool isStudentUsernameExisted(vector<Student>& arr, string username);
+bool isAdminUsernameExisted(vector<Admin> &arr, string username);
+bool isStudentUsernameExisted(vector<Student> &arr, string username);
 
 /**
  * @brief Verify if supplied date string valids or not

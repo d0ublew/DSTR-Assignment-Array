@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 struct Admin {
     std::string username;
     std::string password;
@@ -14,5 +13,5 @@ struct Admin {
     Admin(std::string paramUsername, std::string paramPassword);
 };
 
-Admin* getAdminByUsername(std::vector<Admin>& adminV, std::string username);
+Admin *getAdminByUsername(std::vector<Admin> &adminV, std::string username);
 #endif

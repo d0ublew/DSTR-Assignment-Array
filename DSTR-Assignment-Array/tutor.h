@@ -1,10 +1,10 @@
 #ifndef TUTOR_H_INCLUDED
 #define TUTOR_H_INCLUDED
 
-#include <string>
-#include "date.h"
 #include "center.h"
+#include "date.h"
 #include "subject.h"
+#include <string>
 
 struct Tutor {
     std::string ID;
@@ -14,8 +14,8 @@ struct Tutor {
     std::string phone;
     Date joinDate;
     Date terminateDate;
-    Center* center;
-    Subject* subject;
+    Center *center;
+    Subject *subject;
     size_t countRate;
     Tutor();
     ~Tutor();
@@ -29,6 +29,6 @@ struct Tutor {
  *
  * @return nullptr if not found, else pointer to the object
  */
-Tutor* getTutorByID(std::vector<Tutor> &tutorV, std::string ID);
+Tutor *getTutorByID(std::vector<Tutor> &tutorV, std::string ID);
 
 #endif

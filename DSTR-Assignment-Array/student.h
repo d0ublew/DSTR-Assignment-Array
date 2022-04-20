@@ -13,6 +13,7 @@ struct Student {
     Student(std::string paramUsername, std::string paramPassword);
 };
 
-Student* getStudentByUsername(std::vector<Student>& studentV, std::string username);
+Student *getStudentByUsername(std::vector<Student> &studentV,
+                              std::string username);
 
 #endif

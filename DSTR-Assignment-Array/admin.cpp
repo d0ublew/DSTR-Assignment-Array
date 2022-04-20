@@ -1,6 +1,6 @@
+#include "admin.h"
 #include <string>
 #include <vector>
-#include "admin.h"
 
 Admin::Admin() {
     username = "";
@@ -12,7 +12,7 @@ Admin::Admin(std::string paramUsername, std::string paramPassword) {
     password = paramPassword;
 }
 
-Admin* getAdminByUsername(std::vector<Admin>& adminV, std::string username) {
+Admin *getAdminByUsername(std::vector<Admin> &adminV, std::string username) {
     std::vector<Admin>::iterator it;
 
     for (it = adminV.begin(); it != adminV.end(); it++) {

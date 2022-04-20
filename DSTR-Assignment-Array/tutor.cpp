@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 
-#include "tutor.h"
-#include "date.h"
 #include "center.h"
+#include "date.h"
 #include "subject.h"
+#include "tutor.h"
 
 Tutor::Tutor() {
     ID = "";
@@ -18,8 +18,7 @@ Tutor::Tutor() {
     subject = nullptr;
 }
 
-Tutor::~Tutor() {
-}
+Tutor::~Tutor() {}
 
 /**
  * @brief Function to retrieve Tutor pointer with matched ID
@@ -29,7 +28,7 @@ Tutor::~Tutor() {
  *
  * @return nullptr if no match ID, otherwise return the pointer
  */
-Tutor* getTutorByID(std::vector<Tutor> &tutorV, std::string ID) {
+Tutor *getTutorByID(std::vector<Tutor> &tutorV, std::string ID) {
     std::vector<Tutor>::iterator it;
 
     for (it = tutorV.begin(); it != tutorV.end(); it++) {

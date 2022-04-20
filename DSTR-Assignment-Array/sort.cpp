@@ -1,26 +1,26 @@
 #include <iostream>
-#include <string>
 #include <stack>
+#include <string>
 
 #include "sort.h"
 #include "tutor.h"
 
 int CompareNumeric(int a, int b) {
-  if (a > b)
-    return 1;
-  else if (a < b)
-    return -1;
-  else
-    return 0;
+    if (a > b)
+        return 1;
+    else if (a < b)
+        return -1;
+    else
+        return 0;
 }
 
 int CompareFloat(float a, float b) {
-  if (a > b)
-    return 1;
-  else if (a < b)
-    return -1;
-  else
-    return 0;
+    if (a > b)
+        return 1;
+    else if (a < b)
+        return -1;
+    else
+        return 0;
 }
 
 int CompareString(std::string s1, std::string s2) {
@@ -29,7 +29,7 @@ int CompareString(std::string s1, std::string s2) {
         if (s1[i] < s2[i]) return -1;
         if (s1[i] > s2[i]) return 1;
     }
-    return (int) s1.length() - (int) s2.length();
+    return (int)s1.length() - (int)s2.length();
 }
 
 int CompareTutorID(Tutor &t1, Tutor &t2) {
@@ -48,8 +48,8 @@ int CompareTutorRating(Tutor &t1, Tutor &t2) {
 }
 
 std::vector<Tutor> sortTutor(std::vector<Tutor> &tutorV,
-        int (*CompareFn)(Tutor &, Tutor &), char order) {
-    BinaryTree* bt = new BinaryTree(tutorV, (*CompareFn), order);
+                             int (*CompareFn)(Tutor &, Tutor &), char order) {
+    BinaryTree *bt = new BinaryTree(tutorV, (*CompareFn), order);
     std::vector<Tutor> sortedTutorV = bt->BTToSortedArr();
     delete bt;
     return sortedTutorV;
@@ -66,20 +66,14 @@ Node::Node(Tutor &paramTutor) {
     prev = nullptr;
 }
 
-Node::~Node() {
+Node::~Node() {}
 
-}
+BinaryTree::BinaryTree() { root = nullptr; }
 
-BinaryTree::BinaryTree() {
-    root = nullptr;
-}
-
-BinaryTree::~BinaryTree() {
-
-}
+BinaryTree::~BinaryTree() {}
 
 BinaryTree::BinaryTree(std::vector<Tutor> &v,
-        int (*CompareFn)(Tutor &, Tutor &), char order) {
+                       int (*CompareFn)(Tutor &, Tutor &), char order) {
     root = nullptr;
     if (v.size() == 0) return;
 
@@ -89,9 +83,9 @@ BinaryTree::BinaryTree(std::vector<Tutor> &v,
     root->prev = nullptr;
 
     for (it = next(v.begin()); it != v.end(); it++) {
-        Node* treeNodePtr = root;
+        Node *treeNodePtr = root;
         int result;
-        Node* treeNodePtrParent = nullptr;
+        Node *treeNodePtrParent = nullptr;
         while (treeNodePtr != nullptr) {
             treeNodePtrParent = treeNodePtr;
             Tutor vData = *it;
@@ -100,14 +94,14 @@ BinaryTree::BinaryTree(std::vector<Tutor> &v,
             if (order == 'a') {
                 if (result > 0) {
                     treeNodePtr = treeNodePtr->next;
-                }
-                else {
+                } else {
                     treeNodePtr = treeNodePtr->prev;
                 }
-            }
-            else {
-                if (result > 0) treeNodePtr = treeNodePtr->prev;
-                else treeNodePtr = treeNodePtr->next;
+            } else {
+                if (result > 0)
+                    treeNodePtr = treeNodePtr->prev;
+                else
+                    treeNodePtr = treeNodePtr->next;
             }
         }
 
@@ -117,27 +111,23 @@ BinaryTree::BinaryTree(std::vector<Tutor> &v,
                 treeNodePtrParent->next = new Node(*it);
                 treeNodePtrParent->next->next = nullptr;
                 treeNodePtrParent->next->prev = nullptr;
-            }
-            else {
+            } else {
                 treeNodePtrParent->prev = new Node(*it);
                 treeNodePtrParent->prev->next = nullptr;
                 treeNodePtrParent->prev->prev = nullptr;
             }
-        }
-        else {
+        } else {
             if (result > 0) {
                 treeNodePtrParent->prev = new Node(*it);
                 treeNodePtrParent->prev->next = nullptr;
                 treeNodePtrParent->prev->prev = nullptr;
-            }
-            else {
+            } else {
                 treeNodePtrParent->next = new Node(*it);
                 treeNodePtrParent->next->next = nullptr;
                 treeNodePtrParent->next->prev = nullptr;
             }
         }
     }
-
 }
 
 std::vector<Tutor> BinaryTree::BTToSortedArr() {
@@ -146,14 +136,13 @@ std::vector<Tutor> BinaryTree::BTToSortedArr() {
      * track of traversed node
      */
     std::vector<Tutor> sortedTutorV;
-    std::stack<Node*> nodeStack;
-    Node* treeNodePtr = root;
+    std::stack<Node *> nodeStack;
+    Node *treeNodePtr = root;
     while (!nodeStack.empty() || treeNodePtr != nullptr) {
         if (treeNodePtr != nullptr) {
             nodeStack.push(treeNodePtr);
             treeNodePtr = treeNodePtr->prev;
-        }
-        else {
+        } else {
             treeNodePtr = nodeStack.top();
             sortedTutorV.push_back(*(treeNodePtr->tutor));
             nodeStack.pop();
@@ -161,7 +150,7 @@ std::vector<Tutor> BinaryTree::BTToSortedArr() {
              * Save the node address which data has been added to the array to
              * be deallocated
              */
-            Node* tmp = treeNodePtr;
+            Node *tmp = treeNodePtr;
             treeNodePtr = treeNodePtr->next;
             delete tmp;
         }

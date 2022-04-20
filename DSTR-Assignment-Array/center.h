@@ -17,6 +17,6 @@ struct Center {
  *
  * @return nullptr if not found, else pointer to the object
  */
-Center* getCenterByID(std::vector<Center> &centerV, std::string ID);
+Center *getCenterByID(std::vector<Center> &centerV, std::string ID);
 
 #endif

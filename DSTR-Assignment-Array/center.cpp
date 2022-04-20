@@ -3,9 +3,9 @@
 
 #include "center.h"
 
-Center* getCenterByID(std::vector<Center> &centerV, std::string ID) {
+Center *getCenterByID(std::vector<Center> &centerV, std::string ID) {
     /*
-     * 
+     *
      */
     std::vector<Center>::iterator it;
 

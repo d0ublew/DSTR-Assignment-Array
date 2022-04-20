@@ -10,8 +10,7 @@ Date::Date() {
     year = 0;
 }
 
-Date::~Date() {
-}
+Date::~Date() {}
 
 Date::Date(int paramDay, int paramMonth, int paramYear) {
     day = paramDay;
@@ -36,7 +35,7 @@ std::string Date::ToString() {
     std::string strDate = "-";
     if (year != 0) {
         strDate = std::to_string(day) + '/' + std::to_string(month) + '/' +
-            std::to_string(year);
+                  std::to_string(year);
     }
     return strDate;
 }

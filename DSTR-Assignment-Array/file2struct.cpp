@@ -1,17 +1,17 @@
 #include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
-#include <iostream>
-#include <iomanip>
-#include <sstream>
 
-#include "student.h"
 #include "admin.h"
-#include "date.h"
-#include "tutor.h"
-#include "subject.h"
 #include "center.h"
+#include "date.h"
 #include "file2struct.h"
+#include "student.h"
+#include "subject.h"
+#include "tutor.h"
 
 std::vector<Tutor> fileToTutor(const std::string filename) {
     std::vector<Tutor> tutorV;
@@ -79,23 +79,23 @@ void tutorToFile(std::vector<Tutor> &tutorV, std::string filename) {
 
     for (it = tutorV.begin(); it != tutorV.end(); it++) {
         Tutor t = *it;
-        std::string ID = t.ID; 
-        std::string name = t.name; 
+        std::string ID = t.ID;
+        std::string name = t.name;
         std::string payRate = float_to_str_prec(t.payRate);
         std::string rating = float_to_str_prec(t.rating);
-        std::string phone = t.phone; 
+        std::string phone = t.phone;
         std::string joinDate = t.joinDate.ToString();
         std::string terminateDate = t.terminateDate.ToString();
         std::string center = t.center->ID;
-        std::string subject = t.subject->ID; 
+        std::string subject = t.subject->ID;
         std::string countRate = std::to_string(t.countRate);
         std::string line = ID + delim + name + delim + payRate + delim +
-            rating + delim + phone + delim + joinDate + delim + terminateDate +
-            delim + center + delim + subject + delim + countRate;
+                           rating + delim + phone + delim + joinDate + delim +
+                           terminateDate + delim + center + delim + subject +
+                           delim + countRate;
         fileHandler << line << '\n';
     }
     fileHandler.close();
-    
 }
 
 std::vector<Student> fileToStudent(std::string filename) {
@@ -165,7 +165,7 @@ std::vector<std::string> splitString(std::string str, std::string delim) {
     size_t start = 0;
     size_t end = str.find(delim);
     while (end != std::string::npos) {
-        data.push_back(str.substr(start, end-start));
+        data.push_back(str.substr(start, end - start));
         start = end + delim.length();
         end = str.find(delim, start);
     }
