@@ -8,10 +8,10 @@ using namespace std;
 
 //bool studentLogin()
 //{
-//	while (true)
-//	{
+//  while (true)
+//  {
 //
-//	}
+//  }
 //
 //}
 void studentRatingMenu();
@@ -19,14 +19,14 @@ void studentRatingMenu();
 
 void studentRatingMenu()
 {
-	cout << "Welcome student what you want to do?" << endl;
-	cout << "1) Rate a tutor" << endl;
-	cout << "0) Log Out" << endl;
-	string sentence = "Enter your choice: ";
-	int choice = checkIntInput(sentence);
-	if (isChoiceInMenuRange(choice, 1))
-	{
-		//code here
-	}
-	
+    cout << "Welcome student what you want to do?" << endl;
+    cout << "1) Rate a tutor" << endl;
+    cout << "0) Log Out" << endl;
+    string sentence = "Enter your choice: ";
+    int choice = checkIntInput(sentence);
+    if (isChoiceInMenuRange(choice, 1))
+    {
+        //code here
+    }
+    
 }
