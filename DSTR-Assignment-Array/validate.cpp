@@ -65,7 +65,7 @@ bool isStudentUsernameExisted(vector<Student>& arr, string username)
 	cout << "Student Username already existed, please enter again" << endl;
 	return true;
 }
-bool isDateFormatValid(string d)
+bool isDateValid(string d)
 {
     //dd/mm/yyyy
     if (!(d.length() == 10))
