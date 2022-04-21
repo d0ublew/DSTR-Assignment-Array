@@ -24,8 +24,8 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin) {
     while (true) {
         system("cls || clear"); // clear screen
         for (size_t i = start; i < end && i < size; i++) {
-            cout << "TutorID: " << arr.at(i).ID << endl;
-            cout << "Tutur Name: " << arr.at(i).name << endl;
+            cout << "Tutor ID: " << arr.at(i).ID << endl;
+            cout << "Tutor Name: " << arr.at(i).name << endl;
             // if its not admin then only show
             // tutor id and name
             if (!isAdmin) {
@@ -33,7 +33,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin) {
                 continue;
             }
 
-            cout << "PayRate: " << arr.at(i).payRate << endl;
+            cout << "Pay Rate: " << arr.at(i).payRate << endl;
             cout << "Rating: " << arr.at(i).rating << endl;
             cout << "Phone Number: " << arr.at(i).phone << endl;
             cout << "Joined Date: " << arr.at(i).joinDate.ToString() << endl;
@@ -50,7 +50,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin) {
         choice = checkIntInput(sentence);
         // the statement to move forward and back
         if (choice == 2) {
-            if (end + step <= size) {
+            if (end < size) {
                 start += step;
                 end += step;
             }
