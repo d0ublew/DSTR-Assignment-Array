@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "admin.h"
+#include "authentication.h"
 #include "center.h"
 #include "student.h"
 #include "subject.h"
@@ -12,6 +13,7 @@
 extern const std::string TUTOR_FILE;
 extern const std::string SUBJECT_FILE;
 extern const std::string CENTER_FILE;
+extern const std::string ADMIN_FILE;
 extern std::vector<Subject> _SUBJECT;
 extern std::vector<Center> _CENTER;
 
@@ -112,4 +114,9 @@ std::vector<std::string> splitString(std::string str, std::string delim);
  * @return a string representation of the float value with fixed precision
  */
 std::string float_to_str_prec(float f, int n = 2);
+
+void initCenter();
+void initSubject();
+void initTutor();
+void initAdmin();
 #endif

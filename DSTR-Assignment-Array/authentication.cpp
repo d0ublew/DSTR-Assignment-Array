@@ -92,6 +92,10 @@ bool studentLogin() {
 
 // adminLogin
 bool adminLogin() {
+    if (_ADMIN.size() == 0) {
+        initAdmin();
+        _ADMIN = fileToAdmin(ADMIN_FILE);
+    }
     Admin *admin;
     int chance = 3;
     string username;

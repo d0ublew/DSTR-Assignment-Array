@@ -5,8 +5,8 @@
 #include <vector>
 
 struct Subject {
-    std::string name;
     std::string ID;
+    std::string name;
 };
 
 /**
