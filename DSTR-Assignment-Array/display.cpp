@@ -50,7 +50,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin) {
         choice = checkIntInput(sentence);
         // the statement to move forward and back
         if (choice == 2) {
-            if (end <= size) {
+            if (end + step <= size) {
                 start += step;
                 end += step;
             }
