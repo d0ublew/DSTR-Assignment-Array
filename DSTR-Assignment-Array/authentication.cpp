@@ -1,4 +1,4 @@
-
+#include "authentication.h"
 #include "admin.h"
 #include "file2struct.h"
 #include "student.h"
@@ -7,7 +7,6 @@
 #include <string>
 using namespace std;
 
-std::hash<std::string> h;
 const std::string ADMIN_FILE = "./data/admin.txt";
 const std::string STUDENT_FILE = "./data/student.txt";
 
@@ -16,52 +15,50 @@ std::vector<Student> _STUDENT = fileToStudent(STUDENT_FILE);
 
 // Registering new Admin
 void registerAdmin() {
-    string password;
     Admin admin;
     cout << "Please insert information below" << endl;
     while (true) {
 
         cout << "Username: ";
-        cin >> admin.username;
+        getline(cin, admin.username);
         if (isAdminUsernameExisted(_ADMIN, admin.username)) {
+            cout << "Username is already in use\n";
             continue;
         }
         cout << "Password: ";
-        cin >> password;
-        if (isSpaceExisted(password)) {
-            cout << "Password cannot including space" << endl;
+        getline(cin, admin.password);
+        if (isSpaceExisted(admin.password)) {
+            cout << "Password cannot contain space(s)" << endl;
             continue;
         }
-        admin.password = password;
         _ADMIN.push_back(admin);
-        cout << "Register Succesful" << endl;
         adminToFile(_ADMIN, ADMIN_FILE);
+        cout << "Register Succesful" << endl;
         break;
     }
 }
 
 // Registering new student
 void registerStudent() {
-    string password;
     Student student;
     cout << "Please insert information below" << endl;
     while (true) {
 
         cout << "Username: ";
-        cin >> student.username;
+        getline(cin, student.username);
         if (isStudentUsernameExisted(_STUDENT, student.username)) {
+            cout << "Username is already in use\n";
             continue;
         }
         cout << "Password: ";
-        cin >> password;
-        if (isSpaceExisted(password)) {
-            cout << "Password cannot including space" << endl;
+        getline(cin, student.password);
+        if (isSpaceExisted(student.password)) {
+            cout << "Password cannot contain space(s)" << endl;
             continue;
         }
-        student.password = password;
         _STUDENT.push_back(student);
-        cout << "Register Succesful" << endl;
         studentToFile(_STUDENT, STUDENT_FILE);
+        cout << "Register Succesful" << endl;
         break;
     }
 }
@@ -74,28 +71,22 @@ bool studentLogin() {
     string password;
     while (true) {
         if (chance == 0) {
-            cout << "Too many attemp, please try again" << endl;
+            cout << "Too many attempt, please try again" << endl;
             return false;
         }
         chance -= 1;
         cout << "Username: ";
-        cin >> username;
+        getline(cin, username);
 
         cout << "Password: ";
-        cin >> password;
+        getline(cin, password);
 
         student = getStudentByUsername(_STUDENT, username);
-        if (student == nullptr) {
-            cout << "Username not found" << endl;
-            continue;
+        if (student != nullptr && password == student->password) {
+            return true;
         }
 
-        if (password == student->password) {
-            return true;
-        } else {
-            cout << "Invalid Password" << endl;
-            continue;
-        }
+        cout << "Invalid credentials" << endl;
     }
 }
 
@@ -107,28 +98,22 @@ bool adminLogin() {
     string password;
     while (true) {
         if (chance == 0) {
-            cout << "Too many attemp, please try again" << endl;
+            cout << "Too many attempt, please try again" << endl;
             return false;
         }
         chance -= 1;
         cout << "Username: ";
-        cin >> username;
+        getline(cin, username);
 
         cout << "Password: ";
-        cin >> password;
+        getline(cin, password);
 
         admin = getAdminByUsername(_ADMIN, username);
-        if (admin == nullptr) {
-            cout << "Username not found" << endl;
-            continue;
+        if (admin != nullptr && password == admin->password) {
+            return true;
         }
 
-        if (password == admin->password) {
-            return true;
-        } else {
-            cout << "Invalid Password" << endl;
-            continue;
-        }
+        cout << "Invalid credentials" << endl;
     }
 }
 
