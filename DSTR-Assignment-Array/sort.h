@@ -3,6 +3,7 @@
 
 #include <string>
 
+#include "binary_tree.h"
 #include "tutor.h"
 
 /**
@@ -76,23 +77,5 @@ int CompareTutorRating(Tutor &, Tutor &);
  */
 std::vector<Tutor> sortTutor(std::vector<Tutor> &tutorV,
                              int (*CompareFn)(Tutor &, Tutor &), char order);
-
-struct Node {
-    Tutor *tutor;
-    Node *next;
-    Node *prev;
-    Node();
-    Node(Tutor &paramTutor);
-    ~Node();
-};
-
-struct BinaryTree {
-    Node *root;
-    BinaryTree();
-    ~BinaryTree();
-    BinaryTree(std::vector<Tutor> &v, int (*CompareFn)(Tutor &, Tutor &),
-               char order);
-    std::vector<Tutor> BTToSortedArr();
-};
 
 #endif

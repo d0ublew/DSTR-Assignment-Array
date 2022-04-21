@@ -18,6 +18,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="binary_tree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="center.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -28,6 +31,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="my_stack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="subject.cpp">
@@ -65,6 +74,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="binary_tree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="my_stack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="center.h">
       <Filter>Header Files</Filter>
     </ClInclude>
