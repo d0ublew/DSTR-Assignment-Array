@@ -39,7 +39,7 @@ void StackList::DeleteBeginning() {
     if (head->next != nullptr) {
         head = head->next;
     }
-    if (ptr == head) head = nullptr;
+    if (head == ptr) head = nullptr;
     delete ptr;
 }
 
