@@ -7,7 +7,6 @@
 struct StackNode {
     Node *data;
     StackNode *next;
-    StackNode *prev;
     StackNode();
     StackNode(Node *paramData);
     ~StackNode();
