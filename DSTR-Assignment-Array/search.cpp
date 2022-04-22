@@ -29,7 +29,7 @@ std::vector<Tutor> searchTutor(std::vector<Tutor> &tutorV, Tutor t,
     std::vector<Tutor> v = sortTutor(tutorV, (*CompareFn), 'a');
     int idx = binarySearch(v, t, (*CompareFn));
 
-    if (idx == -1) return slice(v, 0, -1);
+    if (idx == -1) return {};
 
     int temp = idx;
     size_t low;
@@ -51,6 +51,7 @@ std::vector<Tutor> searchTutor(std::vector<Tutor> &tutorV, Tutor t,
 }
 
 std::vector<Tutor> slice(std::vector<Tutor> &v, int start, int end) {
+    if (end == -1) return {};
     std::vector<Tutor>::iterator low = v.begin() + start;
     std::vector<Tutor>::iterator high = v.begin() + end + 1;
 
