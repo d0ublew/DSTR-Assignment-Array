@@ -31,8 +31,8 @@ std::vector<Tutor> searchTutor(std::vector<Tutor> &tutorV, Tutor t,
 
     if (idx == -1) return slice(v, 0, -1);
 
-    int temp = idx;
-    int low;
+    size_t temp = idx;
+    size_t low;
     while (temp != -1) {
         std::vector<Tutor> sub = slice(v, 0, temp - 1);
         low = temp;
@@ -40,7 +40,7 @@ std::vector<Tutor> searchTutor(std::vector<Tutor> &tutorV, Tutor t,
     }
 
     temp = idx;
-    int high;
+    size_t high;
     while (temp != -1) {
         std::vector<Tutor> sub = slice(v, temp + 1, v.size() - 1);
         high = temp;
