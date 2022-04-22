@@ -31,6 +31,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="my_stack.cpp" />
     <ClCompile Include="node.cpp" />
+    <ClCompile Include="search.cpp" />
     <ClCompile Include="sort.cpp" />
     <ClCompile Include="student.cpp" />
     <ClCompile Include="student_menu.cpp" />
@@ -50,6 +51,7 @@
     <ClInclude Include="file2struct.h" />
     <ClInclude Include="my_stack.h" />
     <ClInclude Include="node.h" />
+    <ClInclude Include="search.h" />
     <ClInclude Include="sort.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="student_menu.h" />
