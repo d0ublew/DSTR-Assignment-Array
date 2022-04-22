@@ -3,6 +3,8 @@
 
 #include "center.h"
 #include "date.h"
+#include "search.h"
+#include "sort.h"
 #include "subject.h"
 #include "tutor.h"
 
@@ -20,22 +22,12 @@ Tutor::Tutor() {
 
 Tutor::~Tutor() {}
 
-/**
- * @brief Function to retrieve Tutor pointer with matched ID
- *
- * @param tutorV specify the vector to be looked at
- * @param ID specify the inquired ID
- *
- * @return nullptr if no match ID, otherwise return the pointer
- */
-Tutor *getTutorByID(std::vector<Tutor> &tutorV, std::string ID) {
-    std::vector<Tutor>::iterator it;
+Tutor getTutorByID(std::vector<Tutor> &tutorV, std::string ID) {
+    Tutor query;
+    query.ID = ID;
+    std::vector<Tutor> result = searchTutor(tutorV, query, &CompareTutorID);
+    query.ID = "";
+    if (result.size() == 0) return query;
 
-    for (it = tutorV.begin(); it != tutorV.end(); it++) {
-        Tutor s = *it;
-        if (s.ID == ID) {
-            return &(*it);
-        }
-    }
-    return nullptr;
+    return result.at(0);
 }

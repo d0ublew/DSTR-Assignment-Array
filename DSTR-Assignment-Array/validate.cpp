@@ -12,15 +12,13 @@
 #include <string>
 
 bool isTutorIDExisted(std::vector<Tutor> &arr, std::string ID) {
-    Tutor *t = getTutorByID(arr, ID);
-    if (t == nullptr) return false;
-    if (ID != t->ID) return false;
+    Tutor t = getTutorByID(arr, ID);
+    if (t.ID == "") return false;
     std::cout << "Tutor ID already existed, please enter again\n";
     return true;
 }
 
 bool isTutorIDFormatCorrect(std::string ID) {
-
     if (ID.length() == 3 && ID[0] == 'T' && (ID[1] >= '0' && ID[1] <= '9') &&
         (ID[2] >= '0' && ID[2] <= '9')) {
         return true;
@@ -150,7 +148,6 @@ bool isRatingRateRangeValid(float rate) {
  * PLEASE USE THIS CODE TO VERIFY INTEGER INPUT
  */
 int getIntInput(std::string sentence) {
-
     int input;
     while (std::cout << sentence && !(std::cin >> input)) {
         std::cin.clear(); // clear bad input flag
@@ -164,7 +161,6 @@ int getIntInput(std::string sentence) {
 }
 
 float getFloatInput(std::string sentence) {
-
     float input;
     while (std::cout << sentence && !(std::cin >> input)) {
         std::cin.clear(); // clear bad input flag

@@ -27,8 +27,8 @@ struct Tutor {
  * @param tutorV specifies the array of Tutor object to be checked
  * @param ID specifies the string to be matched
  *
- * @return nullptr if not found, else pointer to the object
+ * @return tutor object with empty ID if not found, else matched tutor object
  */
-Tutor *getTutorByID(std::vector<Tutor> &tutorV, std::string ID);
+Tutor getTutorByID(std::vector<Tutor> &tutorV, std::string ID);
 
 #endif
