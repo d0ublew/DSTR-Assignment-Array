@@ -31,7 +31,7 @@ std::vector<Tutor> searchTutor(std::vector<Tutor> &tutorV, Tutor t,
 
     if (idx == -1) return slice(v, 0, -1);
 
-    size_t temp = idx;
+    long temp = idx;
     size_t low;
     while (temp != -1) {
         std::vector<Tutor> sub = slice(v, 0, temp - 1);
