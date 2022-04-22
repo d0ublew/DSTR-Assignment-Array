@@ -9,7 +9,7 @@
 int binarySearch(std::vector<Tutor> &v, Tutor t,
                  int (*CompareFn)(Tutor &, Tutor &), int offset) {
     int start = 0;
-    int end = v.size() - 1;
+    int end = (int)v.size() - 1;
     while (start <= end && end > 0) {
         int mid = (start + end) / 2;
         Tutor t2 = v.at(mid);

@@ -148,7 +148,7 @@ bool isRatingRateRangeValid(float rate) {
  * PLEASE USE THIS CODE TO VERIFY INTEGER INPUT
  */
 int getIntInput(std::string sentence) {
-    int input;
+    int input = 0;
     while (std::cout << sentence && !(std::cin >> input)) {
         std::cin.clear(); // clear bad input flag
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
@@ -161,7 +161,7 @@ int getIntInput(std::string sentence) {
 }
 
 float getFloatInput(std::string sentence) {
-    float input;
+    float input = 0;
     while (std::cout << sentence && !(std::cin >> input)) {
         std::cin.clear(); // clear bad input flag
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(),

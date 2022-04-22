@@ -192,7 +192,7 @@ void searchMenu(vector<Tutor> &tutorV) {
         int choice = getIntInput("Enter your choice: ");
         if (isChoiceInMenuRange(choice, 2)) {
             Tutor query;
-            int (*CompareFn)(Tutor &, Tutor &);
+            int (*CompareFn)(Tutor &, Tutor &) = nullptr;
             if (choice == 0) {
                 break;
             } else if (choice == 1) {
