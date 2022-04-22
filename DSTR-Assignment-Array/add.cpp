@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 #include "add.h"
 #include "center.h"
 #include "date.h"
@@ -5,9 +9,7 @@
 #include "subject.h"
 #include "tutor.h"
 #include "validate.h"
-#include <iostream>
-#include <string>
-#include <vector>
+
 using namespace std;
 
 // this method allows admin to insert new tutor information
@@ -36,7 +38,7 @@ Tutor addingInterface(vector<Tutor> &arr) {
 
     while (true) {
         string setence = "Pay Rate (40 ~ 80): ";
-        tutor.payRate = checkFloatInput(setence);
+        tutor.payRate = getFloatInput(setence);
         if (!isPayRateRangeValid(tutor.payRate)) {
             continue;
         }

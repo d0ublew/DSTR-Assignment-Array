@@ -1,12 +1,14 @@
 #pragma once
 
+#include <iostream>
+#include <vector>
+
 #include "admin.h"
 #include "center.h"
 #include "student.h"
 #include "subject.h"
 #include "tutor.h"
-#include <iostream>
-#include <vector>
+#include "validate.h"
 
 extern std::vector<Subject> _SUBJECT;
 extern std::vector<Center> _CENTER;
@@ -94,7 +96,7 @@ bool isRatingRateRangeValid(float rate);
  *
  * @return integer input
  */
-int checkIntInput(std::string sentence);
+int getIntInput(std::string sentence);
 
 /**
  * @brief Function to only accept float input
@@ -103,7 +105,7 @@ int checkIntInput(std::string sentence);
  *
  * @return float input
  */
-float checkFloatInput(std::string sentence);
+float getFloatInput(std::string sentence);
 
 /**
  * @brief To clear input buffer after scanning numeric input

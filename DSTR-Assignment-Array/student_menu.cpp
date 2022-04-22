@@ -14,7 +14,7 @@ void studentRatingMenu(vector<Tutor> arr) {
         cout << "2) Display list of tutor" << endl;
         cout << "0) Log Out" << endl;
         string sentence = "Enter your choice: ";
-        int choice = checkIntInput(sentence);
+        int choice = getIntInput(sentence);
         if (isChoiceInMenuRange(choice, 2)) {
             switch (choice) {
             case 0:

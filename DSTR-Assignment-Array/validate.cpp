@@ -149,7 +149,7 @@ bool isRatingRateRangeValid(float rate) {
  * To verify input type, if its not integer it will ask the user to input again
  * PLEASE USE THIS CODE TO VERIFY INTEGER INPUT
  */
-int checkIntInput(std::string sentence) {
+int getIntInput(std::string sentence) {
 
     int input;
     while (std::cout << sentence && !(std::cin >> input)) {
@@ -163,7 +163,7 @@ int checkIntInput(std::string sentence) {
     return input;
 }
 
-float checkFloatInput(std::string sentence) {
+float getFloatInput(std::string sentence) {
 
     float input;
     while (std::cout << sentence && !(std::cin >> input)) {
