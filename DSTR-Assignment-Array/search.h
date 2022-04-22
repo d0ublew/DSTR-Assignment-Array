@@ -12,4 +12,4 @@ int binarySearch(std::vector<Tutor> &v, Tutor x,
                  int (*CompareFn)(Tutor &, Tutor &), int offset = 0);
 std::vector<Tutor> searchTutor(std::vector<Tutor> &v, Tutor t,
                                int (*CompareFn)(Tutor &, Tutor &));
-std::vector<Tutor> slice(std::vector<Tutor> &, size_t, size_t);
+std::vector<Tutor> slice(std::vector<Tutor> &, int, int);
