@@ -15,7 +15,6 @@
 using namespace std;
 
 void startMenu(vector<Tutor> &tutorV) {
-
     while (true) {
         clearScreen();
         cout << "Welcome to eXcel Tuition Centre" << endl;
@@ -55,10 +54,7 @@ void startMenu(vector<Tutor> &tutorV) {
     }
 }
 
-void adminMainMenu(vector<Tutor> &tutorV)
-
-{
-
+void adminMainMenu(vector<Tutor> &tutorV) {
     while (true) {
         clearScreen();
         cout << "Welcome back admin, please select a function" << endl;
@@ -188,19 +184,28 @@ void sortMenu(std::vector<Tutor> &tutorV) {
 
 void searchMenu(vector<Tutor> &tutorV) {
     while (true) {
+        clearScreen();
         cout << "How do you want to search?" << endl;
         cout << "1) Search by Tutor ID" << endl;
         cout << "2) Search by overall performance" << endl;
         cout << "0) Previous Page" << endl;
         int choice = getIntInput("Enter your choice: ");
         if (isChoiceInMenuRange(choice, 2)) {
-            // code here
-            if (choice == 1) {
-                std::string ID;
+            Tutor query;
+            int (*CompareFn)(Tutor &, Tutor &);
+            if (choice == 0) {
+                break;
+            } else if (choice == 1) {
                 std::cout << "Enter Tutor ID (TXX): ";
-                std::getline(std::cin, ID);
-                std::vector<Tutor> result = searchByID(tutorV, ID);
+                std::getline(std::cin, query.ID);
+                CompareFn = &CompareTutorID;
+            } else if (choice == 2) {
+                query.rating = getFloatInput("Enter Tutor rating: ");
+                CompareFn = &CompareTutorRating;
             }
+            std::vector<Tutor> result =
+                searchTutor(tutorV, query, (*CompareFn));
+            DisplayTutor(result);
         }
     }
 }

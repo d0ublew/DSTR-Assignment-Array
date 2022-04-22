@@ -6,79 +6,54 @@
 #include "sort.h"
 #include "validate.h"
 
-std::vector<Tutor> searchByID(std::vector<Tutor> &vec, std::string ID) {
-
-    std::vector<Tutor> sortedVec = sortTutor(vec, &CompareTutorID, 'a');
-
+int binarySearch(std::vector<Tutor> &v, Tutor t,
+                 int (*CompareFn)(Tutor &, Tutor &), int offset) {
     int start = 0;
-    int end = sortedVec.size() - 1;
-
-    Tutor t_temp;
-    std::vector<Tutor> temp;
-
-    while (start <= end) {
-        int middle = (start + end) / 2;
-
-        if (ID == sortedVec[middle].ID) {
-            t_temp = sortedVec[middle];
-            temp.push_back(t_temp);
-
-            return temp;
-        }
-
-        if (sortedVec[middle].ID < ID) start = middle + 1;
-
-        if (sortedVec[middle].ID > ID) end = middle - 1;
+    int end = v.size() - 1;
+    while (start <= end && end > 0) {
+        int mid = (start + end) / 2;
+        Tutor t2 = v.at(mid);
+        int result = (*CompareFn)(t, t2);
+        if (result == 0)
+            return mid + offset;
+        else if (result > 0)
+            start = mid + 1;
+        else if (result < 0)
+            end = mid - 1;
     }
-    return temp;
+    return -1;
 }
 
-std::vector<Tutor> searchByRating(std::vector<Tutor> &vec, float rt) {
+std::vector<Tutor> searchTutor(std::vector<Tutor> &tutorV, Tutor t,
+                               int (*CompareFn)(Tutor &, Tutor &)) {
+    std::vector<Tutor> v = sortTutor(tutorV, (*CompareFn), 'a');
+    int idx = binarySearch(v, t, (*CompareFn));
 
-    vec = sortTutor(vec, &CompareTutorRating, 'a');
+    if (idx == -1) return slice(v, 0, -1);
 
-    int start = 0;
-    int end = vec.size() - 1;
-
-    Tutor t_temp;
-    std::vector<Tutor> temp;
-
-    while (start <= end) {
-        int middle = (start + end) / 2;
-
-        if (rt == vec[middle].rating) {
-            t_temp = vec[middle];
-            temp.push_back(t_temp);
-
-            return temp;
-        }
-
-        if (vec[middle].rating < rt) start = middle + 1;
-
-        if (vec[middle].rating > rt) end = middle - 1;
+    int temp = idx;
+    int low;
+    while (temp != -1) {
+        std::vector<Tutor> sub = slice(v, 0, temp - 1);
+        low = temp;
+        temp = binarySearch(sub, t, (*CompareFn));
     }
-    return temp;
+
+    temp = idx;
+    int high;
+    while (temp != -1) {
+        std::vector<Tutor> sub = slice(v, temp + 1, v.size() - 1);
+        high = temp;
+        temp = binarySearch(sub, t, (*CompareFn), high + 1);
+    }
+
+    return slice(v, low, high);
 }
 
-void validate_search(int ch) {
-    std::vector<Tutor> vec;
-    std::string ID;
-    float rating;
+std::vector<Tutor> slice(std::vector<Tutor> &v, size_t start, size_t end) {
+    std::vector<Tutor>::iterator low = v.begin() + start;
+    std::vector<Tutor>::iterator high = v.begin() + end + 1;
 
-    while (true) {
-
-        if (ch == 1) {
-            std::cout << "Enter Tutor ID (TXX): ";
-            std::getline(std::cin, ID);
-            if (!isTutorIDFormatCorrect(ID) && isTutorIDExisted(vec, ID)) {
-                std::vector<Tutor> temp = searchByID(vec, ID);
-            }
-        } else if (ch == 2) {
-            rating = getFloatInput("Enter Tutor rating: ");
-
-            std::vector<Tutor> temp = searchByRating(vec, rating);
-        } else {
-            std::cout << "Please only input option 1 or 2." << std::endl;
-        }
-    }
+    std::vector<Tutor> sub(low, high);
+    return sub;
 }

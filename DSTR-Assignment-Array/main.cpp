@@ -2,7 +2,10 @@
 #include <vector>
 
 #include "admin_menu.h"
+#include "display.h"
 #include "file2struct.h"
+#include "search.h"
+#include "sort.h"
 #include "tutor.h"
 
 const std::string TUTOR_FILE = "./data/tutor.txt";
@@ -30,7 +33,6 @@ int main() {
     }
 
     startMenu(tutorV);
-
     return 0;
 }
 
