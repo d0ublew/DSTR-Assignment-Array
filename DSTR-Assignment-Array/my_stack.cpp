@@ -5,13 +5,11 @@
 StackNode::StackNode() {
     data = nullptr;
     next = nullptr;
-    prev = nullptr;
 }
 
 StackNode::StackNode(Node *paramData) {
     data = paramData;
     next = nullptr;
-    prev = nullptr;
 }
 
 StackNode::~StackNode() {}
@@ -33,8 +31,6 @@ void StackList::InsertBeginning(Node *data) {
         return;
     }
     newStackNode->next = head;
-    newStackNode->prev = head->prev;
-    head->prev = newStackNode;
     head = newStackNode;
 }
 
@@ -42,7 +38,6 @@ void StackList::DeleteBeginning() {
     StackNode *ptr = head;
     if (head->next != nullptr) {
         head = head->next;
-        head->prev = nullptr;
     }
     if (ptr == head) head = nullptr;
     delete ptr;
