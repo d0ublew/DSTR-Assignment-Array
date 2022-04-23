@@ -4,7 +4,8 @@
 #include <string>
 #include <vector>
 
-struct Center {
+struct Center
+{
     std::string ID;
     std::string name;
 };

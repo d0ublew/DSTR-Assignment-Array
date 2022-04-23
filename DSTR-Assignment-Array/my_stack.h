@@ -4,7 +4,8 @@
 #include "node.h"
 #include <iostream>
 
-struct StackNode {
+struct StackNode
+{
     Node *data;
     StackNode *next;
     StackNode();
@@ -12,7 +13,8 @@ struct StackNode {
     ~StackNode();
 };
 
-struct StackList {
+struct StackList
+{
     StackNode *head;
     StackList();
     ~StackList();
@@ -20,7 +22,8 @@ struct StackList {
     void DeleteBeginning();
 };
 
-struct MyStack {
+struct MyStack
+{
     StackList ll;
     MyStack();
     ~MyStack();

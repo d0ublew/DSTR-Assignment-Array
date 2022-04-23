@@ -4,12 +4,17 @@
 #include "binary_tree.h"
 #include "my_stack.h"
 
-BinaryTree::BinaryTree() { root = nullptr; }
+BinaryTree::BinaryTree()
+{
+    root = nullptr;
+}
 
-BinaryTree::~BinaryTree() {}
+BinaryTree::~BinaryTree()
+{
+}
 
-BinaryTree::BinaryTree(std::vector<Tutor *> &v,
-                       int (*CompareFn)(Tutor &, Tutor &), char order) {
+BinaryTree::BinaryTree(std::vector<Tutor *> &v, int (*CompareFn)(Tutor &, Tutor &), char order)
+{
     root = nullptr;
     if (v.size() == 0) return;
 
@@ -18,22 +23,30 @@ BinaryTree::BinaryTree(std::vector<Tutor *> &v,
     root->next = nullptr;
     root->prev = nullptr;
 
-    for (it = next(v.begin()); it != v.end(); it++) {
+    for (it = next(v.begin()); it != v.end(); it++)
+    {
         Node *treeNodePtr = root;
         int result;
         Node *treeNodePtrParent = nullptr;
-        while (treeNodePtr != nullptr) {
+        while (treeNodePtr != nullptr)
+        {
             treeNodePtrParent = treeNodePtr;
             Tutor *vData = *it;
             Tutor *treeData = treeNodePtr->tutor;
             result = (*CompareFn)(*vData, *treeData);
-            if (order == 'a') {
-                if (result > 0) {
+            if (order == 'a')
+            {
+                if (result > 0)
+                {
                     treeNodePtr = treeNodePtr->next;
-                } else {
+                }
+                else
+                {
                     treeNodePtr = treeNodePtr->prev;
                 }
-            } else {
+            }
+            else
+            {
                 if (result > 0)
                     treeNodePtr = treeNodePtr->prev;
                 else
@@ -41,19 +54,28 @@ BinaryTree::BinaryTree(std::vector<Tutor *> &v,
             }
         }
 
-        if (order == 'a') {
-            if (result > 0) {
+        if (order == 'a')
+        {
+            if (result > 0)
+            {
                 treeNodePtrParent->next = new Node(*it);
                 treeNodePtr = treeNodePtrParent->next;
-            } else {
+            }
+            else
+            {
                 treeNodePtrParent->prev = new Node(*it);
                 treeNodePtr = treeNodePtrParent->prev;
             }
-        } else {
-            if (result > 0) {
+        }
+        else
+        {
+            if (result > 0)
+            {
                 treeNodePtrParent->prev = new Node(*it);
                 treeNodePtr = treeNodePtrParent->prev;
-            } else {
+            }
+            else
+            {
                 treeNodePtrParent->next = new Node(*it);
                 treeNodePtr = treeNodePtrParent->next;
             }
@@ -63,7 +85,8 @@ BinaryTree::BinaryTree(std::vector<Tutor *> &v,
     }
 }
 
-std::vector<Tutor *> BinaryTree::BTToSortedArr() {
+std::vector<Tutor *> BinaryTree::BTToSortedArr()
+{
     /**
      * Binary tree iterative inorder traversal with the help of stack to keep
      * track of traversed node
@@ -71,11 +94,15 @@ std::vector<Tutor *> BinaryTree::BTToSortedArr() {
     std::vector<Tutor *> sortedTutorV;
     MyStack nodeStack;
     Node *treeNodePtr = root;
-    while (!nodeStack.Empty() || treeNodePtr != nullptr) {
-        if (treeNodePtr != nullptr) {
+    while (!nodeStack.Empty() || treeNodePtr != nullptr)
+    {
+        if (treeNodePtr != nullptr)
+        {
             nodeStack.Push(treeNodePtr);
             treeNodePtr = treeNodePtr->prev;
-        } else {
+        }
+        else
+        {
             treeNodePtr = nodeStack.Top();
             sortedTutorV.push_back(treeNodePtr->tutor);
             nodeStack.Pop();

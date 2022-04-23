@@ -6,14 +6,14 @@
 
 using namespace std;
 
-struct Student {
+struct Student
+{
     std::string username;
     std::string password;
     Student();
     Student(std::string paramUsername, std::string paramPassword);
 };
 
-Student *getStudentByUsername(std::vector<Student> &studentV,
-                              std::string username);
+Student *getStudentByUsername(std::vector<Student> &studentV, std::string username);
 
 #endif

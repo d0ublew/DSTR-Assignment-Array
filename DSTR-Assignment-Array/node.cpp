@@ -1,15 +1,19 @@
 #include "node.h"
 #include "tutor.h"
 
-Node::Node() {
+Node::Node()
+{
     next = nullptr;
     prev = nullptr;
 }
 
-Node::Node(Tutor *paramTutor) {
+Node::Node(Tutor *paramTutor)
+{
     tutor = paramTutor;
     next = nullptr;
     prev = nullptr;
 }
 
-Node::~Node() {}
+Node::~Node()
+{
+}

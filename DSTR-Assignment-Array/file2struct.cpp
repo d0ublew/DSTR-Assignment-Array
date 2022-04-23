@@ -13,7 +13,8 @@
 #include "subject.h"
 #include "tutor.h"
 
-void initCenter() {
+void initCenter()
+{
     std::vector<Center> centerV;
     centerV.push_back({"C01", "One"});
     centerV.push_back({"C02", "Two"});
@@ -22,7 +23,8 @@ void initCenter() {
     std::string delim = "|";
     std::vector<Center>::iterator it;
 
-    for (it = centerV.begin(); it != centerV.end(); it++) {
+    for (it = centerV.begin(); it != centerV.end(); it++)
+    {
         Center c = *it;
         std::string ID = c.ID;
         std::string name = c.name;
@@ -32,7 +34,8 @@ void initCenter() {
     fileHandler.close();
 }
 
-void initSubject() {
+void initSubject()
+{
     std::vector<Subject> subjectV;
     subjectV.push_back({"S01", "One"});
     subjectV.push_back({"S02", "Two"});
@@ -41,7 +44,8 @@ void initSubject() {
     std::string delim = "|";
     std::vector<Subject>::iterator it;
 
-    for (it = subjectV.begin(); it != subjectV.end(); it++) {
+    for (it = subjectV.begin(); it != subjectV.end(); it++)
+    {
         Subject s = *it;
         std::string ID = s.ID;
         std::string name = s.name;
@@ -51,7 +55,8 @@ void initSubject() {
     fileHandler.close();
 }
 
-void initTutor() {
+void initTutor()
+{
     std::vector<Tutor *> tutorV;
     Tutor *t1 = new Tutor();
     Tutor *t2 = new Tutor();
@@ -187,19 +192,22 @@ void initTutor() {
     deallocateTutor(tutorV);
 }
 
-void initAdmin() {
+void initAdmin()
+{
     std::vector<Admin> adminV;
     adminV.push_back({"admin", "password"});
     adminToFile(adminV, ADMIN_FILE);
 }
 
-std::vector<Tutor *> fileToTutor(const std::string filename) {
+std::vector<Tutor *> fileToTutor(const std::string filename)
+{
     std::vector<Tutor *> tutorV;
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
     std::string delim = "|";
 
-    while (!getline(fileHandler, line).eof() && line.length() != 0) {
+    while (!getline(fileHandler, line).eof() && line.length() != 0)
+    {
         std::vector<std::string> data = splitString(line, delim);
         Tutor *t = new Tutor();
         t->ID = data.at(0);
@@ -219,13 +227,15 @@ std::vector<Tutor *> fileToTutor(const std::string filename) {
     return tutorV;
 }
 
-std::vector<Subject> fileToSubject(const std::string filename) {
+std::vector<Subject> fileToSubject(const std::string filename)
+{
     std::vector<Subject> subjectV;
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
     std::string delim = "|";
 
-    while (!getline(fileHandler, line).eof() && line.length() != 0) {
+    while (!getline(fileHandler, line).eof() && line.length() != 0)
+    {
         std::vector<std::string> data = splitString(line, delim);
         Subject s;
         s.ID = data.at(0);
@@ -236,13 +246,15 @@ std::vector<Subject> fileToSubject(const std::string filename) {
     return subjectV;
 }
 
-std::vector<Center> fileToCenter(const std::string filename) {
+std::vector<Center> fileToCenter(const std::string filename)
+{
     std::vector<Center> centerV;
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
     std::string delim = "|";
 
-    while (!getline(fileHandler, line).eof() && line.length() != 0) {
+    while (!getline(fileHandler, line).eof() && line.length() != 0)
+    {
         std::vector<std::string> data = splitString(line, delim);
         Center c;
         c.ID = data.at(0);
@@ -253,12 +265,14 @@ std::vector<Center> fileToCenter(const std::string filename) {
     return centerV;
 }
 
-void tutorToFile(std::vector<Tutor *> &tutorV, std::string filename) {
+void tutorToFile(std::vector<Tutor *> &tutorV, std::string filename)
+{
     std::fstream fileHandler(filename, std::ios::out);
     std::string delim = "|";
     std::vector<Tutor *>::iterator it;
 
-    for (it = tutorV.begin(); it != tutorV.end(); it++) {
+    for (it = tutorV.begin(); it != tutorV.end(); it++)
+    {
         Tutor *t = *it;
         std::string ID = t->ID;
         std::string name = t->name;
@@ -271,22 +285,23 @@ void tutorToFile(std::vector<Tutor *> &tutorV, std::string filename) {
         std::string center = t->center->ID;
         std::string subject = t->subject->ID;
         std::string countRate = std::to_string(t->countRate);
-        std::string line = ID + delim + name + delim + payRate + delim +
-                           rating + delim + phone + delim + address + delim +
-                           joinDate + delim + terminateDate + delim + center +
-                           delim + subject + delim + countRate;
+        std::string line = ID + delim + name + delim + payRate + delim + rating + delim + phone + delim + address +
+                           delim + joinDate + delim + terminateDate + delim + center + delim + subject + delim +
+                           countRate;
         fileHandler << line << '\n';
     }
     fileHandler.close();
 }
 
-std::vector<Student> fileToStudent(std::string filename) {
+std::vector<Student> fileToStudent(std::string filename)
+{
     std::vector<Student> studentV;
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
     std::string delim = "|";
 
-    while (!getline(fileHandler, line).eof() && line.length() != 0) {
+    while (!getline(fileHandler, line).eof() && line.length() != 0)
+    {
         std::vector<std::string> data = splitString(line, delim);
         Student stu;
         stu.username = data.at(0);
@@ -297,12 +312,14 @@ std::vector<Student> fileToStudent(std::string filename) {
     return studentV;
 }
 
-void studentToFile(std::vector<Student> &studentV, std::string filename) {
+void studentToFile(std::vector<Student> &studentV, std::string filename)
+{
     std::fstream fileHandler(filename, std::ios::out);
     std::string delim = "|";
     std::vector<Student>::iterator it;
 
-    for (it = studentV.begin(); it != studentV.end(); it++) {
+    for (it = studentV.begin(); it != studentV.end(); it++)
+    {
         Student stu = *it;
         std::string username = stu.username;
         std::string password = stu.password;
@@ -311,13 +328,15 @@ void studentToFile(std::vector<Student> &studentV, std::string filename) {
     fileHandler.close();
 }
 
-std::vector<Admin> fileToAdmin(std::string filename) {
+std::vector<Admin> fileToAdmin(std::string filename)
+{
     std::vector<Admin> adminV;
     std::fstream fileHandler(filename, std::ios::in);
     std::string line = "";
     std::string delim = "|";
 
-    while (!getline(fileHandler, line).eof() && line.length() != 0) {
+    while (!getline(fileHandler, line).eof() && line.length() != 0)
+    {
         std::vector<std::string> data = splitString(line, delim);
         Admin adm;
         adm.username = data.at(0);
@@ -328,12 +347,14 @@ std::vector<Admin> fileToAdmin(std::string filename) {
     return adminV;
 }
 
-void adminToFile(std::vector<Admin> &adminV, std::string filename) {
+void adminToFile(std::vector<Admin> &adminV, std::string filename)
+{
     std::fstream fileHandler(filename, std::ios::out);
     std::string delim = "|";
     std::vector<Admin>::iterator it;
 
-    for (it = adminV.begin(); it != adminV.end(); it++) {
+    for (it = adminV.begin(); it != adminV.end(); it++)
+    {
         Admin adm = *it;
         std::string username = adm.username;
         std::string password = adm.password;
@@ -342,11 +363,13 @@ void adminToFile(std::vector<Admin> &adminV, std::string filename) {
     fileHandler.close();
 }
 
-std::vector<std::string> splitString(std::string str, std::string delim) {
+std::vector<std::string> splitString(std::string str, std::string delim)
+{
     std::vector<std::string> data;
     size_t start = 0;
     size_t end = str.find(delim);
-    while (end != std::string::npos) {
+    while (end != std::string::npos)
+    {
         data.push_back(str.substr(start, end - start));
         start = end + delim.length();
         end = str.find(delim, start);
@@ -355,7 +378,8 @@ std::vector<std::string> splitString(std::string str, std::string delim) {
     return data;
 }
 
-std::string float_to_str_prec(float f, int n) {
+std::string float_to_str_prec(float f, int n)
+{
     std::ostringstream out;
     out.precision(n);
     out << std::fixed << f;

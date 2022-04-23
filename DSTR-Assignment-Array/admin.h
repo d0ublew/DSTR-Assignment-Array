@@ -6,7 +6,8 @@
 
 using namespace std;
 
-struct Admin {
+struct Admin
+{
     std::string username;
     std::string password;
     Admin();

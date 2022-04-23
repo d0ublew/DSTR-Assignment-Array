@@ -3,7 +3,8 @@
 
 #include <string>
 
-struct Date {
+struct Date
+{
     int day, month, year;
     Date();
     Date(std::string);

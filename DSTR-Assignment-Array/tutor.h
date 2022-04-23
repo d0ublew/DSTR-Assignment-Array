@@ -6,7 +6,8 @@
 #include "subject.h"
 #include <string>
 
-struct Tutor {
+struct Tutor
+{
     std::string ID;
     std::string name;
     float payRate;

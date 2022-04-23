@@ -8,7 +8,8 @@
 #include "subject.h"
 #include "tutor.h"
 
-Tutor::Tutor() {
+Tutor::Tutor()
+{
     ID = "";
     name = "";
     payRate = 0;
@@ -22,9 +23,12 @@ Tutor::Tutor() {
     countRate = 0;
 }
 
-Tutor::~Tutor() {}
+Tutor::~Tutor()
+{
+}
 
-Tutor *getTutorByID(std::vector<Tutor *> &tutorV, std::string ID) {
+Tutor *getTutorByID(std::vector<Tutor *> &tutorV, std::string ID)
+{
     Tutor query;
     query.ID = ID;
     std::vector<Tutor *> result = searchTutor(tutorV, query, &CompareTutorID);
@@ -33,10 +37,12 @@ Tutor *getTutorByID(std::vector<Tutor *> &tutorV, std::string ID) {
     return result.at(0);
 }
 
-void deallocateTutor(std::vector<Tutor *> &tutorV) {
+void deallocateTutor(std::vector<Tutor *> &tutorV)
+{
     std::vector<Tutor *>::iterator it;
 
-    for (it = tutorV.begin(); it != tutorV.end(); it++) {
+    for (it = tutorV.begin(); it != tutorV.end(); it++)
+    {
         Tutor *ptr = *it;
         delete ptr;
     }

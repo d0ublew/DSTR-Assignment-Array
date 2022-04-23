@@ -5,6 +5,5 @@
 #include <iostream>
 #include <vector>
 
-
 using namespace std;
-void Display(vector<Tutor>& arr, bool isAdmin = true);
+void Display(vector<Tutor> &arr, bool isAdmin = true);

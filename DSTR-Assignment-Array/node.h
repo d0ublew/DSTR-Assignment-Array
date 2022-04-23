@@ -3,7 +3,8 @@
 
 #include "tutor.h"
 
-struct Node {
+struct Node
+{
     Tutor *tutor;
     Node *next;
     Node *prev;

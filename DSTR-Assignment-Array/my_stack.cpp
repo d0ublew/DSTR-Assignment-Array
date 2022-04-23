@@ -2,29 +2,40 @@
 #include "node.h"
 #include <iostream>
 
-StackNode::StackNode() {
+StackNode::StackNode()
+{
     data = nullptr;
     next = nullptr;
 }
 
-StackNode::StackNode(Node *paramData) {
+StackNode::StackNode(Node *paramData)
+{
     data = paramData;
     next = nullptr;
 }
 
-StackNode::~StackNode() {}
+StackNode::~StackNode()
+{
+}
 
-StackList::StackList() { head = nullptr; }
+StackList::StackList()
+{
+    head = nullptr;
+}
 
-StackList::~StackList() {
-    while (head != nullptr) {
+StackList::~StackList()
+{
+    while (head != nullptr)
+    {
         DeleteBeginning();
     }
 }
 
-void StackList::InsertBeginning(Node *data) {
+void StackList::InsertBeginning(Node *data)
+{
     StackNode *newStackNode = new StackNode(data);
-    if (head == nullptr) {
+    if (head == nullptr)
+    {
         head = newStackNode;
         return;
     }
@@ -32,29 +43,47 @@ void StackList::InsertBeginning(Node *data) {
     head = newStackNode;
 }
 
-void StackList::DeleteBeginning() {
+void StackList::DeleteBeginning()
+{
     if (head == nullptr) return;
 
     StackNode *ptr = head;
-    if (head->next != nullptr) {
+    if (head->next != nullptr)
+    {
         head = head->next;
-    } else {
+    }
+    else
+    {
         head = nullptr;
     }
     delete ptr;
 }
 
-MyStack::MyStack() {}
+MyStack::MyStack()
+{
+}
 
-MyStack::~MyStack() {}
+MyStack::~MyStack()
+{
+}
 
-bool MyStack::Empty() { return (ll.head == nullptr) ? true : false; }
+bool MyStack::Empty()
+{
+    return (ll.head == nullptr) ? true : false;
+}
 
-void MyStack::Push(Node *data) { ll.InsertBeginning(data); }
+void MyStack::Push(Node *data)
+{
+    ll.InsertBeginning(data);
+}
 
-void MyStack::Pop() { ll.DeleteBeginning(); }
+void MyStack::Pop()
+{
+    ll.DeleteBeginning();
+}
 
-Node *MyStack::Top() {
+Node *MyStack::Top()
+{
     if (Empty()) return nullptr;
     return ll.head->data;
 }
