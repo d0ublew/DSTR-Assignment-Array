@@ -71,7 +71,7 @@ void modifyMenu(vector<Tutor *> &tutorV)
     {
         clearScreen();
         cout << "You are About to Modify Tutor Record, Please Becareful!\n";
-        cout << "1)Modify by Tutot ID" << endl;
+        cout << "1)Modify by Tutor ID" << endl;
         cout << "0)Return to Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
@@ -86,6 +86,7 @@ void modifyMenu(vector<Tutor *> &tutorV)
                 CompareFn = &CompareTutorID;
                 std::vector<Tutor *> result = searchTutor(tutorV, query, (*CompareFn));
                 modifyTutor(result.at(0));
+                tutorToFile(tutorV, TUTOR_FILE);
             }
             else if (choice == 0)
             {
