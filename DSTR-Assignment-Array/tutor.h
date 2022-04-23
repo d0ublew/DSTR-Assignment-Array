@@ -30,6 +30,8 @@ struct Tutor {
  *
  * @return tutor object with empty ID if not found, else matched tutor object
  */
-Tutor getTutorByID(std::vector<Tutor> &tutorV, std::string ID);
+Tutor *getTutorByID(std::vector<Tutor *> &tutorV, std::string ID);
+
+void deallocateTutor(std::vector<Tutor *> &tutorV);
 
 #endif

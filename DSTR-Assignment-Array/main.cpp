@@ -15,7 +15,7 @@ std::vector<Subject> _SUBJECT = fileToSubject(SUBJECT_FILE);
 std::vector<Center> _CENTER = fileToCenter(CENTER_FILE);
 
 int main() {
-    std::vector<Tutor> tutorV = fileToTutor(TUTOR_FILE);
+    std::vector<Tutor *> tutorV = fileToTutor(TUTOR_FILE);
 
     if (_SUBJECT.size() == 0) {
         initSubject();
@@ -33,6 +33,7 @@ int main() {
     }
 
     startMenu(tutorV);
+
     return 0;
 }
 

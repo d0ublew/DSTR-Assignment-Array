@@ -24,7 +24,7 @@ extern std::vector<Center> _CENTER;
  *
  * @return a vector object with Tutor data from specified text file
  */
-std::vector<Tutor> fileToTutor(const std::string filename);
+std::vector<Tutor *> fileToTutor(const std::string filename);
 
 /**
  * @brief import data from text file to Subject vector
@@ -53,7 +53,7 @@ std::vector<Center> fileToCenter(const std::string filename);
  * @param tutorV specifies the object to be exported
  * @param filename specifies the text file's path to write to
  */
-void tutorToFile(std::vector<Tutor> &tutorV, std::string filename);
+void tutorToFile(std::vector<Tutor *> &tutorV, std::string filename);
 
 /**
  * @brief import data from text file to Student vector

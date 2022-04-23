@@ -47,10 +47,10 @@ int CompareTutorRating(Tutor &t1, Tutor &t2) {
     return result;
 }
 
-std::vector<Tutor> sortTutor(std::vector<Tutor> &tutorV,
-                             int (*CompareFn)(Tutor &, Tutor &), char order) {
+std::vector<Tutor *> sortTutor(std::vector<Tutor *> &tutorV,
+                               int (*CompareFn)(Tutor &, Tutor &), char order) {
     BinaryTree *bt = new BinaryTree(tutorV, (*CompareFn), order);
-    std::vector<Tutor> sortedTutorV = bt->BTToSortedArr();
+    std::vector<Tutor *> sortedTutorV = bt->BTToSortedArr();
     delete bt;
     return sortedTutorV;
 }

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void studentRatingMenu(vector<Tutor> arr) {
+void studentRatingMenu(vector<Tutor *> arr) {
     while (true) {
         cout << "Welcome student what you want to do?" << endl;
         cout << "1) Rate a tutor" << endl;

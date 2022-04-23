@@ -8,7 +8,7 @@ struct Node {
     Node *next;
     Node *prev;
     Node();
-    Node(Tutor &paramTutor);
+    Node(Tutor *paramTutor);
     ~Node();
 };
 

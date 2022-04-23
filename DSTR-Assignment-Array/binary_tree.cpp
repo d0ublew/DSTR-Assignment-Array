@@ -1,18 +1,19 @@
-#include "binary_tree.h"
-#include "my_stack.h"
 #include <iostream>
 #include <stack>
+
+#include "binary_tree.h"
+#include "my_stack.h"
 
 BinaryTree::BinaryTree() { root = nullptr; }
 
 BinaryTree::~BinaryTree() {}
 
-BinaryTree::BinaryTree(std::vector<Tutor> &v,
+BinaryTree::BinaryTree(std::vector<Tutor *> &v,
                        int (*CompareFn)(Tutor &, Tutor &), char order) {
     root = nullptr;
     if (v.size() == 0) return;
 
-    std::vector<Tutor>::iterator it;
+    std::vector<Tutor *>::iterator it;
     root = new Node(v.at(0));
     root->next = nullptr;
     root->prev = nullptr;
@@ -23,9 +24,9 @@ BinaryTree::BinaryTree(std::vector<Tutor> &v,
         Node *treeNodePtrParent = nullptr;
         while (treeNodePtr != nullptr) {
             treeNodePtrParent = treeNodePtr;
-            Tutor vData = *it;
-            Tutor treeData = *(treeNodePtr->tutor);
-            result = (*CompareFn)(vData, treeData);
+            Tutor *vData = *it;
+            Tutor *treeData = treeNodePtr->tutor;
+            result = (*CompareFn)(*vData, *treeData);
             if (order == 'a') {
                 if (result > 0) {
                     treeNodePtr = treeNodePtr->next;
@@ -40,7 +41,6 @@ BinaryTree::BinaryTree(std::vector<Tutor> &v,
             }
         }
 
-        Tutor t = *it;
         if (order == 'a') {
             if (result > 0) {
                 treeNodePtrParent->next = new Node(*it);
@@ -63,12 +63,12 @@ BinaryTree::BinaryTree(std::vector<Tutor> &v,
     }
 }
 
-std::vector<Tutor> BinaryTree::BTToSortedArr() {
+std::vector<Tutor *> BinaryTree::BTToSortedArr() {
     /**
      * Binary tree iterative inorder traversal with the help of stack to keep
      * track of traversed node
      */
-    std::vector<Tutor> sortedTutorV;
+    std::vector<Tutor *> sortedTutorV;
     MyStack nodeStack;
     Node *treeNodePtr = root;
     while (!nodeStack.Empty() || treeNodePtr != nullptr) {
@@ -77,7 +77,7 @@ std::vector<Tutor> BinaryTree::BTToSortedArr() {
             treeNodePtr = treeNodePtr->prev;
         } else {
             treeNodePtr = nodeStack.Top();
-            sortedTutorV.push_back(*(treeNodePtr->tutor));
+            sortedTutorV.push_back(treeNodePtr->tutor);
             nodeStack.Pop();
             /**
              * Save the node address which data has been added to the array to

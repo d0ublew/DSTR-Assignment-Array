@@ -11,9 +11,10 @@
 #include <limits>
 #include <string>
 
-bool isTutorIDExisted(std::vector<Tutor> &arr, std::string ID) {
-    Tutor t = getTutorByID(arr, ID);
-    if (t.ID == "") return false;
+bool isTutorIDExisted(std::vector<Tutor *> &arr, std::string ID) {
+    Tutor *t = getTutorByID(arr, ID);
+    if (t == nullptr) return false;
+    if (ID != t->ID) return false;
     std::cout << "Tutor ID already existed, please enter again\n";
     return true;
 }

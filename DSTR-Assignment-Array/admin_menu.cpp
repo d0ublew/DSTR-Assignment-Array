@@ -4,19 +4,19 @@
 #include "add.h"
 #include "admin_menu.h"
 #include "authentication.h"
+#include "delete.h"
 #include "display.h"
 #include "file2struct.h"
+#include "modify.h"
 #include "search.h"
 #include "sort.h"
 #include "student_menu.h"
 #include "tutor.h"
 #include "validate.h"
-#include "delete.h"
-#include "modify.h"
 
 using namespace std;
 
-void startMenu(vector<Tutor> &tutorV) {
+void startMenu(vector<Tutor *> &tutorV) {
     while (true) {
         clearScreen();
         cout << "Welcome to eXcel Tuition Centre" << endl;
@@ -55,35 +55,34 @@ void startMenu(vector<Tutor> &tutorV) {
         }
     }
 }
-void modifyMenu(vector<Tutor>& tutorV) {
+void modifyMenu(vector<Tutor *> &tutorV) {
     while (true) {
-        cout << "You are About to Modify Tutor Record, Please Becareful!" << endl;
+        cout << "You are About to Modify Tutor Record, Please Becareful!"
+             << endl;
         cout << "1)Modify by Tutot ID" << endl;
         cout << "0)Return to Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
         if (isChoiceInMenuRange(choice, 1)) {
             Tutor query;
-            int (*CompareFn)(Tutor&, Tutor&) = nullptr;
-             if (choice == 1) {
+            int (*CompareFn)(Tutor &, Tutor &) = nullptr;
+            if (choice == 1) {
                 std::cout << "Enter Tutor ID (TXX): ";
                 std::getline(std::cin, query.ID);
                 CompareFn = &CompareTutorID;
-                std::vector<Tutor> result =
+                std::vector<Tutor *> result =
                     searchTutor(tutorV, query, (*CompareFn));
-                DisplayInModify(result);
+                // DisplayInModify(result);
 
-            }
-            else if (choice == 0) {
+            } else if (choice == 0) {
                 return;
             }
-        }
-        else if (choice == 0) {
+        } else if (choice == 0) {
             return;
         }
     }
 }
-void adminMainMenu(vector<Tutor> &tutorV) {
+void adminMainMenu(vector<Tutor *> &tutorV) {
     while (true) {
         clearScreen();
         cout << "Welcome back admin, please select a function" << endl;
@@ -129,11 +128,11 @@ void adminMainMenu(vector<Tutor> &tutorV) {
     }
 }
 
-void addMenu(vector<Tutor> &tutorV) {
+void addMenu(vector<Tutor *> &tutorV) {
 
     while (true) {
         clearScreen();
-        Tutor tutor;
+        Tutor *tutor;
         cout << "Where you want to add?" << endl;
         cout << "1) Add to First" << endl;
         cout << "2) Add to Last" << endl;
@@ -165,7 +164,7 @@ void addMenu(vector<Tutor> &tutorV) {
     }
 }
 
-void sortMenu(std::vector<Tutor> &tutorV) {
+void sortMenu(std::vector<Tutor *> &tutorV) {
     while (true) {
         clearScreen();
         cout << "How do you want to sort?" << endl;
@@ -200,7 +199,7 @@ void sortMenu(std::vector<Tutor> &tutorV) {
 
                 char order = 'a';
                 if (option == 2) order = 'd';
-                std::vector<Tutor> sortedTutorV =
+                std::vector<Tutor *> sortedTutorV =
                     sortTutor(tutorV, (*CompareFn), order);
                 DisplayTutor(sortedTutorV);
                 clearScreen();
@@ -209,7 +208,7 @@ void sortMenu(std::vector<Tutor> &tutorV) {
     }
 }
 
-void searchMenu(vector<Tutor> &tutorV) {
+void searchMenu(vector<Tutor *> &tutorV) {
     while (true) {
         clearScreen();
         cout << "How do you want to search?" << endl;
@@ -230,14 +229,14 @@ void searchMenu(vector<Tutor> &tutorV) {
                 query.rating = getFloatInput("Enter Tutor rating: ");
                 CompareFn = &CompareTutorRating;
             }
-            std::vector<Tutor> result =
+            std::vector<Tutor *> result =
                 searchTutor(tutorV, query, (*CompareFn));
             DisplayTutor(result);
         }
     }
 }
 
-void deleteMenu(vector<Tutor> &tutorV) {
+void deleteMenu(vector<Tutor *> &tutorV) {
     while (true) {
         cout << "Which function you need?" << endl;
         cout << "1) Terminate all expired tutors" << endl;
@@ -248,29 +247,24 @@ void deleteMenu(vector<Tutor> &tutorV) {
         if (isChoiceInMenuRange(choice, 2)) {
             // code here
             Tutor query;
-            int (*CompareFn)(Tutor&, Tutor&) = nullptr;
+            int (*CompareFn)(Tutor &, Tutor &) = nullptr;
             if (choice == 1) {
-            
+
             }
 
-             else if (choice == 2) {
+            else if (choice == 2) {
                 std::cout << "Enter Tutor ID (TXX): ";
                 std::getline(std::cin, query.ID);
                 CompareFn = &CompareTutorID;
-                std::vector<Tutor> result =
+                std::vector<Tutor *> result =
                     searchTutor(tutorV, query, (*CompareFn));
-                Display(result);
-               
-                }
-             else if (choice == 0) {
-                return;
-            }
-             
-            
+                // Display(result);
 
+            } else if (choice == 0) {
+                return;
             }
         }
     }
-
+}
 
 void clearScreen() { system("cls || clear"); }

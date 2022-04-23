@@ -24,12 +24,20 @@ Tutor::Tutor() {
 
 Tutor::~Tutor() {}
 
-Tutor getTutorByID(std::vector<Tutor> &tutorV, std::string ID) {
+Tutor *getTutorByID(std::vector<Tutor *> &tutorV, std::string ID) {
     Tutor query;
     query.ID = ID;
-    std::vector<Tutor> result = searchTutor(tutorV, query, &CompareTutorID);
-    query.ID = "";
-    if (result.size() == 0) return query;
+    std::vector<Tutor *> result = searchTutor(tutorV, query, &CompareTutorID);
+    if (result.size() == 0) return nullptr;
 
     return result.at(0);
+}
+
+void deallocateTutor(std::vector<Tutor *> &tutorV) {
+    std::vector<Tutor *>::iterator it;
+
+    for (it = tutorV.begin(); it != tutorV.end(); it++) {
+        Tutor *ptr = *it;
+        delete ptr;
+    }
 }

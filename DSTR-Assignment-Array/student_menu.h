@@ -5,4 +5,4 @@
 
 using namespace std;
 
-void studentRatingMenu(vector<Tutor> arr);
+void studentRatingMenu(vector<Tutor *> arr);

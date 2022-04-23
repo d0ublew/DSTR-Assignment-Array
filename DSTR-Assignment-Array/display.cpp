@@ -1,17 +1,18 @@
-#include "display.h"
+#include <iostream>
+#include <vector>
+
+#include "admin_menu.h"
 #include "center.h"
 #include "date.h"
+#include "display.h"
 #include "subject.h"
 #include "tutor.h"
 #include "validate.h"
-#include <iostream>
-#include <limits>
-#include <vector>
 
 using namespace std;
 
 // displaying tutor
-void DisplayTutor(vector<Tutor> &arr, bool isAdmin) {
+void DisplayTutor(vector<Tutor *> &arr, bool isAdmin) {
     size_t size = arr.size();
     if (size == 0) {
         std::cout << "No tutor record to be displayed\n";
@@ -27,10 +28,10 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin) {
     size_t end = step; // end of each page display
 
     while (true) {
-        system("cls || clear"); // clear screen
+        clearScreen();
         for (size_t i = start; i < end && i < size; i++) {
-            cout << "Tutor ID: " << arr.at(i).ID << endl;
-            cout << "Tutor Name: " << arr.at(i).name << endl;
+            cout << "Tutor ID: " << arr.at(i)->ID << endl;
+            cout << "Tutor Name: " << arr.at(i)->name << endl;
             // if its not admin then only show
             // tutor id and name
             if (!isAdmin) {
@@ -38,17 +39,17 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin) {
                 continue;
             }
 
-            cout << "Pay Rate: " << arr.at(i).payRate << endl;
-            cout << "Rating: " << arr.at(i).rating << endl;
-            cout << "Phone Number: " << arr.at(i).phone << endl;
-            cout << "Address: " << arr.at(i).address << endl;
-            cout << "Joined Date: " << arr.at(i).joinDate.ToString() << endl;
-            cout << "Termination Date: " << arr.at(i).terminateDate.ToString()
+            cout << "Pay Rate: " << arr.at(i)->payRate << endl;
+            cout << "Rating: " << arr.at(i)->rating << endl;
+            cout << "Phone Number: " << arr.at(i)->phone << endl;
+            cout << "Address: " << arr.at(i)->address << endl;
+            cout << "Joined Date: " << arr.at(i)->joinDate.ToString() << endl;
+            cout << "Termination Date: " << arr.at(i)->terminateDate.ToString()
                  << endl;
-            cout << "Center ID: " << arr.at(i).center->ID << endl;
-            cout << "Center Name: " << arr.at(i).center->name << endl;
-            cout << "Subject ID: " << arr.at(i).subject->ID << endl;
-            cout << "Subject Name: " << arr.at(i).subject->name << endl;
+            cout << "Center ID: " << arr.at(i)->center->ID << endl;
+            cout << "Center Name: " << arr.at(i)->center->name << endl;
+            cout << "Subject ID: " << arr.at(i)->subject->ID << endl;
+            cout << "Subject Name: " << arr.at(i)->subject->name << endl;
             cout << endl;
         }
 

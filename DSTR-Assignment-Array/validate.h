@@ -21,7 +21,7 @@ extern std::vector<Center> _CENTER;
  *
  * @return true if exists, else false
  */
-bool isTutorIDExisted(std::vector<Tutor> &arr, std::string ID);
+bool isTutorIDExisted(std::vector<Tutor *> &arr, std::string ID);
 
 /**
  * @brief Verify if supplied Tutor ID matches the required format

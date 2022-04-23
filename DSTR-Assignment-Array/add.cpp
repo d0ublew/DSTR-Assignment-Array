@@ -13,19 +13,19 @@
 using namespace std;
 
 // this method allows admin to insert new tutor information
-Tutor addingInterface(vector<Tutor> &arr) {
+Tutor *addingInterface(vector<Tutor *> &arr) {
     string date;
-    Tutor tutor;
+    Tutor *tutor = new Tutor();
 
     cout << "Please enter information below" << endl;
     while (true) {
 
         cout << "Tutor ID (TXX): ";
-        getline(cin, tutor.ID);
-        if (!isTutorIDFormatCorrect(tutor.ID)) {
+        getline(cin, tutor->ID);
+        if (!isTutorIDFormatCorrect(tutor->ID)) {
             continue;
         }
-        if (isTutorIDExisted(arr, tutor.ID)) {
+        if (isTutorIDExisted(arr, tutor->ID)) {
             continue;
         }
         break;
@@ -34,32 +34,32 @@ Tutor addingInterface(vector<Tutor> &arr) {
     cout << "Tutor Name: ";
 
     // use getline to get name with spaces
-    getline(cin, tutor.name);
+    getline(cin, tutor->name);
 
     while (true) {
         string setence = "Pay Rate (40 ~ 80): ";
-        tutor.payRate = getFloatInput(setence);
-        if (!isPayRateRangeValid(tutor.payRate)) {
+        tutor->payRate = getFloatInput(setence);
+        if (!isPayRateRangeValid(tutor->payRate)) {
             continue;
         }
         break;
     }
 
-    tutor.rating = 0;
-    tutor.countRate = 0;
+    tutor->rating = 0;
+    tutor->countRate = 0;
 
     while (true) {
         cout << "Phone Number(10~11 digits): ";
-        getline(cin, tutor.phone);
+        getline(cin, tutor->phone);
 
-        if (!isPhoneFormatValid(tutor.phone)) {
+        if (!isPhoneFormatValid(tutor->phone)) {
             continue;
         }
         break;
     }
 
     cout << "Address: ";
-    getline(cin, tutor.address);
+    getline(cin, tutor->address);
 
     while (true) {
 
@@ -69,10 +69,10 @@ Tutor addingInterface(vector<Tutor> &arr) {
         if (!isDateValid(date)) {
             continue;
         }
-        tutor.joinDate = date;
+        tutor->joinDate = date;
         break;
     }
-    tutor.terminateDate = Date("-");
+    tutor->terminateDate = Date("-");
 
     while (true) {
         string ID;
@@ -80,8 +80,8 @@ Tutor addingInterface(vector<Tutor> &arr) {
         DisplayCenter();
         cout << "Center ID: ";
         getline(cin, ID);
-        tutor.center = getCenterByID(_CENTER, ID);
-        if (!(isCenterExisted(tutor.center))) {
+        tutor->center = getCenterByID(_CENTER, ID);
+        if (!(isCenterExisted(tutor->center))) {
             continue;
         }
         break;
@@ -93,8 +93,8 @@ Tutor addingInterface(vector<Tutor> &arr) {
         DisplaySubject();
         cout << "Subject ID: ";
         getline(cin, ID);
-        tutor.subject = getSubjectByID(_SUBJECT, ID);
-        if (!(isSubjectExisted(tutor.subject))) {
+        tutor->subject = getSubjectByID(_SUBJECT, ID);
+        if (!(isSubjectExisted(tutor->subject))) {
             continue;
         }
         break;
@@ -104,9 +104,9 @@ Tutor addingInterface(vector<Tutor> &arr) {
 }
 
 // This method append the Tutor into the tutor vector to the back
-void addToBack(vector<Tutor> &arr, Tutor tutor) { arr.push_back(tutor); }
+void addToBack(vector<Tutor *> &arr, Tutor *tutor) { arr.push_back(tutor); }
 
 // This method insert the Tutor into the tutor vector to the front
-void addToFront(vector<Tutor> &arr, Tutor tutor) {
+void addToFront(vector<Tutor *> &arr, Tutor *tutor) {
     arr.insert(arr.begin(), tutor);
 }

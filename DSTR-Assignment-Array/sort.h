@@ -75,7 +75,7 @@ int CompareTutorRating(Tutor &, Tutor &);
  *
  * @return a sorted array
  */
-std::vector<Tutor> sortTutor(std::vector<Tutor> &tutorV,
-                             int (*CompareFn)(Tutor &, Tutor &), char order);
+std::vector<Tutor *> sortTutor(std::vector<Tutor *> &tutorV,
+                               int (*CompareFn)(Tutor &, Tutor &), char order);
 
 #endif

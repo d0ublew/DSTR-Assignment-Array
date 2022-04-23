@@ -6,8 +6,8 @@ Node::Node() {
     prev = nullptr;
 }
 
-Node::Node(Tutor &paramTutor) {
-    tutor = &paramTutor;
+Node::Node(Tutor *paramTutor) {
+    tutor = paramTutor;
     next = nullptr;
     prev = nullptr;
 }
