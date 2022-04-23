@@ -13,6 +13,11 @@ using namespace std;
 // displaying tutor
 void DisplayTutor(vector<Tutor> &arr, bool isAdmin) {
     size_t size = arr.size();
+    if (size == 0) {
+        std::cout << "No tutor record to be displayed\n";
+        Enter();
+        return;
+    }
     size_t step = 5; // how many tutor being display per page
 
     if (isAdmin) step = 3; // set tutor display only 3 per page
