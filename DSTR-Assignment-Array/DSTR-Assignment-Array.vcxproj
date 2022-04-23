@@ -59,6 +59,13 @@
     <ClInclude Include="tutor.h" />
     <ClInclude Include="validate.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="center.txt" />
+    <Text Include="subject.txt" />
+    <Text Include="tutor.txt" />
+    <Text Include="admin.txt" />
+    <Text Include="student.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
