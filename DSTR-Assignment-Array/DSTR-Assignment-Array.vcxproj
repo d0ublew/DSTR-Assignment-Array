@@ -64,11 +64,11 @@
     <ClInclude Include="validate.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="data/center.txt" />
-    <Text Include="data/subject.txt" />
-    <Text Include="data/tutor.txt" />
-    <Text Include="data\admin.txt" />
-    <Text Include="data\student.txt" />
+    <Text Include="center.txt" />
+    <Text Include="subject.txt" />
+    <Text Include="tutor.txt" />
+    <Text Include="admin.txt" />
+    <Text Include="student.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

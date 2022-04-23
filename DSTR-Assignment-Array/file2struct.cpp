@@ -297,10 +297,10 @@ std::vector<Admin> fileToAdmin(std::string filename) {
 
     while (!getline(fileHandler, line).eof() && line.length() != 0) {
         std::vector<std::string> data = splitString(line, delim);
-        Admin stu;
-        stu.username = data.at(0);
-        stu.password = data.at(1);
-        adminV.push_back(stu);
+        Admin adm;
+        adm.username = data.at(0);
+        adm.password = data.at(1);
+        adminV.push_back(adm);
     }
     fileHandler.close();
     return adminV;

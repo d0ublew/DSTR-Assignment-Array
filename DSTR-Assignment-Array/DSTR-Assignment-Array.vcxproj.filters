@@ -145,19 +145,19 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="data/center.txt">
+    <Text Include="center.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="data/subject.txt">
+    <Text Include="subject.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="data/tutor.txt">
+    <Text Include="tutor.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="data\admin.txt">
+    <Text Include="admin.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="data\student.txt">
+    <Text Include="student.txt">
       <Filter>Data</Filter>
     </Text>
   </ItemGroup>
