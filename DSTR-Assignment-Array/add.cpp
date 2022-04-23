@@ -58,6 +58,9 @@ Tutor addingInterface(vector<Tutor> &arr) {
         break;
     }
 
+    cout << "Address: ";
+    getline(cin, tutor.address);
+
     while (true) {
 
         cout << "Join Date (dd/MM/yyyy): ";
