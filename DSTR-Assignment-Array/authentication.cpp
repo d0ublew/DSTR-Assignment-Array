@@ -7,8 +7,8 @@
 #include <string>
 using namespace std;
 
-const std::string ADMIN_FILE = "./data/admin.txt";
-const std::string STUDENT_FILE = "./data/student.txt";
+const std::string ADMIN_FILE = "./admin.txt";
+const std::string STUDENT_FILE = "./student.txt";
 
 std::vector<Admin> _ADMIN = fileToAdmin(ADMIN_FILE);
 std::vector<Student> _STUDENT = fileToStudent(STUDENT_FILE);
