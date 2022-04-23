@@ -108,21 +108,21 @@ void DisplayInModify(vector<Tutor> &arr) {
     }
 }
 
-void modifyTutor(Tutor &tutor) {
+void modifyTutor(Tutor *tutor) {
     while (true) {
         clearScreen();
-        cout << "Tutor ID: " << tutor.ID << endl;
-        cout << "Tutor Name: " << tutor.name << endl;
-        cout << "Pay Rate: " << tutor.payRate << endl;
-        cout << "Rating: " << tutor.rating << endl;
-        cout << "Phone Number: " << tutor.phone << endl;
-        cout << "Address: " << tutor.address << endl;
-        cout << "Joined Date: " << tutor.joinDate.ToString() << endl;
-        cout << "Termination Date: " << tutor.terminateDate.ToString() << endl;
-        cout << "Center ID: " << tutor.center->ID << endl;
-        cout << "Center Name: " << tutor.center->name << endl;
-        cout << "Subject ID: " << tutor.subject->ID << endl;
-        cout << "Subject Name: " << tutor.subject->name << endl;
+        cout << "Tutor ID: " << tutor->ID << endl;
+        cout << "Tutor Name: " << tutor->name << endl;
+        cout << "Pay Rate: " << tutor->payRate << endl;
+        cout << "Rating: " << tutor->rating << endl;
+        cout << "Phone Number: " << tutor->phone << endl;
+        cout << "Address: " << tutor->address << endl;
+        cout << "Joined Date: " << tutor->joinDate.ToString() << endl;
+        cout << "Termination Date: " << tutor->terminateDate.ToString() << endl;
+        cout << "Center ID: " << tutor->center->ID << endl;
+        cout << "Center Name: " << tutor->center->name << endl;
+        cout << "Subject ID: " << tutor->subject->ID << endl;
+        cout << "Subject Name: " << tutor->subject->name << endl;
         cout << endl;
         int choice = getIntInput(
             "Do you want to modify this record (1 = Yes / 0 = No): ");
@@ -142,7 +142,7 @@ void modifyTutor(Tutor &tutor) {
                             while (true) {
                                 std::getline(std::cin, phone);
                                 if (isPhoneFormatValid(phone)) {
-                                    tutor.phone = phone;
+                                    tutor->phone = phone;
                                     valid = true;
                                     break;
                                 } else {
@@ -150,14 +150,14 @@ void modifyTutor(Tutor &tutor) {
                                 }
                             }
                         } else if (option == 2) {
-                            std::getline(std::cin, tutor.address);
+                            std::getline(std::cin, tutor->address);
                             valid = true;
                         } else if (option == 3) {
                             string date;
                             while (true) {
                                 std::getline(std::cin, date);
                                 if (isDateValid(date)) {
-                                    tutor.terminateDate = date;
+                                    tutor->terminateDate = date;
                                     valid = true;
                                     break;
                                 } else {

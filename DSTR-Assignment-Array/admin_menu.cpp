@@ -57,8 +57,8 @@ void startMenu(vector<Tutor *> &tutorV) {
 }
 void modifyMenu(vector<Tutor *> &tutorV) {
     while (true) {
-        cout << "You are About to Modify Tutor Record, Please Becareful!"
-             << endl;
+        clearScreen();
+        cout << "You are About to Modify Tutor Record, Please Becareful!\n";
         cout << "1)Modify by Tutot ID" << endl;
         cout << "0)Return to Previous Page" << endl;
         string sentence = "Enter your choice: ";
@@ -72,13 +72,11 @@ void modifyMenu(vector<Tutor *> &tutorV) {
                 CompareFn = &CompareTutorID;
                 std::vector<Tutor *> result =
                     searchTutor(tutorV, query, (*CompareFn));
-                // DisplayInModify(result);
+                modifyTutor(result.at(0));
 
             } else if (choice == 0) {
                 return;
             }
-        } else if (choice == 0) {
-            return;
         }
     }
 }
@@ -119,7 +117,6 @@ void adminMainMenu(vector<Tutor *> &tutorV) {
             case 6:
                 deleteMenu(tutorV);
                 break;
-
             case 7:
                 registerAdmin();
                 break;
@@ -189,20 +186,27 @@ void sortMenu(std::vector<Tutor *> &tutorV) {
             case 0:
                 return;
             }
-            while (true) {
-                cout << "Sort in:\n";
-                cout << "1) Ascending order\n";
-                cout << "2) Descending order\n";
-                cout << "0) Back\n";
+            cout << "Sort in:\n";
+            cout << "1) Ascending order\n";
+            cout << "2) Descending order\n";
+            cout << "0) Back\n";
+            bool valid = false;
+            while (!valid) {
                 int option = getIntInput("Enter your choice: ");
-                if (option == 0) break;
-
-                char order = 'a';
-                if (option == 2) order = 'd';
-                std::vector<Tutor *> sortedTutorV =
-                    sortTutor(tutorV, (*CompareFn), order);
-                DisplayTutor(sortedTutorV);
-                clearScreen();
+                if (isChoiceInMenuRange(option, 2)) {
+                    valid = true;
+                    char order = ' ';
+                    if (option == 0) {
+                        break;
+                    } else if (option == 1) {
+                        order = 'a';
+                    } else if (option == 2) {
+                        order = 'd';
+                    }
+                    std::vector<Tutor *> sortedTutorV =
+                        sortTutor(tutorV, (*CompareFn), order);
+                    DisplayTutor(sortedTutorV);
+                }
             }
         }
     }
