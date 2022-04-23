@@ -11,6 +11,8 @@
 #include "student_menu.h"
 #include "tutor.h"
 #include "validate.h"
+#include "delete.h"
+#include "modify.h"
 
 using namespace std;
 
@@ -53,7 +55,34 @@ void startMenu(vector<Tutor> &tutorV) {
         }
     }
 }
+void modifyMenu(vector<Tutor>& tutorV) {
+    while (true) {
+        cout << "You are About to Modify Tutor Record, Please Becareful!" << endl;
+        cout << "1)Modify by Tutot ID" << endl;
+        cout << "0)Return to Previous Page" << endl;
+        string sentence = "Enter your choice: ";
+        int choice = getIntInput(sentence);
+        if (isChoiceInMenuRange(choice, 1)) {
+            Tutor query;
+            int (*CompareFn)(Tutor&, Tutor&) = nullptr;
+             if (choice == 1) {
+                std::cout << "Enter Tutor ID (TXX): ";
+                std::getline(std::cin, query.ID);
+                CompareFn = &CompareTutorID;
+                std::vector<Tutor> result =
+                    searchTutor(tutorV, query, (*CompareFn));
+                DisplayInModify(result);
 
+            }
+            else if (choice == 0) {
+                return;
+            }
+        }
+        else if (choice == 0) {
+            return;
+        }
+    }
+}
 void adminMainMenu(vector<Tutor> &tutorV) {
     while (true) {
         clearScreen();
@@ -86,9 +115,7 @@ void adminMainMenu(vector<Tutor> &tutorV) {
                 searchMenu(tutorV);
                 break;
             case 5:
-                // Modify method call here
-                // please delete this cout after implementing modify
-                cout << "No yet impemented modify" << endl;
+                modifyMenu(tutorV);
                 break;
             case 6:
                 deleteMenu(tutorV);
@@ -220,8 +247,30 @@ void deleteMenu(vector<Tutor> &tutorV) {
         int choice = getIntInput(sentence);
         if (isChoiceInMenuRange(choice, 2)) {
             // code here
+            Tutor query;
+            int (*CompareFn)(Tutor&, Tutor&) = nullptr;
+            if (choice == 1) {
+            
+            }
+
+             else if (choice == 2) {
+                std::cout << "Enter Tutor ID (TXX): ";
+                std::getline(std::cin, query.ID);
+                CompareFn = &CompareTutorID;
+                std::vector<Tutor> result =
+                    searchTutor(tutorV, query, (*CompareFn));
+                Display(result);
+               
+                }
+             else if (choice == 0) {
+                return;
+            }
+             
+            
+
+            }
         }
     }
-}
+
 
 void clearScreen() { system("cls || clear"); }

@@ -26,9 +26,11 @@
     <ClCompile Include="binary_tree.cpp" />
     <ClCompile Include="center.cpp" />
     <ClCompile Include="date.cpp" />
+    <ClCompile Include="delete.cpp" />
     <ClCompile Include="display.cpp" />
     <ClCompile Include="file2struct.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="modify.cpp" />
     <ClCompile Include="my_stack.cpp" />
     <ClCompile Include="node.cpp" />
     <ClCompile Include="search.cpp" />
@@ -47,8 +49,10 @@
     <ClInclude Include="binary_tree.h" />
     <ClInclude Include="center.h" />
     <ClInclude Include="date.h" />
+    <ClInclude Include="delete.h" />
     <ClInclude Include="display.h" />
     <ClInclude Include="file2struct.h" />
+    <ClInclude Include="modify.h" />
     <ClInclude Include="my_stack.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="search.h" />
