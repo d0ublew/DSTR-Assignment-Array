@@ -37,6 +37,7 @@ int main()
     }
 
     startMenu(tutorV);
+    deallocateTutor(tutorV);
 
     return 0;
 }
