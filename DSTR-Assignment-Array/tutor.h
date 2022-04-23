@@ -12,6 +12,7 @@ struct Tutor {
     float payRate;
     float rating;
     std::string phone;
+    std::string address;
     Date joinDate;
     Date terminateDate;
     Center *center;

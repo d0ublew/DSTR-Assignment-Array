@@ -13,11 +13,13 @@ Tutor::Tutor() {
     name = "";
     payRate = 0;
     rating = 0;
-    countRate = 0;
+    phone = "";
+    address = "";
     joinDate = Date("-");
     terminateDate = Date("-");
     center = nullptr;
     subject = nullptr;
+    countRate = 0;
 }
 
 Tutor::~Tutor() {}

@@ -59,6 +59,7 @@ void initTutor() {
     t1.payRate = 40;
     t1.rating = 0;
     t1.phone = "0193480480";
+    t1.address = "TPM";
     t1.joinDate = *new Date("1/1/2022");
     t1.terminateDate = *new Date("-");
     t1.center = getCenterByID(_CENTER, "C01");
@@ -69,6 +70,7 @@ void initTutor() {
     t2.payRate = 80;
     t2.rating = 0;
     t2.phone = "0128734193";
+    t2.address = "TPM";
     t2.joinDate = *new Date("1/1/2022");
     t2.terminateDate = *new Date("-");
     t2.center = getCenterByID(_CENTER, "C02");
@@ -79,6 +81,7 @@ void initTutor() {
     t3.payRate = 45;
     t3.rating = 0;
     t3.phone = "0120398148";
+    t3.address = "TPM";
     t3.joinDate = *new Date("1/1/2022");
     t3.terminateDate = *new Date("-");
     t3.center = getCenterByID(_CENTER, "C03");
@@ -89,6 +92,7 @@ void initTutor() {
     t4.payRate = 75;
     t4.rating = 0;
     t4.phone = "0720427031";
+    t4.address = "TPM";
     t4.joinDate = *new Date("1/1/2022");
     t4.terminateDate = *new Date("-");
     t4.center = getCenterByID(_CENTER, "C01");
@@ -99,6 +103,7 @@ void initTutor() {
     t5.payRate = 50;
     t5.rating = 0;
     t5.phone = "0149874198";
+    t5.address = "TPM";
     t5.joinDate = *new Date("1/1/2022");
     t5.terminateDate = *new Date("-");
     t5.center = getCenterByID(_CENTER, "C02");
@@ -109,6 +114,7 @@ void initTutor() {
     t6.payRate = 70;
     t6.rating = 0;
     t6.phone = "0147969143";
+    t6.address = "TPM";
     t6.joinDate = *new Date("1/1/2022");
     t6.terminateDate = *new Date("-");
     t6.center = getCenterByID(_CENTER, "C03");
@@ -119,6 +125,7 @@ void initTutor() {
     t7.payRate = 55;
     t7.rating = 0;
     t7.phone = "01893479571";
+    t7.address = "TPM";
     t7.joinDate = *new Date("1/1/2022");
     t7.terminateDate = *new Date("-");
     t7.center = getCenterByID(_CENTER, "C01");
@@ -129,6 +136,7 @@ void initTutor() {
     t8.payRate = 65;
     t8.rating = 0;
     t8.phone = "01039481947";
+    t8.address = "TPM";
     t8.joinDate = *new Date("1/1/2022");
     t8.terminateDate = *new Date("-");
     t8.center = getCenterByID(_CENTER, "C02");
@@ -139,6 +147,7 @@ void initTutor() {
     t9.payRate = 60;
     t9.rating = 0;
     t9.phone = "0348798111";
+    t9.address = "TPM";
     t9.joinDate = *new Date("1/1/2022");
     t9.terminateDate = *new Date("-");
     t9.center = getCenterByID(_CENTER, "C03");
@@ -149,6 +158,7 @@ void initTutor() {
     t10.payRate = 60;
     t10.rating = 0;
     t10.phone = "0184038501";
+    t10.address = "TPM";
     t10.joinDate = *new Date("1/1/2022");
     t10.terminateDate = *new Date("-");
     t10.center = getCenterByID(_CENTER, "C01");
@@ -187,11 +197,12 @@ std::vector<Tutor> fileToTutor(const std::string filename) {
         t.payRate = std::stof(data.at(2));
         t.rating = std::stof(data.at(3));
         t.phone = data.at(4);
-        t.joinDate = Date(data.at(5));
-        t.terminateDate = Date(data.at(6));
-        t.center = getCenterByID(_CENTER, data.at(7));
-        t.subject = getSubjectByID(_SUBJECT, data.at(8));
-        t.countRate = std::stoul(data.at(9));
+        t.address = data.at(5);
+        t.joinDate = Date(data.at(6));
+        t.terminateDate = Date(data.at(7));
+        t.center = getCenterByID(_CENTER, data.at(8));
+        t.subject = getSubjectByID(_SUBJECT, data.at(9));
+        t.countRate = std::stoul(data.at(10));
         tutorV.push_back(t);
     }
     fileHandler.close();
@@ -244,15 +255,16 @@ void tutorToFile(std::vector<Tutor> &tutorV, std::string filename) {
         std::string payRate = float_to_str_prec(t.payRate);
         std::string rating = float_to_str_prec(t.rating);
         std::string phone = t.phone;
+        std::string address = t.address;
         std::string joinDate = t.joinDate.ToString();
         std::string terminateDate = t.terminateDate.ToString();
         std::string center = t.center->ID;
         std::string subject = t.subject->ID;
         std::string countRate = std::to_string(t.countRate);
         std::string line = ID + delim + name + delim + payRate + delim +
-                           rating + delim + phone + delim + joinDate + delim +
-                           terminateDate + delim + center + delim + subject +
-                           delim + countRate;
+                           rating + delim + phone + delim + address + joinDate +
+                           delim + terminateDate + delim + center + delim +
+                           subject + delim + countRate;
         fileHandler << line << '\n';
     }
     fileHandler.close();

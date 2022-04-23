@@ -41,6 +41,7 @@ void DisplayTutor(vector<Tutor> &arr, bool isAdmin) {
             cout << "Pay Rate: " << arr.at(i).payRate << endl;
             cout << "Rating: " << arr.at(i).rating << endl;
             cout << "Phone Number: " << arr.at(i).phone << endl;
+            cout << "Address: " << arr.at(i).address << endl;
             cout << "Joined Date: " << arr.at(i).joinDate.ToString() << endl;
             cout << "Termination Date: " << arr.at(i).terminateDate.ToString()
                  << endl;
@@ -76,7 +77,7 @@ void DisplaySubject() {
     size_t size = arr.size();
     cout << "List of Subject's Information" << endl;
     for (size_t i = 0; i < size; i++) {
-        cout << "SubjectID: " << arr[i].ID << endl;
+        cout << "Subject ID: " << arr[i].ID << endl;
         cout << "Subject Name: " << arr[i].name << endl;
         cout << endl;
     }
@@ -88,7 +89,7 @@ void DisplayCenter() {
     size_t size = arr.size();
     cout << "List of Center's Information" << endl;
     for (size_t i = 0; i < size; i++) {
-        cout << "CenterID: " << arr[i].ID << endl;
+        cout << "Center ID: " << arr[i].ID << endl;
         cout << "Center Name: " << arr[i].name << endl;
         cout << endl;
     }
