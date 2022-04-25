@@ -85,8 +85,16 @@ void modifyMenu(vector<Tutor *> &tutorV)
                 std::getline(std::cin, query.ID);
                 CompareFn = &CompareTutorID;
                 std::vector<Tutor *> result = searchTutor(tutorV, query, (*CompareFn));
-                modifyTutor(result.at(0));
-                tutorToFile(tutorV, TUTOR_FILE);
+                if (result.size() != 0)
+                {
+                    modifyTutor(result.at(0));
+                    tutorToFile(tutorV, TUTOR_FILE);
+                }
+                else
+                {
+                    cout << "No Tutor Found please try another Tutor ID" << endl;
+                }
+                
             }
             else if (choice == 0)
             {

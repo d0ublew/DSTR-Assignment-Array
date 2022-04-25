@@ -121,27 +121,60 @@ void DisplayInModify(vector<Tutor> &arr)
     }
 }
 
-void modifyTutor(Tutor *tutor)
+void modifyTutor(Tutor *tutor, bool isAdmin)
 {
+    int choice;
     while (true)
     {
         clearScreen();
         cout << "Tutor ID: " << tutor->ID << endl;
         cout << "Tutor Name: " << tutor->name << endl;
-        cout << "Pay Rate: " << tutor->payRate << endl;
-        cout << "Rating: " << tutor->rating << endl;
-        cout << "Phone Number: " << tutor->phone << endl;
-        cout << "Address: " << tutor->address << endl;
-        cout << "Joined Date: " << tutor->joinDate.ToString() << endl;
-        cout << "Termination Date: " << tutor->terminateDate.ToString() << endl;
-        cout << "Center ID: " << tutor->center->ID << endl;
-        cout << "Center Name: " << tutor->center->name << endl;
-        cout << "Subject ID: " << tutor->subject->ID << endl;
-        cout << "Subject Name: " << tutor->subject->name << endl;
-        cout << endl;
-        int choice = getIntInput("Do you want to modify this record (1 = Yes / 0 = No): ");
+
+        if (isAdmin)
+        {
+            cout << "Pay Rate: " << tutor->payRate << endl;
+            cout << "Rating: " << tutor->rating << endl;
+            cout << "Phone Number: " << tutor->phone << endl;
+            cout << "Address: " << tutor->address << endl;
+            cout << "Joined Date: " << tutor->joinDate.ToString() << endl;
+            cout << "Termination Date: " << tutor->terminateDate.ToString() << endl;
+            cout << "Center ID: " << tutor->center->ID << endl;
+            cout << "Center Name: " << tutor->center->name << endl;
+            cout << "Subject ID: " << tutor->subject->ID << endl;
+            cout << "Subject Name: " << tutor->subject->name << endl;
+            cout << endl;
+            choice = getIntInput("Do you want to modify this record (1 = Yes / 0 = No): ");
+        }
+        else
+        {
+            choice = getIntInput("Do you want to rate this tutor (1 = Yes / 0 = No): ");
+        }
+         
+        
+        
         if (isChoiceInMenuRange(choice, 1))
         {
+            if (!isAdmin)
+            {
+                while (true)
+                {
+                    float rate;
+                    rate = getFloatInput("Please give your rate (1.0 ~ 5.0): ");
+                    if (!isRatingRateRangeValid(rate)) { continue; }
+          
+                    size_t count_rate = tutor->countRate;
+                    float tutor_rate = tutor->rating;
+                    tutor_rate *= count_rate;
+                    tutor_rate += rate;
+                    count_rate += 1;
+                    tutor_rate /= count_rate;
+                    tutor->rating = tutor_rate;
+                    tutor->countRate = count_rate;
+                    cout << "Thank you for your rating" << endl;
+                    return;
+                }
+                
+            }
             if (choice == 1)
             {
                 std::cout << "Modify:\n";
