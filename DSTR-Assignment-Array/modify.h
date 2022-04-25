@@ -10,4 +10,4 @@
 using namespace std;
 void DisplayInModify(vector<Tutor> &arr);
 
-void modifyTutor(Tutor *tutor,bool isAdmin = true);
+void modifyTutor(Tutor *tutor, bool isAdmin = true);

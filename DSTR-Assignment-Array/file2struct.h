@@ -119,4 +119,6 @@ void initCenter();
 void initSubject();
 void initTutor();
 void initAdmin();
+void clearScreen();
+
 #endif

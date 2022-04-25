@@ -94,7 +94,6 @@ void modifyMenu(vector<Tutor *> &tutorV)
                 {
                     cout << "No Tutor Found please try another Tutor ID" << endl;
                 }
-                
             }
             else if (choice == 0)
             {
@@ -321,9 +320,4 @@ void deleteMenu(vector<Tutor *> &tutorV)
             }
         }
     }
-}
-
-void clearScreen()
-{
-    system("cls || clear");
 }
