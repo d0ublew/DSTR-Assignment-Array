@@ -1,6 +1,7 @@
+#include <iostream>
+
 #include "my_stack.h"
 #include "node.h"
-#include <iostream>
 
 StackNode::StackNode()
 {

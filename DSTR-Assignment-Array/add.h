@@ -1,8 +1,9 @@
 #pragma once
 
-#include "tutor.h"
 #include <iostream>
 #include <vector>
+
+#include "tutor.h"
 
 using namespace std;
 

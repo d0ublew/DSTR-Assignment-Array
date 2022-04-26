@@ -5,9 +5,6 @@
 
 Center *getCenterByID(std::vector<Center> &centerV, std::string ID)
 {
-    /*
-     *
-     */
     std::vector<Center>::iterator it;
 
     for (it = centerV.begin(); it != centerV.end(); it++)

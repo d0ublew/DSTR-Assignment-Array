@@ -1,6 +1,7 @@
-#include "student.h"
 #include <string>
 #include <vector>
+
+#include "student.h"
 
 Student::Student()
 {

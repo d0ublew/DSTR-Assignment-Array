@@ -1,10 +1,12 @@
-#include "authentication.h"
+#include <iostream>
+#include <string>
+
 #include "admin.h"
+#include "authentication.h"
 #include "file2struct.h"
 #include "student.h"
 #include "validate.h"
-#include <iostream>
-#include <string>
+
 using namespace std;
 
 const std::string ADMIN_FILE = "./admin.txt";
@@ -20,7 +22,6 @@ void registerAdmin()
     cout << "Please insert information below" << endl;
     while (true)
     {
-
         cout << "Username: ";
         getline(cin, admin.username);
         if (isAdminUsernameExisted(_ADMIN, admin.username))

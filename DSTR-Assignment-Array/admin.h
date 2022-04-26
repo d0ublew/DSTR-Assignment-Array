@@ -15,4 +15,5 @@ struct Admin
 };
 
 Admin *getAdminByUsername(std::vector<Admin> &adminV, std::string username);
+
 #endif
