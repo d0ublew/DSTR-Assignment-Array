@@ -53,7 +53,7 @@ void studentSearchingTutorMenu(vector<Tutor *> &tutorV)
         std::vector<Tutor *> result = searchTutor(tutorV, query, (*CompareFn));
         if (result.size() != 0)
         {
-            modifyTutor(result.at(0), false);
+            modifyTutor(result, false);
             tutorToFile(tutorV, TUTOR_FILE);
             break;
         }

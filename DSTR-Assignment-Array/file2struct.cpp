@@ -385,8 +385,3 @@ std::string float_to_str_prec(float f, int n)
     out << std::fixed << f;
     return out.str();
 }
-
-void clearScreen()
-{
-    system("cls || clear");
-}

@@ -14,13 +14,14 @@
 
 using namespace std;
 
-void modifyTutor(Tutor *tutor, bool isAdmin)
+void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin)
 {
+    Tutor *tutor = tutorV.at(0);
     int choice;
     while (true)
     {
         clearScreen();
-        DisplayOneTutor(tutor, isAdmin);
+        SubDisplay(tutorV, 0, 1, isAdmin);
         cout << '\n';
 
         if (isAdmin)

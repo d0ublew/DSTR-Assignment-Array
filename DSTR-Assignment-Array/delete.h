@@ -6,4 +6,5 @@
 
 using namespace std;
 
-void DeleteTutor(std::vector<Tutor *> &tutorV);
+void DeleteTutor(std::vector<Tutor *> &subTutorV, std::string);
+void DeleteTerminatedTutor(std::vector<Tutor *> &tutorV);

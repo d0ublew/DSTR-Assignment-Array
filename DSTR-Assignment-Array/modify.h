@@ -8,6 +8,5 @@
 #include "tutor.h"
 
 using namespace std;
-void DisplayInModify(vector<Tutor> &arr);
 
-void modifyTutor(Tutor *tutor, bool isAdmin = true);
+void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin = true);

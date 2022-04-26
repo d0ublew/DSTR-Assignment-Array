@@ -12,3 +12,5 @@ void DisplayTutor(vector<Tutor *> &arr, bool isAdmin = true);
 void DisplaySubject();
 void DisplayCenter();
 void DisplayOneTutor(Tutor *, bool isAdmin = true);
+void SubDisplay(std::vector<Tutor *> &, size_t start, size_t end, bool isAdmin = true);
+void clearScreen();

@@ -87,7 +87,7 @@ void modifyMenu(vector<Tutor *> &tutorV)
                 std::vector<Tutor *> result = searchTutor(tutorV, query, (*CompareFn));
                 if (result.size() != 0)
                 {
-                    modifyTutor(result.at(0));
+                    modifyTutor(result);
                     tutorToFile(tutorV, TUTOR_FILE);
                 }
                 else
@@ -301,21 +301,19 @@ void deleteMenu(vector<Tutor *> &tutorV)
         if (isChoiceInMenuRange(choice, 2))
         {
             // code here
-            Tutor query;
-            int (*CompareFn)(Tutor &, Tutor &) = nullptr;
             if (choice == 1)
             {
-                DeleteTutor(tutorV);
+                DeleteTerminatedTutor(tutorV);
                 tutorToFile(tutorV, TUTOR_FILE);
             }
 
             else if (choice == 2)
             {
+                std::string ID;
                 std::cout << "Enter Tutor ID (TXX): ";
-                std::getline(std::cin, query.ID);
-                CompareFn = &CompareTutorID;
-                std::vector<Tutor *> result = searchTutor(tutorV, query, (*CompareFn));
-                // Display(result);
+                std::getline(std::cin, ID);
+                DeleteTutor(tutorV, ID);
+                tutorToFile(tutorV, TUTOR_FILE);
             }
             else if (choice == 0)
             {

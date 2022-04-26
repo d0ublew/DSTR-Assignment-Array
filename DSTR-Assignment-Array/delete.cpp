@@ -9,7 +9,48 @@
 
 using namespace std;
 
-void DeleteTutor(std::vector<Tutor *> &tutorV)
+void DeleteTutor(std::vector<Tutor *> &subTutorV, std::string ID)
+{
+    std::vector<Tutor *>::iterator it = subTutorV.begin();
+
+    while (it != subTutorV.end() && (*it)->ID != ID)
+    {
+        it++;
+    }
+
+    if (it == subTutorV.end())
+    {
+        std::cout << "No matching record found.\n";
+        Enter();
+        return;
+    }
+
+    while (true)
+    {
+        {
+            std::vector<Tutor *> temp(it, it + 1);
+            clearScreen();
+            SubDisplay(temp, 0, 1, false);
+        }
+        int choice = getIntInput("Do you want to proceed? (1 = Yes / 0 = No): ");
+        if (isChoiceInMenuRange(choice, 1))
+        {
+            if (choice == 1)
+            {
+                subTutorV.erase(it);
+                std::cout << "Delete successful\n";
+                Enter();
+                return;
+            }
+            else if (choice == 0)
+            {
+                return;
+            }
+        }
+    }
+}
+
+void DeleteTerminatedTutor(std::vector<Tutor *> &tutorV)
 {
     Date today = Date();
     today.Today();
@@ -24,8 +65,7 @@ void DeleteTutor(std::vector<Tutor *> &tutorV)
         if (!term.Empty() && term < sixMonth)
         {
             idx.insert(idx.begin(), i);
-            DisplayOneTutor(tutorV.at(i), false);
-            puts("");
+            SubDisplay(tutorV, 0, 1, false);
         }
     }
 
