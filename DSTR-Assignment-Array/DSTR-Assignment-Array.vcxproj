@@ -64,9 +64,6 @@
     <ClInclude Include="validate.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="center.txt" />
-    <Text Include="subject.txt" />
-    <Text Include="tutor.txt" />
     <Text Include="admin.txt" />
     <Text Include="student.txt" />
   </ItemGroup>

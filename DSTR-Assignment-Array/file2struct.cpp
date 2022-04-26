@@ -16,9 +16,21 @@
 void initCenter()
 {
     std::vector<Center> centerV;
-    centerV.push_back({"C01", "One"});
-    centerV.push_back({"C02", "Two"});
-    centerV.push_back({"C03", "Three"});
+    centerV.push_back({"C01", "Johor"});
+    centerV.push_back({"C02", "Kedah"});
+    centerV.push_back({"C03", "Kelantan"});
+    centerV.push_back({ "C04", "Malacca" });
+    centerV.push_back({ "C05", "Negeri Sembilan" });
+    centerV.push_back({ "C06", "Pahang" });
+    centerV.push_back({ "C07", "Penang" });
+    centerV.push_back({ "C08", "Perak" });
+    centerV.push_back({ "C09", "Perlis" });
+    centerV.push_back({ "C10", "Sabah" });
+    centerV.push_back({ "C11", "Sarawak" });
+    centerV.push_back({ "C12", "Selangor" });
+    centerV.push_back({ "C13", "Terengganu" });
+    
+
     std::fstream fileHandler(CENTER_FILE, std::ios::out);
     std::string delim = "|";
     std::vector<Center>::iterator it;
@@ -37,9 +49,13 @@ void initCenter()
 void initSubject()
 {
     std::vector<Subject> subjectV;
-    subjectV.push_back({"S01", "One"});
-    subjectV.push_back({"S02", "Two"});
-    subjectV.push_back({"S03", "Three"});
+    subjectV.push_back({"S01", "Chinese"});
+    subjectV.push_back({"S02", "Bahasa Malaysia"});
+    subjectV.push_back({"S03", "English"});
+    subjectV.push_back({ "S04", "Mathematics" });
+    subjectV.push_back({ "S05", "Chemistry" });
+    subjectV.push_back({ "S06", "Biology" });
+    subjectV.push_back({ "S07", "Physic" });
     std::fstream fileHandler(SUBJECT_FILE, std::ios::out);
     std::string delim = "|";
     std::vector<Subject>::iterator it;
@@ -68,6 +84,10 @@ void initTutor()
     Tutor *t8 = new Tutor();
     Tutor *t9 = new Tutor();
     Tutor *t10 = new Tutor();
+    Tutor* t11 = new Tutor();
+    Tutor* t12 = new Tutor();
+    Tutor* t13 = new Tutor();
+
     t1->ID = "T01";
     t1->name = "Andy";
     t1->payRate = 40;
@@ -109,8 +129,8 @@ void initTutor()
     t4->address = "TPM";
     t4->joinDate = *new Date("1/1/2022");
     t4->terminateDate = *new Date("-");
-    t4->center = getCenterByID(_CENTER, "C01");
-    t4->subject = getSubjectByID(_SUBJECT, "S01");
+    t4->center = getCenterByID(_CENTER, "C04");
+    t4->subject = getSubjectByID(_SUBJECT, "S04");
     t4->countRate = 0;
     t5->ID = "T05";
     t5->name = "Emma";
@@ -120,8 +140,8 @@ void initTutor()
     t5->address = "TPM";
     t5->joinDate = *new Date("1/1/2022");
     t5->terminateDate = *new Date("-");
-    t5->center = getCenterByID(_CENTER, "C02");
-    t5->subject = getSubjectByID(_SUBJECT, "S02");
+    t5->center = getCenterByID(_CENTER, "C05");
+    t5->subject = getSubjectByID(_SUBJECT, "S05");
     t5->countRate = 0;
     t6->ID = "T06";
     t6->name = "Frank";
@@ -131,8 +151,8 @@ void initTutor()
     t6->address = "TPM";
     t6->joinDate = *new Date("1/1/2022");
     t6->terminateDate = *new Date("-");
-    t6->center = getCenterByID(_CENTER, "C03");
-    t6->subject = getSubjectByID(_SUBJECT, "S03");
+    t6->center = getCenterByID(_CENTER, "C06");
+    t6->subject = getSubjectByID(_SUBJECT, "S06");
     t6->countRate = 0;
     t7->ID = "T07";
     t7->name = "Gilbert";
@@ -142,8 +162,8 @@ void initTutor()
     t7->address = "TPM";
     t7->joinDate = *new Date("1/1/2022");
     t7->terminateDate = *new Date("-");
-    t7->center = getCenterByID(_CENTER, "C01");
-    t7->subject = getSubjectByID(_SUBJECT, "S01");
+    t7->center = getCenterByID(_CENTER, "C07");
+    t7->subject = getSubjectByID(_SUBJECT, "S07");
     t7->countRate = 0;
     t8->ID = "T08";
     t8->name = "Howard";
@@ -153,8 +173,8 @@ void initTutor()
     t8->address = "TPM";
     t8->joinDate = *new Date("1/1/2022");
     t8->terminateDate = *new Date("-");
-    t8->center = getCenterByID(_CENTER, "C02");
-    t8->subject = getSubjectByID(_SUBJECT, "S02");
+    t8->center = getCenterByID(_CENTER, "C08");
+    t8->subject = getSubjectByID(_SUBJECT, "S01");
     t8->countRate = 0;
     t9->ID = "T09";
     t9->name = "Ian";
@@ -164,8 +184,8 @@ void initTutor()
     t9->address = "TPM";
     t9->joinDate = *new Date("1/1/2022");
     t9->terminateDate = *new Date("-");
-    t9->center = getCenterByID(_CENTER, "C03");
-    t9->subject = getSubjectByID(_SUBJECT, "S03");
+    t9->center = getCenterByID(_CENTER, "C09");
+    t9->subject = getSubjectByID(_SUBJECT, "S02");
     t9->countRate = 0;
     t10->ID = "T10";
     t10->name = "Julio";
@@ -175,9 +195,46 @@ void initTutor()
     t10->address = "TPM";
     t10->joinDate = *new Date("1/1/2022");
     t10->terminateDate = *new Date("-");
-    t10->center = getCenterByID(_CENTER, "C01");
-    t10->subject = getSubjectByID(_SUBJECT, "S01");
+    t10->center = getCenterByID(_CENTER, "C10");
+    t10->subject = getSubjectByID(_SUBJECT, "S03");
     t10->countRate = 0;
+
+    t11->ID = "T11";
+    t11->name = "Charles";
+    t11->payRate = 70;
+    t11->rating = 0;
+    t11->phone = "0172321235";
+    t11->address = "TPM";
+    t11->joinDate = *new Date("1/1/2022");
+    t11->terminateDate = *new Date("-");
+    t11->center = getCenterByID(_CENTER, "C11");
+    t11->subject = getSubjectByID(_SUBJECT, "S04");
+    t11->countRate = 0;
+
+    t12->ID = "T12";
+    t12->name = "Danny";
+    t12->payRate = 50;
+    t12->rating = 0;
+    t12->phone = "0182176568";
+    t12->address = "TPM";
+    t12->joinDate = *new Date("1/1/2022");
+    t12->terminateDate = *new Date("-");
+    t12->center = getCenterByID(_CENTER, "C12");
+    t12->subject = getSubjectByID(_SUBJECT, "S05");
+    t12->countRate = 0;
+
+    t13->ID = "T13";
+    t13->name = "Loo";
+    t13->payRate = 80;
+    t13->rating = 0;
+    t13->phone = "0180902093";
+    t13->address = "TPM";
+    t13->joinDate = *new Date("1/1/2022");
+    t13->terminateDate = *new Date("-");
+    t13->center = getCenterByID(_CENTER, "C13");
+    t13->subject = getSubjectByID(_SUBJECT, "S06");
+    t13->countRate = 0;
+
     tutorV.push_back(t1);
     tutorV.push_back(t2);
     tutorV.push_back(t3);
@@ -188,6 +245,9 @@ void initTutor()
     tutorV.push_back(t8);
     tutorV.push_back(t9);
     tutorV.push_back(t10);
+    tutorV.push_back(t11);
+    tutorV.push_back(t12);
+    tutorV.push_back(t13);
     tutorToFile(tutorV, TUTOR_FILE);
     deallocateTutor(tutorV);
 }

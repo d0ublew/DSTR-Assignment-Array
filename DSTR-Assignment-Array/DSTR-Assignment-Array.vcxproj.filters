@@ -145,15 +145,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="center.txt">
-      <Filter>Data</Filter>
-    </Text>
-    <Text Include="subject.txt">
-      <Filter>Data</Filter>
-    </Text>
-    <Text Include="tutor.txt">
-      <Filter>Data</Filter>
-    </Text>
     <Text Include="admin.txt">
       <Filter>Data</Filter>
     </Text>
