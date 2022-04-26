@@ -84,6 +84,7 @@ bool studentLogin()
         if (chance == 0)
         {
             cout << "Too many attempt, please try again" << endl;
+            Enter();
             return false;
         }
         chance -= 1;
@@ -120,6 +121,7 @@ bool adminLogin()
         if (chance == 0)
         {
             cout << "Too many attempt, please try again" << endl;
+            Enter();
             return false;
         }
         chance -= 1;
