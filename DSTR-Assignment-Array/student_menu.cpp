@@ -55,12 +55,15 @@ void studentSearchingTutorMenu(vector<Tutor *> &tutorV)
         {
             modifyTutor(result, false);
             tutorToFile(tutorV, TUTOR_FILE);
-            break;
+            cout << "Rating successful\n";
+            Enter();
+            return;
         }
         else
         {
             cout << "No Tutor Found please try another Tutor ID" << endl;
+            Enter();
+            return;
         }
     }
-    return;
 }

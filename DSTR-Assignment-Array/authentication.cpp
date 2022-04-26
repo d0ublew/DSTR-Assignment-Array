@@ -39,6 +39,7 @@ void registerAdmin()
         _ADMIN.push_back(admin);
         adminToFile(_ADMIN, ADMIN_FILE);
         cout << "Register Succesful" << endl;
+        Enter();
         break;
     }
 }
@@ -68,6 +69,7 @@ void registerStudent()
         _STUDENT.push_back(student);
         studentToFile(_STUDENT, STUDENT_FILE);
         cout << "Register Succesful" << endl;
+        Enter();
         break;
     }
 }

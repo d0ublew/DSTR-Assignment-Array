@@ -93,6 +93,7 @@ void modifyMenu(vector<Tutor *> &tutorV)
                 else
                 {
                     cout << "No Tutor Found please try another Tutor ID" << endl;
+                    Enter();
                 }
             }
             else if (choice == 0)
