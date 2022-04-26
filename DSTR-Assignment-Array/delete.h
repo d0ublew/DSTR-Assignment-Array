@@ -1,9 +1,9 @@
 #pragma once
-#include "center.h"
-#include "subject.h"
-#include "tutor.h"
-#include <iostream>
+
 #include <vector>
 
+#include "tutor.h"
+
 using namespace std;
-void Display(vector<Tutor> &arr, bool isAdmin = true);
+
+void DeleteTutor(std::vector<Tutor *> &tutorV);

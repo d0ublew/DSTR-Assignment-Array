@@ -20,22 +20,11 @@ void modifyTutor(Tutor *tutor, bool isAdmin)
     while (true)
     {
         clearScreen();
-        cout << "Tutor ID: " << tutor->ID << endl;
-        cout << "Tutor Name: " << tutor->name << endl;
+        DisplayOneTutor(tutor, isAdmin);
+        cout << '\n';
 
         if (isAdmin)
         {
-            cout << "Pay Rate: " << tutor->payRate << endl;
-            cout << "Rating: " << tutor->rating << endl;
-            cout << "Phone Number: " << tutor->phone << endl;
-            cout << "Address: " << tutor->address << endl;
-            cout << "Joined Date: " << tutor->joinDate.ToString() << endl;
-            cout << "Termination Date: " << tutor->terminateDate.ToString() << endl;
-            cout << "Center ID: " << tutor->center->ID << endl;
-            cout << "Center Name: " << tutor->center->name << endl;
-            cout << "Subject ID: " << tutor->subject->ID << endl;
-            cout << "Subject Name: " << tutor->subject->name << endl;
-            cout << endl;
             choice = getIntInput("Do you want to modify this record (1 = Yes / 0 = No): ");
         }
         else

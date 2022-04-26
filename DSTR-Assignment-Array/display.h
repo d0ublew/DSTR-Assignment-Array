@@ -11,3 +11,4 @@ extern std::vector<Center> _CENTER;
 void DisplayTutor(vector<Tutor *> &arr, bool isAdmin = true);
 void DisplaySubject();
 void DisplayCenter();
+void DisplayOneTutor(Tutor *, bool isAdmin = true);

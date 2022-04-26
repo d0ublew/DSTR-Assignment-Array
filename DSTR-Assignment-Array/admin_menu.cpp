@@ -291,6 +291,7 @@ void deleteMenu(vector<Tutor *> &tutorV)
 {
     while (true)
     {
+        clearScreen();
         cout << "Which function you need?" << endl;
         cout << "1) Terminate all expired tutors" << endl;
         cout << "2) Delete specific tutor data" << endl;
@@ -304,6 +305,8 @@ void deleteMenu(vector<Tutor *> &tutorV)
             int (*CompareFn)(Tutor &, Tutor &) = nullptr;
             if (choice == 1)
             {
+                DeleteTutor(tutorV);
+                tutorToFile(tutorV, TUTOR_FILE);
             }
 
             else if (choice == 2)

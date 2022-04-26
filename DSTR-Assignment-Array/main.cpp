@@ -2,10 +2,9 @@
 #include <vector>
 
 #include "admin_menu.h"
-#include "display.h"
+#include "center.h"
 #include "file2struct.h"
-#include "search.h"
-#include "sort.h"
+#include "subject.h"
 #include "tutor.h"
 
 const std::string TUTOR_FILE = "./tutor.txt";

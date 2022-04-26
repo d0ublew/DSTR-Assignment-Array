@@ -110,3 +110,23 @@ void DisplayCenter()
         cout << endl;
     }
 }
+
+void DisplayOneTutor(Tutor *tutor, bool isAdmin)
+{
+    cout << "Tutor ID: " << tutor->ID << endl;
+    cout << "Tutor Name: " << tutor->name << endl;
+
+    if (isAdmin)
+    {
+        cout << "Pay Rate: " << tutor->payRate << endl;
+        cout << "Rating: " << tutor->rating << endl;
+        cout << "Phone Number: " << tutor->phone << endl;
+        cout << "Address: " << tutor->address << endl;
+        cout << "Joined Date: " << tutor->joinDate.ToString() << endl;
+        cout << "Termination Date: " << tutor->terminateDate.ToString() << endl;
+        cout << "Center ID: " << tutor->center->ID << endl;
+        cout << "Center Name: " << tutor->center->name << endl;
+        cout << "Subject ID: " << tutor->subject->ID << endl;
+        cout << "Subject Name: " << tutor->subject->name << endl;
+    }
+}
