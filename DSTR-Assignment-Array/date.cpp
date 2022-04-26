@@ -58,10 +58,11 @@ std::string Date::ToString()
 void Date::Today()
 {
     time_t now = time(0);
-    tm *t = localtime(&now);
-    day = t->tm_mday;
-    month = 1 + t->tm_mon;
-    year = 1900 + t->tm_year;
+    tm t;
+    localtime_r(&now, &t);
+    day = t.tm_mday;
+    month = 1 + t.tm_mon;
+    year = 1900 + t.tm_year;
 }
 
 Date Date::SixMonthBack()
