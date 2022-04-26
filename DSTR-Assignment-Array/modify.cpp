@@ -22,7 +22,6 @@ void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin)
     {
         clearScreen();
         SubDisplay(tutorV, 0, 1, isAdmin);
-        cout << '\n';
 
         if (isAdmin)
         {

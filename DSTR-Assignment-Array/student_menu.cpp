@@ -55,8 +55,6 @@ void studentSearchingTutorMenu(vector<Tutor *> &tutorV)
         {
             modifyTutor(result, false);
             tutorToFile(tutorV, TUTOR_FILE);
-            cout << "Rating successful\n";
-            Enter();
             return;
         }
         else
