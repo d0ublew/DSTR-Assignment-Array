@@ -71,7 +71,7 @@ int CompareTutorRating(Tutor &, Tutor &);
  *
  * @param tutorV specifies the array to be sorted
  * @param CompareFn specifies the compare function to sort the array
- * @param order specifies the sorting order
+ * @param order specifies the sorting order, 'a' for ascending, 'd' for descending
  *
  * @return a sorted array
  */

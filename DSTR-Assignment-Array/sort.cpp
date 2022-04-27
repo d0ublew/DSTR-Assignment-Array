@@ -56,8 +56,17 @@ int CompareTutorRating(Tutor &t1, Tutor &t2)
 
 std::vector<Tutor *> sortTutor(std::vector<Tutor *> &tutorV, int (*CompareFn)(Tutor &, Tutor &), char order)
 {
-    BinaryTree *bt = new BinaryTree(tutorV, (*CompareFn), order);
-    std::vector<Tutor *> sortedTutorV = bt->BTToSortedArr();
-    delete bt;
+    /**
+     * Create a binary tree where for ascending, the left sub-tree contain
+     * nodes smaller than the sub-tree root and the right sub-tree contain
+     * nodes bigger than or equal to the sub-tree root
+     */
+    BinaryTree bt = BinaryTree(tutorV, (*CompareFn), order);
+
+    /**
+     * Build a new sorted array by doing inorder traversal through the binary
+     * tree
+     */
+    std::vector<Tutor *> sortedTutorV = bt.BTToSortedArr();
     return sortedTutorV;
 }
