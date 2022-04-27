@@ -9,16 +9,16 @@
 
 using namespace std;
 
-void DeleteTutor(std::vector<Tutor *> &subTutorV, std::string ID)
+void DeleteTutor(std::vector<Tutor *> &tutorV, std::string ID)
 {
-    std::vector<Tutor *>::iterator it = subTutorV.begin();
+    std::vector<Tutor *>::iterator it = tutorV.begin();
 
-    while (it != subTutorV.end() && (*it)->ID != ID)
+    while (it != tutorV.end() && (*it)->ID != ID)
     {
         it++;
     }
 
-    if (it == subTutorV.end())
+    if (it == tutorV.end())
     {
         std::cout << "No matching record found.\n";
         Enter();
@@ -37,7 +37,7 @@ void DeleteTutor(std::vector<Tutor *> &subTutorV, std::string ID)
         {
             if (choice == 1)
             {
-                subTutorV.erase(it);
+                tutorV.erase(it);
                 std::cout << "Delete successful\n";
                 Enter();
                 return;
@@ -56,6 +56,11 @@ void DeleteTerminatedTutor(std::vector<Tutor *> &tutorV)
     today.Today();
     Date sixMonth = today.SixMonthBack();
 
+    /**
+     * Create array to store the index of tutor which can be deleted in
+     * descending order, such that the deletion is performed from the end
+     * to not mess with the other index
+     */
     std::vector<size_t> idx;
 
     puts("");
@@ -83,8 +88,10 @@ void DeleteTerminatedTutor(std::vector<Tutor *> &tutorV)
         {
             if (choice == 1)
             {
+                // delete tutor starting from the end to the start
                 for (size_t i = 0; i < idx.size(); i++)
                 {
+                    // deallocate memory
                     delete tutorV.at(idx.at(i));
                     tutorV.erase(tutorV.begin() + idx.at(i));
                 }
