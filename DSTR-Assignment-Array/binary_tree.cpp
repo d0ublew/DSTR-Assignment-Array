@@ -20,68 +20,64 @@ BinaryTree::BinaryTree(std::vector<Tutor *> &v, int (*CompareFn)(Tutor &, Tutor 
 
     std::vector<Tutor *>::iterator it;
     root = new Node(v.at(0));
-    root->next = nullptr;
-    root->prev = nullptr;
 
     for (it = next(v.begin()); it != v.end(); it++)
     {
         Node *treeNodePtr = root;
-        int result;
-        Node *treeNodePtrParent = nullptr;
+
+        // Traverse until end of tree
         while (treeNodePtr != nullptr)
         {
-            treeNodePtrParent = treeNodePtr;
             Tutor *vData = *it;
             Tutor *treeData = treeNodePtr->tutor;
-            result = (*CompareFn)(*vData, *treeData);
+            int result = (*CompareFn)(*vData, *treeData);
             if (order == 'a')
             {
                 if (result > 0)
                 {
+                    // reach end of tree
+                    if (treeNodePtr->next == nullptr)
+                    {
+                        treeNodePtr->next = new Node(*it);
+                        break;
+                    }
                     treeNodePtr = treeNodePtr->next;
                 }
                 else
                 {
+                    // reach end of tree
+                    if (treeNodePtr->prev == nullptr)
+                    {
+                        treeNodePtr->prev = new Node(*it);
+                        break;
+                    }
                     treeNodePtr = treeNodePtr->prev;
                 }
             }
             else
             {
                 if (result > 0)
+                {
+                    // reach end of tree
+                    if (treeNodePtr->prev == nullptr)
+                    {
+                        treeNodePtr->prev = new Node(*it);
+                        break;
+                    }
                     treeNodePtr = treeNodePtr->prev;
+                }
                 else
+                {
+                    // reach end of tree
+                    if (treeNodePtr->next == nullptr)
+                    {
+                        treeNodePtr->next = new Node(*it);
+                        break;
+                    }
                     treeNodePtr = treeNodePtr->next;
+                }
             }
         }
-
-        if (order == 'a')
-        {
-            if (result > 0)
-            {
-                treeNodePtrParent->next = new Node(*it);
-                treeNodePtr = treeNodePtrParent->next;
-            }
-            else
-            {
-                treeNodePtrParent->prev = new Node(*it);
-                treeNodePtr = treeNodePtrParent->prev;
-            }
-        }
-        else
-        {
-            if (result > 0)
-            {
-                treeNodePtrParent->prev = new Node(*it);
-                treeNodePtr = treeNodePtrParent->prev;
-            }
-            else
-            {
-                treeNodePtrParent->next = new Node(*it);
-                treeNodePtr = treeNodePtrParent->next;
-            }
-        }
-        treeNodePtr->next = nullptr;
-        treeNodePtr->prev = nullptr;
     }
 }
 
@@ -98,11 +94,19 @@ std::vector<Tutor *> BinaryTree::BTToSortedArr()
     {
         if (treeNodePtr != nullptr)
         {
+            /**
+             * Traverse left sub-tree while keeping track of traversed node
+             */
             nodeStack.Push(treeNodePtr);
             treeNodePtr = treeNodePtr->prev;
         }
         else
         {
+            /**
+             * Reached end of left sub-tree, go back to parent node which can
+             * be retrieved from stack, append the node to new sorted array,
+             * traverse the right sub-tree
+             */
             treeNodePtr = nodeStack.Top();
             sortedTutorV.push_back(treeNodePtr->tutor);
             nodeStack.Pop();
