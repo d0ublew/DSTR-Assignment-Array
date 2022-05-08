@@ -33,6 +33,11 @@ struct Tutor
  */
 Tutor *getTutorByID(std::vector<Tutor *> &tutorV, std::string ID);
 
+/**
+ * @brief Function to deallocate Tutor objects in the heap
+ *
+ * @param tutorV specifies the array of Tutor objects to be deallocated
+ */
 void deallocateTutor(std::vector<Tutor *> &tutorV);
 
 #endif

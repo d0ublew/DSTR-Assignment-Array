@@ -18,6 +18,13 @@ struct BinaryTree
      * @param order specifies the order of sorting
      */
     BinaryTree(std::vector<Tutor *> &v, int (*CompareFn)(Tutor &, Tutor &), char order);
+
+    /**
+     * @brief convert binary tree to array by inorder traversal
+     *
+     * @return a vector with elements ordered according to inorder traversal
+     *         of the binary tree
+     */
     std::vector<Tutor *> BTToSortedArr();
 };
 
