@@ -403,3 +403,7 @@ student.txt
 admin.txt
 subject.txt
 center.txt
+
+deps/
+data/
+compile_commands.json
