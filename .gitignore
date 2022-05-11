@@ -407,3 +407,5 @@ center.txt
 deps/
 data/
 compile_commands.json
+build/
+CMakeLists.txt
