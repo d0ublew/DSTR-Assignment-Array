@@ -112,7 +112,7 @@ void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin)
                                 std::getline(std::cin, date);
                                 if (isDateValid(date))
                                 {
-                                    tutor->terminateDate = date;
+                                    tutor->terminateDate = Date(date);
                                     valid = true;
                                     break;
                                 }
