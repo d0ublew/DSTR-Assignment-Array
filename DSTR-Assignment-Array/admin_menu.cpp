@@ -29,39 +29,37 @@ void startMenu(vector<Tutor *> &tutorV)
         cout << "0) Exit" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (isChoiceInMenuRange(choice, 3))
+        if (!isChoiceInMenuRange(choice, 3)) continue;
+        // code here
+        switch (choice)
         {
-            // code here
-            switch (choice)
-            {
-            case 0:
-                cout << "Thank you for using this system" << endl;
-                return;
+        case 0:
+            cout << "Thank you for using this system" << endl;
+            return;
 
-            case 1:
-                if (adminLogin())
-                {
-                    adminMainMenu(tutorV);
-                }
-                else
-                {
-                    continue;
-                }
-                break;
-            case 2:
-                if (studentLogin())
-                {
-                    studentRatingMenu(tutorV);
-                }
-                else
-                {
-                    continue;
-                }
-                break;
-            case 3:
-                registerStudent();
-                break;
+        case 1:
+            if (adminLogin())
+            {
+                adminMainMenu(tutorV);
             }
+            else
+            {
+                continue;
+            }
+            break;
+        case 2:
+            if (studentLogin())
+            {
+                studentRatingMenu(tutorV);
+            }
+            else
+            {
+                continue;
+            }
+            break;
+        case 3:
+            registerStudent();
+            break;
         }
     }
 }
@@ -75,31 +73,29 @@ void modifyMenu(vector<Tutor *> &tutorV)
         cout << "0)Return to Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (isChoiceInMenuRange(choice, 1))
+        if (!isChoiceInMenuRange(choice, 1)) continue;
+        Tutor query;
+        int (*CompareFn)(Tutor &, Tutor &) = nullptr;
+        if (choice == 1)
         {
-            Tutor query;
-            int (*CompareFn)(Tutor &, Tutor &) = nullptr;
-            if (choice == 1)
+            std::cout << "Enter Tutor ID (TXX): ";
+            std::getline(std::cin, query.ID);
+            CompareFn = &CompareTutorID;
+            std::vector<Tutor *> result = searchTutor(tutorV, query, (*CompareFn));
+            if (result.size() != 0)
             {
-                std::cout << "Enter Tutor ID (TXX): ";
-                std::getline(std::cin, query.ID);
-                CompareFn = &CompareTutorID;
-                std::vector<Tutor *> result = searchTutor(tutorV, query, (*CompareFn));
-                if (result.size() != 0)
-                {
-                    modifyTutor(result);
-                    tutorToFile(tutorV, TUTOR_FILE);
-                }
-                else
-                {
-                    cout << "No Tutor Found please try another Tutor ID" << endl;
-                    Enter();
-                }
+                modifyTutor(result);
+                tutorToFile(tutorV, TUTOR_FILE);
             }
-            else if (choice == 0)
+            else
             {
-                return;
+                cout << "No Tutor Found please try another Tutor ID" << endl;
+                Enter();
             }
+        }
+        else if (choice == 0)
+        {
+            return;
         }
     }
 }
@@ -119,35 +115,33 @@ void adminMainMenu(vector<Tutor *> &tutorV)
         cout << "0) Logout" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (isChoiceInMenuRange(choice, 7))
+        if (!isChoiceInMenuRange(choice, 7)) continue;
+        switch (choice)
         {
-            switch (choice)
-            {
-            case 0:
-                return;
+        case 0:
+            return;
 
-            case 1:
-                addMenu(tutorV);
-                break;
-            case 2:
-                DisplayTutor(tutorV);
-                break;
-            case 3:
-                sortMenu(tutorV);
-                break;
-            case 4:
-                searchMenu(tutorV);
-                break;
-            case 5:
-                modifyMenu(tutorV);
-                break;
-            case 6:
-                deleteMenu(tutorV);
-                break;
-            case 7:
-                registerAdmin();
-                break;
-            }
+        case 1:
+            addMenu(tutorV);
+            break;
+        case 2:
+            DisplayTutor(tutorV);
+            break;
+        case 3:
+            sortMenu(tutorV);
+            break;
+        case 4:
+            searchMenu(tutorV);
+            break;
+        case 5:
+            modifyMenu(tutorV);
+            break;
+        case 6:
+            deleteMenu(tutorV);
+            break;
+        case 7:
+            registerAdmin();
+            break;
         }
     }
 }
@@ -165,29 +159,27 @@ void addMenu(vector<Tutor *> &tutorV)
         cout << "0) Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (isChoiceInMenuRange(choice, 2))
+        if (!isChoiceInMenuRange(choice, 2)) continue;
+        // code here
+        switch (choice)
         {
-            // code here
-            switch (choice)
-            {
-            case 0:
-                return;
+        case 0:
+            return;
 
-            case 1:
-                // code here
-                tutor = addingInterface(tutorV);
-                addToFront(tutorV, tutor);
-                tutorToFile(tutorV, TUTOR_FILE);
-                cout << "Tutor Added to Front Succesfully!\n";
-                break;
-            case 2:
-                // code here
-                tutor = addingInterface(tutorV);
-                addToBack(tutorV, tutor);
-                tutorToFile(tutorV, TUTOR_FILE);
-                cout << "Tutor Added to Back Succesfully!\n";
-                break;
-            }
+        case 1:
+            // code here
+            tutor = addingInterface(tutorV);
+            addToFront(tutorV, tutor);
+            tutorToFile(tutorV, TUTOR_FILE);
+            cout << "Tutor Added to Front Succesfully!\n";
+            break;
+        case 2:
+            // code here
+            tutor = addingInterface(tutorV);
+            addToBack(tutorV, tutor);
+            tutorToFile(tutorV, TUTOR_FILE);
+            cout << "Tutor Added to Back Succesfully!\n";
+            break;
         }
     }
 }
@@ -204,50 +196,48 @@ void sortMenu(std::vector<Tutor *> &tutorV)
         cout << "0) Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (isChoiceInMenuRange(choice, 3))
+        if (!isChoiceInMenuRange(choice, 3)) continue;
+        int (*CompareFn)(Tutor &, Tutor &) = nullptr;
+        switch (choice)
         {
-            int (*CompareFn)(Tutor &, Tutor &) = nullptr;
-            switch (choice)
+        case 1:
+            CompareFn = &CompareTutorID;
+            break;
+        case 2:
+            CompareFn = &CompareTutorPay;
+            break;
+        case 3:
+            CompareFn = &CompareTutorRating;
+            break;
+        case 0:
+            return;
+        }
+        cout << "Sort in:\n";
+        cout << "1) Ascending order\n";
+        cout << "2) Descending order\n";
+        cout << "0) Back\n";
+        bool valid = false;
+        while (!valid)
+        {
+            int option = getIntInput("Enter your choice: ");
+            if (isChoiceInMenuRange(option, 2))
             {
-            case 1:
-                CompareFn = &CompareTutorID;
-                break;
-            case 2:
-                CompareFn = &CompareTutorPay;
-                break;
-            case 3:
-                CompareFn = &CompareTutorRating;
-                break;
-            case 0:
-                return;
-            }
-            cout << "Sort in:\n";
-            cout << "1) Ascending order\n";
-            cout << "2) Descending order\n";
-            cout << "0) Back\n";
-            bool valid = false;
-            while (!valid)
-            {
-                int option = getIntInput("Enter your choice: ");
-                if (isChoiceInMenuRange(option, 2))
+                valid = true;
+                char order = ' ';
+                if (option == 0)
                 {
-                    valid = true;
-                    char order = ' ';
-                    if (option == 0)
-                    {
-                        break;
-                    }
-                    else if (option == 1)
-                    {
-                        order = 'a';
-                    }
-                    else if (option == 2)
-                    {
-                        order = 'd';
-                    }
-                    std::vector<Tutor *> sortedTutorV = sortTutor(tutorV, (*CompareFn), order);
-                    DisplayTutor(sortedTutorV);
+                    break;
                 }
+                else if (option == 1)
+                {
+                    order = 'a';
+                }
+                else if (option == 2)
+                {
+                    order = 'd';
+                }
+                std::vector<Tutor *> sortedTutorV = sortTutor(tutorV, (*CompareFn), order);
+                DisplayTutor(sortedTutorV);
             }
         }
     }
@@ -263,28 +253,26 @@ void searchMenu(vector<Tutor *> &tutorV)
         cout << "2) Search by overall performance" << endl;
         cout << "0) Previous Page" << endl;
         int choice = getIntInput("Enter your choice: ");
-        if (isChoiceInMenuRange(choice, 2))
+        if (!isChoiceInMenuRange(choice, 2)) continue;
+        Tutor query;
+        int (*CompareFn)(Tutor &, Tutor &) = nullptr;
+        if (choice == 0)
         {
-            Tutor query;
-            int (*CompareFn)(Tutor &, Tutor &) = nullptr;
-            if (choice == 0)
-            {
-                break;
-            }
-            else if (choice == 1)
-            {
-                std::cout << "Enter Tutor ID (TXX): ";
-                std::getline(std::cin, query.ID);
-                CompareFn = &CompareTutorID;
-            }
-            else if (choice == 2)
-            {
-                query.rating = getFloatInput("Enter Tutor rating: ");
-                CompareFn = &CompareTutorRating;
-            }
-            std::vector<Tutor *> result = searchTutor(tutorV, query, (*CompareFn));
-            DisplayTutor(result);
+            break;
         }
+        else if (choice == 1)
+        {
+            std::cout << "Enter Tutor ID (TXX): ";
+            std::getline(std::cin, query.ID);
+            CompareFn = &CompareTutorID;
+        }
+        else if (choice == 2)
+        {
+            query.rating = getFloatInput("Enter Tutor rating: ");
+            CompareFn = &CompareTutorRating;
+        }
+        std::vector<Tutor *> result = searchTutor(tutorV, query, (*CompareFn));
+        DisplayTutor(result);
     }
 }
 
@@ -299,27 +287,25 @@ void deleteMenu(vector<Tutor *> &tutorV)
         cout << "0) Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (isChoiceInMenuRange(choice, 2))
+        if (!isChoiceInMenuRange(choice, 2)) continue;
+        // code here
+        if (choice == 1)
         {
-            // code here
-            if (choice == 1)
-            {
-                DeleteTerminatedTutor(tutorV);
-                tutorToFile(tutorV, TUTOR_FILE);
-            }
+            DeleteTerminatedTutor(tutorV);
+            tutorToFile(tutorV, TUTOR_FILE);
+        }
 
-            else if (choice == 2)
-            {
-                std::string ID;
-                std::cout << "Enter Tutor ID (TXX): ";
-                std::getline(std::cin, ID);
-                DeleteTutor(tutorV, ID);
-                tutorToFile(tutorV, TUTOR_FILE);
-            }
-            else if (choice == 0)
-            {
-                return;
-            }
+        else if (choice == 2)
+        {
+            std::string ID;
+            std::cout << "Enter Tutor ID (TXX): ";
+            std::getline(std::cin, ID);
+            DeleteTutor(tutorV, ID);
+            tutorToFile(tutorV, TUTOR_FILE);
+        }
+        else if (choice == 0)
+        {
+            return;
         }
     }
 }

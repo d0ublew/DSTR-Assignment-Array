@@ -33,19 +33,17 @@ void DeleteTutor(std::vector<Tutor *> &tutorV, std::string ID)
             SubDisplay(temp, 0, 1, false);
         }
         int choice = getIntInput("Do you want to proceed? (1 = Yes / 0 = No): ");
-        if (isChoiceInMenuRange(choice, 1))
+        if (!isChoiceInMenuRange(choice, 1)) continue;
+        if (choice == 1)
         {
-            if (choice == 1)
-            {
-                tutorV.erase(it);
-                std::cout << "Delete successful\n";
-                Enter();
-                return;
-            }
-            else if (choice == 0)
-            {
-                return;
-            }
+            tutorV.erase(it);
+            std::cout << "Delete successful\n";
+            Enter();
+            return;
+        }
+        else if (choice == 0)
+        {
+            return;
         }
     }
 }
@@ -84,25 +82,23 @@ void DeleteTerminatedTutor(std::vector<Tutor *> &tutorV)
     while (true)
     {
         int choice = getIntInput("These tutors will be deleted, proceed? (1 = Yes / 0 = No): ");
-        if (isChoiceInMenuRange(choice, 1))
+        if (!isChoiceInMenuRange(choice, 1)) continue;
+        if (choice == 1)
         {
-            if (choice == 1)
+            // delete tutor starting from the end to the start
+            for (size_t i = 0; i < idx.size(); i++)
             {
-                // delete tutor starting from the end to the start
-                for (size_t i = 0; i < idx.size(); i++)
-                {
-                    // deallocate memory
-                    delete tutorV.at(idx.at(i));
-                    tutorV.erase(tutorV.begin() + idx.at(i));
-                }
-                std::cout << "Delete successful\n";
-                Enter();
-                return;
+                // deallocate memory
+                delete tutorV.at(idx.at(i));
+                tutorV.erase(tutorV.begin() + idx.at(i));
             }
-            else if (choice == 0)
-            {
-                return;
-            }
+            std::cout << "Delete successful\n";
+            Enter();
+            return;
+        }
+        else if (choice == 0)
+        {
+            return;
         }
     }
 }
