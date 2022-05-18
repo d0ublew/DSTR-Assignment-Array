@@ -3,14 +3,13 @@
 
 #include "tutor.h"
 
-struct Node
-{
-    Tutor *tutor;
-    Node *next;
-    Node *prev;
-    Node();
-    Node(Tutor *paramTutor);
-    ~Node();
+struct Node {
+  Tutor *tutor;
+  Node *next;
+  Node *prev;
+  Node();
+  Node(Tutor *paramTutor);
+  ~Node();
 };
 
 #endif

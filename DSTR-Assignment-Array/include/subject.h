@@ -4,10 +4,9 @@
 #include <string>
 #include <vector>
 
-struct Subject
-{
-    std::string ID;
-    std::string name;
+struct Subject {
+  std::string ID;
+  std::string name;
 };
 
 /**

@@ -14,7 +14,8 @@
  *
  * @return -1 if not found, otherwise returns the matching index
  */
-int binarySearch(std::vector<Tutor *> &v, Tutor x, int (*CompareFn)(Tutor &, Tutor &));
+int binarySearch(std::vector<Tutor *> &v, Tutor x,
+                 int (*CompareFn)(Tutor &, Tutor &));
 
 /**
  * @brief search tutor
@@ -25,7 +26,8 @@ int binarySearch(std::vector<Tutor *> &v, Tutor x, int (*CompareFn)(Tutor &, Tut
  *
  * @return tutor array with matching results
  */
-std::vector<Tutor *> searchTutor(std::vector<Tutor *> &v, Tutor t, int (*CompareFn)(Tutor &, Tutor &));
+std::vector<Tutor *> searchTutor(std::vector<Tutor *> &v, Tutor t,
+                                 int (*CompareFn)(Tutor &, Tutor &));
 
 /**
  * @brief slice vector given starting index and ending index [start, end]

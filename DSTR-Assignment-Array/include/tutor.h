@@ -6,21 +6,20 @@
 #include "subject.h"
 #include <string>
 
-struct Tutor
-{
-    std::string ID;
-    std::string name;
-    float payRate;
-    float rating;
-    std::string phone;
-    std::string address;
-    Date joinDate;
-    Date terminateDate;
-    Center *center;
-    Subject *subject;
-    size_t countRate;
-    Tutor();
-    ~Tutor();
+struct Tutor {
+  std::string ID;
+  std::string name;
+  float payRate;
+  float rating;
+  std::string phone;
+  std::string address;
+  Date joinDate;
+  Date terminateDate;
+  Center *center;
+  Subject *subject;
+  size_t countRate;
+  Tutor();
+  ~Tutor();
 };
 
 /**
