@@ -1,5 +1,5 @@
 #pragma warning(push)
-#pragma warning(disable:4996)
+#pragma warning(disable : 4996)
 
 #include <ctime>
 #include <iostream>
@@ -44,7 +44,8 @@ Date::Date(std::string strDate)
 
 bool Date::Empty()
 {
-    if (day == 0 || month == 0 || year == 0) return true;
+    if (day == 0 || month == 0 || year == 0)
+        return true;
     return false;
 }
 

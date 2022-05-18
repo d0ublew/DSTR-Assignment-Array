@@ -32,7 +32,8 @@ Tutor *getTutorByID(std::vector<Tutor *> &tutorV, std::string ID)
     Tutor query;
     query.ID = ID;
     std::vector<Tutor *> result = searchTutor(tutorV, query, &CompareTutorID);
-    if (result.size() == 0) return nullptr;
+    if (result.size() == 0)
+        return nullptr;
 
     return result.at(0);
 }

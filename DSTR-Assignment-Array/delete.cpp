@@ -33,7 +33,8 @@ void DeleteTutor(std::vector<Tutor *> &tutorV, std::string ID)
             SubDisplay(temp, 0, 1, false);
         }
         int choice = getIntInput("Do you want to proceed? (1 = Yes / 0 = No): ");
-        if (!isChoiceInMenuRange(choice, 1)) continue;
+        if (!isChoiceInMenuRange(choice, 1))
+            continue;
         if (choice == 1)
         {
             tutorV.erase(it);
@@ -82,7 +83,8 @@ void DeleteTerminatedTutor(std::vector<Tutor *> &tutorV)
     while (true)
     {
         int choice = getIntInput("These tutors will be deleted, proceed? (1 = Yes / 0 = No): ");
-        if (!isChoiceInMenuRange(choice, 1)) continue;
+        if (!isChoiceInMenuRange(choice, 1))
+            continue;
         if (choice == 1)
         {
             // delete tutor starting from the end to the start

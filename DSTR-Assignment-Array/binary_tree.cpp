@@ -16,7 +16,8 @@ BinaryTree::~BinaryTree()
 BinaryTree::BinaryTree(std::vector<Tutor *> &v, int (*CompareFn)(Tutor &, Tutor &), char order)
 {
     root = nullptr;
-    if (v.size() == 0) return;
+    if (v.size() == 0)
+        return;
 
     std::vector<Tutor *>::iterator it;
     root = new Node(v.at(0));

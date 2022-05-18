@@ -23,7 +23,8 @@ void DisplayTutor(vector<Tutor *> &tutorV, bool isAdmin)
     }
     size_t step = 5; // how many tutor being display per page
 
-    if (isAdmin) step = 3; // set tutor display only 3 per page
+    if (isAdmin)
+        step = 3; // set tutor display only 3 per page
 
     int choice = 0;
     size_t start = 0;

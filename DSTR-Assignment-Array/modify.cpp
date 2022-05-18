@@ -32,9 +32,11 @@ void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin)
             choice = getIntInput("Do you want to rate this tutor (1 = Yes / 0 = No): ");
         }
 
-        if (!isChoiceInMenuRange(choice, 1)) continue;
+        if (!isChoiceInMenuRange(choice, 1))
+            continue;
 
-        if (choice == 0) return;
+        if (choice == 0)
+            return;
 
         if (!isAdmin && choice == 1)
         {
@@ -68,7 +70,8 @@ void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin)
         while (true)
         {
             int option = getIntInput("Choose what to be modified: ");
-            if (!isChoiceInMenuRange(option, 3)) continue;
+            if (!isChoiceInMenuRange(option, 3))
+                continue;
             if (option == 1)
             {
                 string phone;

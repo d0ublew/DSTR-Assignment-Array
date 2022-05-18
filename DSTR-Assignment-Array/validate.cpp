@@ -14,8 +14,10 @@
 bool isTutorIDExisted(std::vector<Tutor *> &arr, std::string ID)
 {
     Tutor *t = getTutorByID(arr, ID);
-    if (t == nullptr) return false;
-    if (ID != t->ID) return false;
+    if (t == nullptr)
+        return false;
+    if (ID != t->ID)
+        return false;
     std::cout << "Tutor ID already existed, please enter again\n";
     return true;
 }
@@ -33,7 +35,8 @@ bool isTutorIDFormatCorrect(std::string ID)
 bool isCenterExisted(Center *c)
 {
     /* vector<Center> arr = _CENTER; */
-    if (c != nullptr) return true;
+    if (c != nullptr)
+        return true;
     std::cout << "Center ID is not valid, please enter again\n";
     return false;
 }
@@ -41,7 +44,8 @@ bool isCenterExisted(Center *c)
 bool isSubjectExisted(Subject *s)
 {
     /* vector<Subject> arr = _SUBJECT; */
-    if (s != nullptr) return true;
+    if (s != nullptr)
+        return true;
     std::cout << "Subject ID is not valid, please enter again\n";
     return false;
 }
@@ -49,8 +53,10 @@ bool isSubjectExisted(Subject *s)
 bool isAdminUsernameExisted(vector<Admin> &arr, string username)
 {
     Admin *t = getAdminByUsername(arr, username);
-    if (t == nullptr) return false;
-    if (username != t->username) return false;
+    if (t == nullptr)
+        return false;
+    if (username != t->username)
+        return false;
     cout << "Admin Username already existed, please enter again" << endl;
     return true;
 }
@@ -58,8 +64,10 @@ bool isAdminUsernameExisted(vector<Admin> &arr, string username)
 bool isStudentUsernameExisted(vector<Student> &arr, string username)
 {
     Student *t = getStudentByUsername(arr, username);
-    if (t == nullptr) return false;
-    if (username != t->username) return false;
+    if (t == nullptr)
+        return false;
+    if (username != t->username)
+        return false;
     cout << "Student Username already existed, please enter again" << endl;
     return true;
 }
@@ -220,7 +228,8 @@ void Enter()
 
 bool isLeap(int year)
 {
-    if (year % 4 != 0 || (year % 400 != 0 && year % 100 == 0)) return false;
+    if (year % 4 != 0 || (year % 400 != 0 && year % 100 == 0))
+        return false;
     return true;
 }
 

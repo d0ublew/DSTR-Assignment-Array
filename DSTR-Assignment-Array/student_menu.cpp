@@ -23,7 +23,8 @@ void studentRatingMenu(vector<Tutor *> &tutorV)
         cout << "0) Log Out" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 2)) continue;
+        if (!isChoiceInMenuRange(choice, 2))
+            continue;
         switch (choice)
         {
         case 0:

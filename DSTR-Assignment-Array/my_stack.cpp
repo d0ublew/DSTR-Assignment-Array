@@ -46,7 +46,8 @@ void StackList::InsertBeginning(Node *data)
 
 void StackList::DeleteBeginning()
 {
-    if (head == nullptr) return;
+    if (head == nullptr)
+        return;
 
     StackNode *ptr = head;
     if (head->next != nullptr)
@@ -85,6 +86,7 @@ void MyStack::Pop()
 
 Node *MyStack::Top()
 {
-    if (Empty()) return nullptr;
+    if (Empty())
+        return nullptr;
     return ll.head->data;
 }

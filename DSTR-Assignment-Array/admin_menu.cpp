@@ -29,7 +29,8 @@ void startMenu(vector<Tutor *> &tutorV)
         cout << "0) Exit" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 3)) continue;
+        if (!isChoiceInMenuRange(choice, 3))
+            continue;
         // code here
         switch (choice)
         {
@@ -73,7 +74,8 @@ void modifyMenu(vector<Tutor *> &tutorV)
         cout << "0)Return to Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 1)) continue;
+        if (!isChoiceInMenuRange(choice, 1))
+            continue;
         Tutor query;
         int (*CompareFn)(Tutor &, Tutor &) = nullptr;
         if (choice == 1)
@@ -115,7 +117,8 @@ void adminMainMenu(vector<Tutor *> &tutorV)
         cout << "0) Logout" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 7)) continue;
+        if (!isChoiceInMenuRange(choice, 7))
+            continue;
         switch (choice)
         {
         case 0:
@@ -159,7 +162,8 @@ void addMenu(vector<Tutor *> &tutorV)
         cout << "0) Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 2)) continue;
+        if (!isChoiceInMenuRange(choice, 2))
+            continue;
         // code here
         switch (choice)
         {
@@ -196,7 +200,8 @@ void sortMenu(std::vector<Tutor *> &tutorV)
         cout << "0) Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 3)) continue;
+        if (!isChoiceInMenuRange(choice, 3))
+            continue;
         int (*CompareFn)(Tutor &, Tutor &) = nullptr;
         switch (choice)
         {
@@ -216,29 +221,27 @@ void sortMenu(std::vector<Tutor *> &tutorV)
         cout << "1) Ascending order\n";
         cout << "2) Descending order\n";
         cout << "0) Back\n";
-        bool valid = false;
-        while (!valid)
+        while (true)
         {
             int option = getIntInput("Enter your choice: ");
-            if (isChoiceInMenuRange(option, 2))
+            if (!isChoiceInMenuRange(option, 2))
+                continue;
+            char order = ' ';
+            if (option == 0)
             {
-                valid = true;
-                char order = ' ';
-                if (option == 0)
-                {
-                    break;
-                }
-                else if (option == 1)
-                {
-                    order = 'a';
-                }
-                else if (option == 2)
-                {
-                    order = 'd';
-                }
-                std::vector<Tutor *> sortedTutorV = sortTutor(tutorV, (*CompareFn), order);
-                DisplayTutor(sortedTutorV);
+                break;
             }
+            else if (option == 1)
+            {
+                order = 'a';
+            }
+            else if (option == 2)
+            {
+                order = 'd';
+            }
+            std::vector<Tutor *> sortedTutorV = sortTutor(tutorV, (*CompareFn), order);
+            DisplayTutor(sortedTutorV);
+            break;
         }
     }
 }
@@ -253,7 +256,8 @@ void searchMenu(vector<Tutor *> &tutorV)
         cout << "2) Search by overall performance" << endl;
         cout << "0) Previous Page" << endl;
         int choice = getIntInput("Enter your choice: ");
-        if (!isChoiceInMenuRange(choice, 2)) continue;
+        if (!isChoiceInMenuRange(choice, 2))
+            continue;
         Tutor query;
         int (*CompareFn)(Tutor &, Tutor &) = nullptr;
         if (choice == 0)
@@ -287,7 +291,8 @@ void deleteMenu(vector<Tutor *> &tutorV)
         cout << "0) Previous Page" << endl;
         string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
-        if (!isChoiceInMenuRange(choice, 2)) continue;
+        if (!isChoiceInMenuRange(choice, 2))
+            continue;
         // code here
         if (choice == 1)
         {

@@ -5,5 +5,5 @@
 
 using namespace std;
 
-void studentRatingMenu(vector<Tutor*>& tutorV);
-void studentSearchingTutorMenu(vector<Tutor*>& tutorV);
+void studentRatingMenu(vector<Tutor *> &tutorV);
+void studentSearchingTutorMenu(vector<Tutor *> &tutorV);
