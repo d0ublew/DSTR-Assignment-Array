@@ -293,7 +293,6 @@ void deleteMenu(vector<Tutor *> &tutorV)
         int choice = getIntInput(sentence);
         if (!isChoiceInMenuRange(choice, 2))
             continue;
-        // code here
         if (choice == 1)
         {
             DeleteTerminatedTutor(tutorV);

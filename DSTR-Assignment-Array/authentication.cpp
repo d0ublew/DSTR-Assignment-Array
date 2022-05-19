@@ -81,15 +81,8 @@ bool studentLogin()
     int chance = 3;
     string username;
     string password;
-    while (true)
+    while (chance > 0)
     {
-        if (chance == 0)
-        {
-            cout << "Too many attempt, please try again" << endl;
-            Enter();
-            return false;
-        }
-        chance -= 1;
         cout << "Username: ";
         getline(cin, username);
 
@@ -103,7 +96,11 @@ bool studentLogin()
         }
 
         cout << "Invalid credentials" << endl;
+        chance--;
     }
+    cout << "Too many attempt, please try again" << endl;
+    Enter();
+    return false;
 }
 
 // adminLogin
@@ -118,15 +115,8 @@ bool adminLogin()
     int chance = 3;
     string username;
     string password;
-    while (true)
+    while (chance > 0)
     {
-        if (chance == 0)
-        {
-            cout << "Too many attempt, please try again" << endl;
-            Enter();
-            return false;
-        }
-        chance -= 1;
         cout << "Username: ";
         getline(cin, username);
 
@@ -140,6 +130,10 @@ bool adminLogin()
         }
 
         cout << "Invalid credentials" << endl;
+        chance--;
     }
+    cout << "Too many attempt, please try again" << endl;
+    Enter();
+    return false;
 }
 
