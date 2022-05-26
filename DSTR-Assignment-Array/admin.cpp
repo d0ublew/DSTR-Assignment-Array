@@ -24,10 +24,6 @@ Admin *getAdminByUsername(std::vector<Admin> &adminV, std::string username)
         Admin s = *it;
         if (s.username == username)
         {
-            /**
-             * Dereference to get the object in the heap and then get the
-             * address
-             */
             return &(*it);
         }
     }

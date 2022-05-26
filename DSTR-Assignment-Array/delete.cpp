@@ -7,8 +7,6 @@
 #include "tutor.h"
 #include "validate.h"
 
-using namespace std;
-
 void DeleteTutor(std::vector<Tutor *> &tutorV, std::string ID)
 {
     std::vector<Tutor *>::iterator it = tutorV.begin();
@@ -30,7 +28,7 @@ void DeleteTutor(std::vector<Tutor *> &tutorV, std::string ID)
         {
             std::vector<Tutor *> temp(it, it + 1);
             clearScreen();
-            SubDisplay(temp, 0, 1, false);
+            SubDisplay(temp, 0, 1, true);
         }
         int choice = getIntInput("Do you want to proceed? (1 = Yes / 0 = No): ");
         if (!isChoiceInMenuRange(choice, 1))
@@ -69,7 +67,7 @@ void DeleteTerminatedTutor(std::vector<Tutor *> &tutorV)
         if (!term.Empty() && term < sixMonth)
         {
             idx.insert(idx.begin(), i);
-            SubDisplay(tutorV, 0, 1, false);
+            SubDisplay(tutorV, i, i + 1, true);
         }
     }
 

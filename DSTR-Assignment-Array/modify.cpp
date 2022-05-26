@@ -12,8 +12,6 @@
 #include "tutor.h"
 #include "validate.h"
 
-using namespace std;
-
 void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin)
 {
     Tutor *tutor = tutorV.at(0);
@@ -57,7 +55,7 @@ void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin)
                 tutor_rate /= count_rate;
                 tutor->rating = tutor_rate;
                 tutor->countRate = count_rate;
-                cout << "Thank you for your rating" << endl;
+                std::cout << "Thank you for your rating" << std::endl;
                 Enter();
                 return;
             }
@@ -74,7 +72,7 @@ void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin)
                 continue;
             if (option == 1)
             {
-                string phone;
+                std::string phone;
                 while (true)
                 {
                     std::cout << "New Phone: ";
@@ -93,16 +91,24 @@ void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin)
             }
             else if (option == 3)
             {
-                string date;
+                std::string date;
                 while (true)
                 {
                     std::cout << "Terminate date: ";
                     std::getline(std::cin, date);
-                    if (isDateValid(date))
+                    if (!isDateValid(date))
                     {
-                        tutor->terminateDate = Date(date);
-                        break;
+                        continue;
                     }
+                    Date newTermDate = Date(date);
+                    if (newTermDate < tutor->joinDate)
+                    {
+                        std::cout << "Termination date should not be earlier than Join date\n";
+                        Enter();
+                        continue;
+                    }
+                    tutor->terminateDate = Date(date);
+                    break;
                 }
             }
             break;

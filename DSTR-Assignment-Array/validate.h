@@ -50,8 +50,8 @@ bool isCenterExisted(Center *c);
  */
 bool isSubjectExisted(Subject *s);
 
-bool isAdminUsernameExisted(vector<Admin> &arr, string username);
-bool isStudentUsernameExisted(vector<Student> &arr, string username);
+bool isAdminUsernameExisted(std::vector<Admin> &arr, std::string username);
+bool isStudentUsernameExisted(std::vector<Student> &arr, std::string username);
 
 /**
  * @brief Verify if supplied date string valids or not
@@ -135,4 +135,4 @@ bool isLeap(int year);
  * @brief Use to ask user to press enter after giving invalid input
  */
 void Enter();
-bool isSpaceExisted(string s);
+bool isSpaceExisted(std::string s);

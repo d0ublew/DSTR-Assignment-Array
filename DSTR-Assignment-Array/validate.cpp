@@ -19,6 +19,7 @@ bool isTutorIDExisted(std::vector<Tutor *> &arr, std::string ID)
     if (ID != t->ID)
         return false;
     std::cout << "Tutor ID already existed, please enter again\n";
+    Enter();
     return true;
 }
 
@@ -29,6 +30,7 @@ bool isTutorIDFormatCorrect(std::string ID)
         return true;
     }
     std::cout << "TutorID Format is wrong please insert as \"TXX\" \n";
+    Enter();
     return false;
 }
 
@@ -38,6 +40,7 @@ bool isCenterExisted(Center *c)
     if (c != nullptr)
         return true;
     std::cout << "Center ID is not valid, please enter again\n";
+    Enter();
     return false;
 }
 
@@ -47,41 +50,46 @@ bool isSubjectExisted(Subject *s)
     if (s != nullptr)
         return true;
     std::cout << "Subject ID is not valid, please enter again\n";
+    Enter();
     return false;
 }
 
-bool isAdminUsernameExisted(vector<Admin> &arr, string username)
+bool isAdminUsernameExisted(std::vector<Admin> &arr, std::string username)
 {
     Admin *t = getAdminByUsername(arr, username);
     if (t == nullptr)
         return false;
     if (username != t->username)
         return false;
-    cout << "Admin Username already existed, please enter again" << endl;
+    std::cout << "Admin Username already existed, please enter again" << std::endl;
+    Enter();
     return true;
 }
 
-bool isStudentUsernameExisted(vector<Student> &arr, string username)
+bool isStudentUsernameExisted(std::vector<Student> &arr, std::string username)
 {
     Student *t = getStudentByUsername(arr, username);
     if (t == nullptr)
         return false;
     if (username != t->username)
         return false;
-    cout << "Student Username already existed, please enter again" << endl;
+    std::cout << "Student Username already existed, please enter again" << std::endl;
+    Enter();
     return true;
 }
-bool isDateValid(string d)
+bool isDateValid(std::string d)
 {
     // dd/mm/yyyy
     if (!(d.length() == 10))
     {
         std::cout << "Invalid format please use (dd/MM/yyyy)\n";
+        Enter();
         return false;
     }
     if (!(d[2] == '/' && d[5] == '/'))
     {
         std::cout << "Invalid Date format please use (dd/MM/yyyy)\n";
+        Enter();
         return false;
     }
     for (int i = 0; i < 10; i++)
@@ -93,6 +101,7 @@ bool isDateValid(string d)
         if (!(d[i] >= '0' && d[i] <= '9'))
         {
             std::cout << "Invalid Date format please use (dd/MM/yyyy)\n";
+            Enter();
             return false;
         }
     }
@@ -103,12 +112,14 @@ bool isDateValid(string d)
     if (!(date.year >= 1900 && date.year <= 9999))
     {
         std::cout << "Invalid Year\n";
+        Enter();
         return false;
     }
 
     if (!(date.month > 0 && date.month <= 12))
     {
         std::cout << "Invalid Month (01~12)\n";
+        Enter();
         return false;
     }
 
@@ -135,6 +146,7 @@ bool isDateValid(string d)
     if (!(date.day > 0 && date.day <= numOfDay))
     {
         std::cout << "Invalid Day\n";
+        Enter();
         return false;
     }
     return true;
@@ -145,6 +157,7 @@ bool isPhoneFormatValid(std::string p)
     if (!(p.length() >= 10 && p.length() <= 11))
     {
         std::cout << "Invalid Phone Number Length\n";
+        Enter();
         return false;
     }
 
@@ -153,6 +166,7 @@ bool isPhoneFormatValid(std::string p)
         if (!(p[i] >= '0' && p[i] <= '9'))
         {
             std::cout << "Invalid phone number\n";
+            Enter();
             return false;
         }
     }
@@ -166,6 +180,7 @@ bool isPayRateRangeValid(float payRate)
         return true;
     }
     std::cout << "Invalid PayRate Range please insert between 40 to 80\n";
+    Enter();
     return false;
 }
 
@@ -176,6 +191,7 @@ bool isRatingRateRangeValid(float rate)
         return true;
     }
     std::cout << "Invalid rating Range please insert between 1 to 5\n";
+    Enter();
     return false;
 }
 
@@ -192,6 +208,7 @@ int getIntInput(std::string sentence)
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
                         '\n'); // discard input
         std::cout << "Invalid input, number only, please re-enter.\n";
+        Enter();
     }
     clearInputBuffer();
 
@@ -207,6 +224,7 @@ float getFloatInput(std::string sentence)
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
                         '\n'); // discard input
         std::cout << "Invalid input, number only, please re-enter.\n";
+        Enter();
     }
     clearInputBuffer();
 
@@ -244,9 +262,9 @@ bool isChoiceInMenuRange(int choice, int end)
     return false;
 }
 
-bool isSpaceExisted(string s)
+bool isSpaceExisted(std::string s)
 {
-    if (s.find(' ') != string::npos)
+    if (s.find(' ') != std::string::npos)
     {
         return true;
     }

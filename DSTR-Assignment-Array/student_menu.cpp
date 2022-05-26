@@ -10,18 +10,16 @@
 #include "tutor.h"
 #include "validate.h"
 
-using namespace std;
-
-void studentRatingMenu(vector<Tutor *> &tutorV)
+void studentRatingMenu(std::vector<Tutor *> &tutorV)
 {
     while (true)
     {
         clearScreen();
-        cout << "Welcome student what you want to do?" << endl;
-        cout << "1) Rate a tutor" << endl;
-        cout << "2) Display list of tutor" << endl;
-        cout << "0) Log Out" << endl;
-        string sentence = "Enter your choice: ";
+        std::cout << "Welcome student what you want to do?" << std::endl;
+        std::cout << "1) Rate a tutor" << std::endl;
+        std::cout << "2) Display list of tutor" << std::endl;
+        std::cout << "0) Log Out" << std::endl;
+        std::string sentence = "Enter your choice: ";
         int choice = getIntInput(sentence);
         if (!isChoiceInMenuRange(choice, 2))
             continue;
@@ -40,7 +38,7 @@ void studentRatingMenu(vector<Tutor *> &tutorV)
     }
 }
 
-void studentSearchingTutorMenu(vector<Tutor *> &tutorV)
+void studentSearchingTutorMenu(std::vector<Tutor *> &tutorV)
 {
     while (true)
     {
@@ -58,7 +56,7 @@ void studentSearchingTutorMenu(vector<Tutor *> &tutorV)
         }
         else
         {
-            cout << "No Tutor Found please try another Tutor ID" << endl;
+            std::cout << "No Tutor Found please try another Tutor ID" << std::endl;
             Enter();
             return;
         }

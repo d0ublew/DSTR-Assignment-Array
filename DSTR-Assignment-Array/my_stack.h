@@ -1,8 +1,9 @@
 #ifndef MY_STACK_H_INCLUDED
 #define MY_STACK_H_INCLUDED
 
-#include "node.h"
 #include <iostream>
+
+#include "node.h"
 
 struct StackNode
 {
