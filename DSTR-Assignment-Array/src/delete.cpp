@@ -57,7 +57,7 @@ void DeleteTerminatedTutor(std::vector<Tutor *> &tutorV) {
     Date term = tutorV.at(i)->terminateDate;
     if (!term.Empty() && term < sixMonth) {
       idx.insert(idx.begin(), i);
-      SubDisplay(tutorV, 0, 1, true);
+      SubDisplay(tutorV, i, i+1, true);
     }
   }
 
