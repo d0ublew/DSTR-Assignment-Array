@@ -5,7 +5,7 @@ This is a Data Structure (DSTR) assignment project to manage tutor tuition cente
 ## Installation
 
 1. Install [ninja](https://ninja-build.org/)
-2. Install [cmake](https://cmake.org/install/)
+2. Install [cmake](https://cmake.org/install/) (version >= 3.12)
 
 ```
 git clone https://github.com/d0UBleW/DSTR-Assignment-Array.git
