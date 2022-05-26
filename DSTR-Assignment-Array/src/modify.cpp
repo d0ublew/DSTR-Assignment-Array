@@ -81,10 +81,18 @@ void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin) {
         while (true) {
           std::cout << "Terminate date: ";
           std::getline(std::cin, date);
-          if (isDateValid(date)) {
-            tutor->terminateDate = Date(date);
-            break;
+          if (!isDateValid(date)) {
+            continue;
           }
+          Date newTermDate = Date(date);
+          if (newTermDate < tutor->joinDate) {
+            std::cout
+                << "Termination date should not be earlier than Join date\n";
+            Enter();
+            continue;
+          }
+          tutor->terminateDate = Date(date);
+          break;
         }
       }
       break;

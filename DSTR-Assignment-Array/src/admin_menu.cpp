@@ -153,6 +153,7 @@ void addMenu(std::vector<Tutor *> &tutorV) {
       addToFront(tutorV, tutor);
       tutorToFile(tutorV, TUTOR_FILE);
       std::cout << "Tutor Added to Front Succesfully!\n";
+      Enter();
       break;
     case 2:
       // code here
@@ -160,6 +161,7 @@ void addMenu(std::vector<Tutor *> &tutorV) {
       addToBack(tutorV, tutor);
       tutorToFile(tutorV, TUTOR_FILE);
       std::cout << "Tutor Added to Back Succesfully!\n";
+      Enter();
       break;
     }
   }
