@@ -46,26 +46,26 @@ bool isSubjectExisted(Subject *s) {
   return false;
 }
 
-bool isAdminUsernameExisted(vector<Admin> &arr, string username) {
+bool isAdminUsernameExisted(std::vector<Admin> &arr, std::string username) {
   Admin *t = getAdminByUsername(arr, username);
   if (t == nullptr)
     return false;
   if (username != t->username)
     return false;
-  cout << "Admin Username already existed, please enter again" << endl;
+  std::cout << "Admin Username already existed, please enter again" << std::endl;
   return true;
 }
 
-bool isStudentUsernameExisted(vector<Student> &arr, string username) {
+bool isStudentUsernameExisted(std::vector<Student> &arr, std::string username) {
   Student *t = getStudentByUsername(arr, username);
   if (t == nullptr)
     return false;
   if (username != t->username)
     return false;
-  cout << "Student Username already existed, please enter again" << endl;
+  std::cout << "Student Username already existed, please enter again" << std::endl;
   return true;
 }
-bool isDateValid(string d) {
+bool isDateValid(std::string d) {
   // dd/mm/yyyy
   if (!(d.length() == 10)) {
     std::cout << "Invalid format please use (dd/MM/yyyy)\n";
@@ -207,8 +207,8 @@ bool isChoiceInMenuRange(int choice, int end) {
   return false;
 }
 
-bool isSpaceExisted(string s) {
-  if (s.find(' ') != string::npos) {
+bool isSpaceExisted(std::string s) {
+  if (s.find(' ') != std::string::npos) {
     return true;
   }
   return false;

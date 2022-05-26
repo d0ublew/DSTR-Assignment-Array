@@ -3,7 +3,5 @@
 #include "tutor.h"
 #include <vector>
 
-using namespace std;
-
-void studentRatingMenu(vector<Tutor *> &tutorV);
-void studentSearchingTutorMenu(vector<Tutor *> &tutorV);
+void studentRatingMenu(std::vector<Tutor *> &tutorV);
+void studentSearchingTutorMenu(std::vector<Tutor *> &tutorV);

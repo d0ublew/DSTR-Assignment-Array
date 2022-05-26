@@ -7,8 +7,6 @@
 #include "tutor.h"
 #include "validate.h"
 
-using namespace std;
-
 void DeleteTutor(std::vector<Tutor *> &tutorV, std::string ID) {
   std::vector<Tutor *>::iterator it = tutorV.begin();
 

@@ -4,8 +4,6 @@
 
 #include "tutor.h"
 
-using namespace std;
-
 /**
  * @brief Function to delete tutor by ID
  *

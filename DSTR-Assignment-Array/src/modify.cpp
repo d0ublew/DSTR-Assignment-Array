@@ -12,8 +12,6 @@
 #include "tutor.h"
 #include "validate.h"
 
-using namespace std;
-
 void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin) {
   Tutor *tutor = tutorV.at(0);
   int choice;
@@ -51,7 +49,7 @@ void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin) {
         tutor_rate /= count_rate;
         tutor->rating = tutor_rate;
         tutor->countRate = count_rate;
-        cout << "Thank you for your rating" << endl;
+        std::cout << "Thank you for your rating" << std::endl;
         Enter();
         return;
       }
@@ -66,7 +64,7 @@ void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin) {
       if (!isChoiceInMenuRange(option, 3))
         continue;
       if (option == 1) {
-        string phone;
+        std::string phone;
         while (true) {
           std::cout << "New Phone: ";
           std::getline(std::cin, phone);
@@ -79,7 +77,7 @@ void modifyTutor(std::vector<Tutor *> &tutorV, bool isAdmin) {
         std::cout << "New Address: ";
         std::getline(std::cin, tutor->address);
       } else if (option == 3) {
-        string date;
+        std::string date;
         while (true) {
           std::cout << "Terminate date: ";
           std::getline(std::cin, date);

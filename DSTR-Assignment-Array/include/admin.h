@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
 struct Admin {
   std::string username;
   std::string password;

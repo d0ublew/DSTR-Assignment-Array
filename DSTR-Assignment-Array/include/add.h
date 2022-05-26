@@ -5,11 +5,9 @@
 
 #include "tutor.h"
 
-using namespace std;
+extern std::vector<Subject> _SUBJECT;
+extern std::vector<Center> _CENTER;
 
-extern vector<Subject> _SUBJECT;
-extern vector<Center> _CENTER;
-
-Tutor *addingInterface(vector<Tutor *> &arr);
-void addToBack(vector<Tutor *> &arr, Tutor *tutor);
-void addToFront(vector<Tutor *> &arr, Tutor *tutor);
+Tutor *addingInterface(std::vector<Tutor *> &arr);
+void addToBack(std::vector<Tutor *> &arr, Tutor *tutor);
+void addToFront(std::vector<Tutor *> &arr, Tutor *tutor);

@@ -9,10 +9,8 @@
 #include "tutor.h"
 #include "validate.h"
 
-using namespace std;
-
 // displaying tutor
-void DisplayTutor(vector<Tutor *> &tutorV, bool isAdmin) {
+void DisplayTutor(std::vector<Tutor *> &tutorV, bool isAdmin) {
   size_t size = tutorV.size();
   if (size == 0) {
     std::cout << "No tutor record to be displayed\n";
@@ -31,7 +29,7 @@ void DisplayTutor(vector<Tutor *> &tutorV, bool isAdmin) {
   while (true) {
     clearScreen();
     SubDisplay(tutorV, start, end, isAdmin);
-    string sentence = "Prev or Next (1 to Prev 2 to Next 0 to Exit): ";
+    std::string sentence = "Prev or Next (1 to Prev 2 to Next 0 to Exit): ";
     choice = getIntInput(sentence);
     // the statement to move forward and back
     if (choice == 2) {
@@ -52,52 +50,58 @@ void DisplayTutor(vector<Tutor *> &tutorV, bool isAdmin) {
 
 // displaying subject in a list
 void DisplaySubject() {
-  vector<Subject> arr = _SUBJECT;
+  std::vector<Subject> arr = _SUBJECT;
   size_t size = arr.size();
-  cout << "List of Subject's Information" << endl;
+  std::cout << "List of Subject's Information" << std::endl;
   for (size_t i = 0; i < size; i++) {
-    cout << "Subject ID: " << arr[i].ID << endl;
-    cout << "Subject Name: " << arr[i].name << endl;
-    cout << endl;
+    std::cout << "Subject ID: " << arr[i].ID << std::endl;
+    std::cout << "Subject Name: " << arr[i].name << std::endl;
+    std::cout << std::endl;
   }
 }
 
 // displaying center in a list
 void DisplayCenter() {
-  vector<Center> arr = _CENTER;
+  std::vector<Center> arr = _CENTER;
   size_t size = arr.size();
-  cout << "List of Center's Information" << endl;
+  std::cout << "List of Center's Information" << std::endl;
   for (size_t i = 0; i < size; i++) {
-    cout << "Center ID: " << arr[i].ID << endl;
-    cout << "Center Name: " << arr[i].name << endl;
-    cout << endl;
+    std::cout << "Center ID: " << arr[i].ID << std::endl;
+    std::cout << "Center Name: " << arr[i].name << std::endl;
+    std::cout << std::endl;
   }
 }
 
 void SubDisplay(std::vector<Tutor *> &tutorV, size_t start, size_t end,
                 bool isAdmin) {
   for (size_t i = start; i < end && i < tutorV.size(); i++) {
-    cout << "Tutor ID: " << tutorV.at(i)->ID << endl;
-    cout << "Tutor Name: " << tutorV.at(i)->name << endl;
+    std::cout << "Tutor ID: " << tutorV.at(i)->ID << std::endl;
+    std::cout << "Tutor Name: " << tutorV.at(i)->name << std::endl;
     // if its not admin then only show
     // tutor id and name
     if (!isAdmin) {
-      cout << endl;
+      std::cout << std::endl;
       continue;
     }
 
-    cout << "Pay Rate: " << tutorV.at(i)->payRate << endl;
-    cout << "Rating: " << tutorV.at(i)->rating << endl;
-    cout << "Phone Number: " << tutorV.at(i)->phone << endl;
-    cout << "Address: " << tutorV.at(i)->address << endl;
-    cout << "Joined Date: " << tutorV.at(i)->joinDate.ToString() << endl;
-    cout << "Termination Date: " << tutorV.at(i)->terminateDate.ToString()
-         << endl;
-    cout << "Center ID: " << tutorV.at(i)->center->ID << endl;
-    cout << "Center Name: " << tutorV.at(i)->center->name << endl;
-    cout << "Subject ID: " << tutorV.at(i)->subject->ID << endl;
-    cout << "Subject Name: " << tutorV.at(i)->subject->name << endl;
-    cout << endl;
+    std::cout << "Pay Rate: " << tutorV.at(i)->payRate << std::endl;
+    std::cout << "Rating: " << tutorV.at(i)->rating << std::endl;
+    std::cout << "Phone Number: " << tutorV.at(i)->phone
+                    << std::endl;
+    std::cout << "Address: " << tutorV.at(i)->address << std::endl;
+    std::cout << "Joined Date: " 
+                    << tutorV.at(i)->joinDate.ToString() << std::endl;
+    std::cout << "Termination Date: " 
+                    << tutorV.at(i)->terminateDate.ToString() << std::endl;
+    std::cout << "Center ID: " << tutorV.at(i)->center->ID
+                    << std::endl;
+    std::cout << "Center Name: " << tutorV.at(i)->center->name
+                    << std::endl;
+    std::cout << "Subject ID: " << tutorV.at(i)->subject->ID
+                    << std::endl;
+    std::cout << "Subject Name: " << tutorV.at(i)->subject->name
+                    << std::endl;
+    std::cout << std::endl;
   }
 }
 
